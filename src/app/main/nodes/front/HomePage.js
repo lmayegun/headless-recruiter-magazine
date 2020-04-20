@@ -1,9 +1,20 @@
 import React from 'react';
 
+import {AppPageSimple} from '@localpkg';
+import {SectionOne} from './sections';
+
 const HomePage = () => {
 
   return(
-    <div> I am homepage </div>
+    <div>
+      <AppPageSimple
+        content={
+          <div>
+            <SectionOne />
+          </div>
+        }
+      />
+    </div>
   )
 }
 

@@ -16,7 +16,7 @@ export {default as SideTeaserThumb} from './components/AppSharedComponents/SideT
 export {default as CenterTeaserThumb} from './components/AppSharedComponents/CenterTeaserThumb';
 export {default as LeaderBoardAd } from './components/AppSharedComponents/LeaderBoardAd';
 export {default as ThreeByTwoAd } from './components/AppSharedComponents/ThreeByTwoAd';
-// export {default as SubscribeMag } from './components/AppSharedComponents/SubscribeMag';
+export {default as SubscribeMag } from './components/AppSharedComponents/SubscribeMag';
 export {default as AppIconHeader } from './components/AppSharedComponents/AppIconHeader';
 export {default as AppIcon } from './components/AppSharedComponents/AppIcon';
 export {default as AppMagCover } from './components/AppSharedComponents/AppMagCover';
