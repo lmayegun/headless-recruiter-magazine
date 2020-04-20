@@ -1,7 +1,18 @@
 import React from 'react';
 
 import {AppPageSimple} from '@localpkg';
-import {SectionOne} from './sections';
+import {SectionOne,
+        SectionTwo,
+        SectionThree,
+        SectionFour,
+        SectionFive,
+        SectionSix,
+        SectionSeven,
+        SectionEight,
+        SectionTen,
+        SectionEleven,
+        SectionTwelve
+        } from './sections';
 
 const HomePage = () => {
 
@@ -11,6 +22,15 @@ const HomePage = () => {
         content={
           <div>
             <SectionOne />
+            <SectionTwo />
+            <SectionThree />
+            <SectionFour />
+            <SectionFive />
+            <SectionSix />
+            <SectionEight />
+            <SectionTen />
+            <SectionEleven />
+            <SectionTwelve />
           </div>
         }
       />

@@ -3,8 +3,6 @@ import {applyMiddleware, compose, createStore} from 'redux';
 import createReducer from './reducers/app';
 import thunk from 'redux-thunk';
 
-import * as Actions from './actions/app/index';
-
 /*
 Fix for Firefox redux dev tools extension
 https://github.com/zalmoxisus/redux-devtools-instrument/pull/19#issuecomment-400637274
@@ -27,11 +25,8 @@ const enhancer = composeEnhancers(
 const store = createStore(createReducer, enhancer);
 
 store.subscribe(()=>{
-  // console.log(store.getState())
+  console.log(store.getState())
 })
-
-store.dispatch(Actions.addTodoText('cleans'))
-store.dispatch(Actions.addTodoText('corrine'))
 
 store.asyncReducers = {};
 

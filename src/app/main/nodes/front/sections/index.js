@@ -1,1 +1,12 @@
 export {default as SectionOne } from './SectionOne';
+export {default as SectionTwo } from './SectionTwo';
+export {default as SectionThree } from './SectionThree';
+export {default as SectionFour } from './SectionFour';
+export {default as SectionFive } from './SectionFive';
+export {default as SectionSix } from './SectionSix';
+export {default as SectionSeven } from './SectionSeven';
+export {default as SectionEight } from './SectionEight';
+// export {default as SectionNine } from './SectionNine';
+export {default as SectionTen } from './SectionTen';
+export {default as SectionEleven } from './SectionEleven';
+export {default as SectionTwelve } from './SectionTwelve';

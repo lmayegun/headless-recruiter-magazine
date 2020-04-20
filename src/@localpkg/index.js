@@ -22,7 +22,7 @@ export {default as AppIcon } from './components/AppSharedComponents/AppIcon';
 export {default as AppMagCover } from './components/AppSharedComponents/AppMagCover';
 export {default as AppMostPopular } from './components/AppSharedComponents/AppMostPopular';
 export {default as AppArticle } from './components/AppSharedComponents/AppArticle';
-// export {default as AppCarousel} from './components/AppCarousel/AppCarousel';
+export {default as AppCarousel} from './components/AppCarousel/AppCarousel';
 export {default as AppLatestJobs } from './components/AppSharedComponents/AppLatestJobs';
 export {default as AppFeaturedRecruiters } from './components/AppSharedComponents/AppFeaturedRecruiters';
 export {default as AppTwitterEmbedded } from './components/AppSharedComponents/AppTwitterEmbedded';
