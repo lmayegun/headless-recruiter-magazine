@@ -1,6 +1,7 @@
 import React from 'react';
 import AppContext from 'app/AppContext';
 import { renderRoutes } from "react-router-config";
+import {AppSuspense} from "@localpkg";
 
 import NavbarWrapperLayout from './components/NavbarWrapperLayout';
 
@@ -12,7 +13,9 @@ const DefaultLayout = () => {
         return(
           <div>
             <NavbarWrapperLayout />
-            {renderRoutes(routes)}
+            <AppSuspense>
+              {renderRoutes(routes)}
+            </AppSuspense>
           </div>
         )
       }

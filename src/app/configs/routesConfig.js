@@ -1,6 +1,7 @@
 import React from 'react';
 import {AppUtils} from '@localpkg';
 import {ExampleConfig} from 'app/main/example/ExampleConfig';
+import {NodesConfig} from 'app/main/nodes/NodesConfig';
 
 const Home = () => {
   return(
@@ -12,6 +13,7 @@ const Home = () => {
 
 const routesComponentsConfig = [
   ExampleConfig,
+  NodesConfig,
   {
     settings: {
         layout: {
@@ -20,7 +22,7 @@ const routesComponentsConfig = [
     },
     routes:[
       {
-        path: "/homes",
+        path: "/",
         exact: true,
         component: Home
       }

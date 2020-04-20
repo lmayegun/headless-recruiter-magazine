@@ -1,5 +1,8 @@
 export { default as AppUtils } from './AppUtils';
 
+export {default as AppLoading} from './components/Loading/Loading';
+export {default as AppSuspense} from './components/Suspense/Suspense';
+
 export {default as AppScrollbars} from './components/Scrollbars/Scrollbars';
 export {default as FuseScrollbars} from './components/Scrollbars/Scrollbars';
 
