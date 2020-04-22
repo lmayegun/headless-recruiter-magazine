@@ -48,7 +48,7 @@
 
 body {
   margin: 0;
-  font-family:'Kommissar Cond Web',Helvetica,Arial,sans-serif;
+  font-family:'Euclid Flex',Helvetica,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -63,6 +63,35 @@ code {
   max-width: 1280px;
   margin: auto;
 }
+
+html, body, #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#root{
+  display: flex;
+}
+
+.ps{
+  overflow: hidden;
+}
+
+.ps__rail-y{
+  z-index: 9;
+}
+
+.pin-nav{
+  position: fixed;
+  width: 100%;
+}
+
+img{
+  max-width: 100%;
+}
+
 
 
 @import "App.css";

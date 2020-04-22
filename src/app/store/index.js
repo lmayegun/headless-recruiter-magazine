@@ -25,7 +25,7 @@ const enhancer = composeEnhancers(
 const store = createStore(createReducer, enhancer);
 
 store.subscribe(()=>{
-  console.log(store.getState())
+  // console.log(store.getState())
 })
 
 store.asyncReducers = {};

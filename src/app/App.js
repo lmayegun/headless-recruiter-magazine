@@ -12,6 +12,7 @@ import { ReactRouterConfig } from './route-system';
 
 
 const App = () =>  {
+  // console.log(defaultMuiTheme());
   return (
     <AppContext.Provider
       value={{routes}}

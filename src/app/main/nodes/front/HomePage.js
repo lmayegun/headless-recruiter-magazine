@@ -21,6 +21,9 @@ const HomePage = () => {
       <AppPageSimple
         content={
           <div>
+            {/*
+
+            */}
             <SectionOne />
             <SectionTwo />
             <SectionThree />

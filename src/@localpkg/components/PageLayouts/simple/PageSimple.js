@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
         flex                        : '1 1 auto',
         overflow                    : 'auto',
         '-webkit-overflow-scrolling': 'touch',
-        zIndex                      : 9999
+        zIndex                      : 1
     },
     toolbar                  : {
         height    : toolbarHeight,
@@ -68,7 +68,7 @@ const useStyles = makeStyles(theme => ({
         display   : 'flex',
         alignItems: 'center'
     },
-    content                  : {
+    content   : {
         flex: '1 0 auto'
     },
     sidebarWrapper           : {
@@ -146,8 +146,6 @@ const FusePageSimple = React.forwardRef(function (props, ref) {
 
     return (
         <div className={clsx(classes.root, props.innerScroll && classes.innerScroll)} ref={rootRef}>
-
-
 
             <div className="flex flex-auto flex-col container z-1">
 

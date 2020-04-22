@@ -19,9 +19,7 @@ const ReactRouterConfig = ( props ) => {
   },[])
 
   return(
-    <div>
-      <DefaultLayout />
-    </div>
+    <DefaultLayout />
   )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/styles';
+import { Typography, Body1 } from '@material-ui/core';
 import clsx from 'clsx';
 
 export default function AppIconHeader( props ){
@@ -16,8 +17,7 @@ export default function AppIconHeader( props ){
         overflow: 'hidden',
         textTransform: 'uppercase',
         height: '45px',
-        letterSpacing: '-2px',
-        fontWeight: '1000',
+        letterSpacing: '2px',
         background: 'url(assets/images/icons/icons.png) no-repeat 0 0',
       }
     })
@@ -67,9 +67,9 @@ export default function AppIconHeader( props ){
   const classes = useStyles();
 
   return(
-    <h1 className={clsx(classes.title)} style={{backgroundPosition: iconPos }}>
+    <Typography className={clsx(classes.title)} style={{backgroundPosition: iconPos }} variant="h3" >
       {props.title}
-    </h1>
+    </Typography>
   )
 }
 AppIconHeader.defaultProps = {
