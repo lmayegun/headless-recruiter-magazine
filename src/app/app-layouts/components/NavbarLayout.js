@@ -11,6 +11,8 @@ const useStyles = makeStyles( theme =>{
     root: {
       display: 'flex',
       flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between'
     },
     logoWrapper:{
       flexGrow: 1,
@@ -33,6 +35,9 @@ const useStyles = makeStyles( theme =>{
       textDecoration: 'none',
       textTransform: 'uppercase',
       letterSpacing: '0px',
+      '&.last':{
+        margin: 0
+      }
     }
   })
 });
@@ -55,7 +60,7 @@ const NavbarLayout = () => {
           <Link to="/dashboard" className={clsx(classes.links)}>Jobs</Link>
           <Link to="/example" className={clsx(classes.links)}>Events</Link>
           <Link to="/example" className={clsx(classes.links)}>Directory</Link>
-          <Link to="/example" className={clsx(classes.links)}>Rec</Link>
+          <Link to="/example" className={clsx(classes.links, 'last')}>Rec</Link>
         </div>
       </div>
 
