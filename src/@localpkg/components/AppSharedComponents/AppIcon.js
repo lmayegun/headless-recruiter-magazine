@@ -17,7 +17,7 @@ export default function AppIcon( props ){
         overflow: 'hidden',
         textTransform: 'uppercase',
         background: 'url(assets/images/icons/icons.png) no-repeat 0 0',
-        minHeight: '45px',
+        minHeight: 20,
       }
     })
   )

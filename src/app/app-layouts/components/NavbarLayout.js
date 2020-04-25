@@ -4,7 +4,8 @@ import {makeStyles, Icon} from '@material-ui/core';
 import clsx from 'clsx';
 
 import Logo from './Logo';
-import {AppIcon} from '@localpkg'
+import {AppIcon} from '@localpkg';
+import SearchToggleBtn from './search/SearchToggleBtn';
 
 const useStyles = makeStyles( theme =>{
   return({
@@ -21,10 +22,15 @@ const useStyles = makeStyles( theme =>{
       flexGrow: 10,
       display: 'flex',
       justifyContent: 'center',
+      '& div':{
+        borderBottom: '1px solid white',
+        paddingBottom: 10,
+      }
     },
     secondaryNavsWrapper:{
       flexGrow: 10,
       display: 'flex',
+      height: 65,
     },
     links:{
       fontSize: '1.15em',
@@ -35,6 +41,33 @@ const useStyles = makeStyles( theme =>{
       textDecoration: 'none',
       textTransform: 'uppercase',
       letterSpacing: '0px',
+      '&:hover': {
+        textDecoration: 'none !important',
+        '&.news' : {
+          color: 'red !important',
+          borderBottom: '5px solid red !important',
+        },
+        '&.knowledge' : {
+          color: '#c1b49a !important',
+          borderBottom: '5px solid #c1b49a !important',
+        },
+        '&.events' : {
+          color: '#7581bf !important',
+          borderBottom: '5px solid #7581bf !important',
+        },
+        '&.directory' : {
+          color: '#3fac49  !important',
+          borderBottom: '5px solid #3fac49 !important',
+        },
+        '&.rec' : {
+          color: '#5974d4 !important',
+          borderBottom: '5px solid #5974d4 !important',
+        },
+        '&.jobs' : {
+          color: '#29b8c8 !important',
+          borderBottom: '5px solid #29b8c8 !important',
+        },
+      },
       '&.last':{
         margin: 0
       }
@@ -55,12 +88,12 @@ const NavbarLayout = () => {
 
       <div className={classes.navigationLinksWrapper}>
         <div>
-          <Link to="/homes" className={clsx(classes.links)}>News</Link>
-          <Link to="/about" className={clsx(classes.links)}>Knowledge</Link>
-          <Link to="/dashboard" className={clsx(classes.links)}>Jobs</Link>
-          <Link to="/example" className={clsx(classes.links)}>Events</Link>
-          <Link to="/example" className={clsx(classes.links)}>Directory</Link>
-          <Link to="/example" className={clsx(classes.links, 'last')}>Rec</Link>
+          <Link to="/homes" className={clsx(classes.links, "news")}>News</Link>
+          <Link to="/about" className={clsx(classes.links, "knowledge")}>Knowledge</Link>
+          <Link to="/dashboard" className={clsx(classes.links, "jobs")}>Jobs</Link>
+          <Link to="/example" className={clsx(classes.links, "events")}>Events</Link>
+          <Link to="/example" className={clsx(classes.links, "directory")}>Directory</Link>
+          <Link to="/example" className={clsx(classes.links, "rec last")}>Rec</Link>
         </div>
       </div>
 
@@ -71,6 +104,7 @@ const NavbarLayout = () => {
         <AppIcon iconPos={'0 -5852px'}/>
         <AppIcon iconPos={'0 -5899px'}/>
         <AppIcon iconPos={'0 -5946px'}/>
+        <SearchToggleBtn />
       </div>
 
     </div>

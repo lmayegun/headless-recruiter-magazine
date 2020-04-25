@@ -47,9 +47,9 @@ export const NodesConfig = {
         //     path     : '/article/:contenttype/:title/:id',
         //     component: React.lazy(() => import('./articlePage/NewsNode'))
         // },
-        // {
-        //     path     : '/search',
-        //     component: React.lazy(() => import('./Search'))
-        // },
+        {
+            path     : '/search',
+            component: React.lazy(() => import('./pages/Search'))
+        },
     ]
 };
