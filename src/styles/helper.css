@@ -1,0 +1,28 @@
+#root{
+  display: flex;
+}
+.container{
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+}
+img{
+  max-width: 100%;
+}
+a{
+  text-decoration: none;
+}
+
+.ps{
+  overflow: hidden;
+}
+
+.ps__rail-y{
+  z-index: 9;
+}
+
+.pin-nav{
+  top: 0;
+  position: fixed;
+  width: 100%;
+}

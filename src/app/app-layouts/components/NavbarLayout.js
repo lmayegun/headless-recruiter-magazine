@@ -32,17 +32,17 @@ const useStyles = makeStyles( theme =>{
       flexGrow: 10,
       display: 'flex',
       height: 65,
-      alignItems: 'center'
+      alignItems: 'center',
     },
     links:{
-      fontSize: '1.15em',
-      fontWeight: '700',
+      fontSize: '1.45em',
       paddingBottom: '10px',
       marginRight: '20px',
       color: 'white',
       textDecoration: 'none',
       textTransform: 'uppercase',
-      letterSpacing: '0px',
+      letterSpacing: '1px',
+      fontFamily: 'Kommissar Cond Web',
       '&:hover': {
         textDecoration: 'none !important',
         '&.news' : {

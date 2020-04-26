@@ -3,7 +3,7 @@ import AppContext from 'app/AppContext';
 import { renderRoutes } from "react-router-config";
 import {makeStyles} from '@material-ui/core';
 
-import {AppSuspense, AppScrollbars} from "@localpkg";
+import {AppSuspense, AppScrollbars, LeaderBoardAd} from "@localpkg";
 
 import NavbarWrapperLayout from './components/NavbarWrapperLayout';
 
@@ -30,11 +30,11 @@ const DefaultLayout = () => {
   function handleYscroll(){
     if( window.innerWidth > 1200 ){
       if( ref.current.scrollTop > 66){
-        ref.current.childNodes[2].classList.add("pin-nav")
+        ref.current.childNodes[3].classList.add("pin-nav")
       }
 
       if( ref.current.scrollTop < 66){
-        ref.current.childNodes[2].classList.remove("pin-nav")
+        ref.current.childNodes[3].classList.remove("pin-nav")
       }
     }
   }
@@ -53,6 +53,7 @@ const DefaultLayout = () => {
         return(
           <div className={classes.root}>
             <AppScrollbars className={classes.content} onScrollY={handleYscroll} ref={ref}>
+              <LeaderBoardAd />
               <NavbarWrapperLayout />
               <AppSuspense>
                 {renderRoutes(routes)}

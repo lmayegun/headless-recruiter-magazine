@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {AppPageSimple} from '@localpkg';
+import {AppPageSimple, LeaderBoardAd} from '@localpkg';
 import {SectionOne,
         SectionTwo,
         SectionThree,
@@ -23,6 +23,7 @@ const HomePage = () => {
           <div>
 
             <SectionOne />
+            <LeaderBoardAd />
             <SectionThree />
             <SectionFour />
             <SectionFive />
