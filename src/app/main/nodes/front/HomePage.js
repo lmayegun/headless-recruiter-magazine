@@ -21,8 +21,7 @@ const HomePage = () => {
       <AppPageSimple
         content={
           <div>
-            <SectionTwo />
-            {/*
+
             <SectionOne />
             <SectionThree />
             <SectionFour />
@@ -32,7 +31,7 @@ const HomePage = () => {
             <SectionTen />
             <SectionEleven />
             <SectionTwelve />
-            */}
+
           </div>
         }
       />

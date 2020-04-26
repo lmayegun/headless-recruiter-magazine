@@ -16,6 +16,8 @@ const useStyles = makeStyles(theme=>{
       },
       '& .react-badge, & .logo-text': {
         fontSize : '10px',
+        color: 'white',
+        padding: 4,
         transition: theme.transitions.create('opacity', {
             duration: theme.transitions.duration.shortest,
             easing  : theme.transitions.easing.easeInOut

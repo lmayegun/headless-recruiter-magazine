@@ -1,4 +1,4 @@
-// import _ from 'lodash';
+import _ from 'lodash';
 
 class AppUtils{
 
@@ -108,6 +108,51 @@ class AppUtils{
           */
           return authArr.includes(userRole);
       }
+  }
+
+  static appendNavItemToParent(nav)
+  {
+    // console.log(nav,"banter")
+  }
+
+  static appendNavItem(nav, item, parentId)
+  {
+      if ( !parentId )
+      {
+          return [
+              ...nav,
+              item
+          ]
+      }
+
+      return nav.map(_item => {
+
+          if ( _item.id === parentId && _item.children )
+          {
+              item.map((clock)=>{
+                _item.children.push(clock)
+              })
+              // return {
+              //     _item,
+              //     children: [
+              //         ..._item.children,
+              //         item
+              //     ]
+              // };
+              return _item
+          }
+
+          if ( _item.children )
+          {
+              return _.merge({}, _item, {
+                  children: this.appendNavItem(_item.children, item, parentId)
+              });
+          }
+          else
+          {
+              // return _.merge({}, _item);
+          }
+      })
   }
 }
 

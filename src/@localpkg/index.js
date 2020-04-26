@@ -1,5 +1,5 @@
 export { default as AppUtils } from './AppUtils';
-
+export { default as FuseUtils } from './AppUtils';
 export {default as AppLoading} from './components/Loading/Loading';
 export {default as AppSuspense} from './components/Suspense/Suspense';
 
@@ -11,6 +11,11 @@ export {default as FusePageSimple} from './components/PageLayouts/simple/PageSim
 
 export {default as AppPageCarded} from './components/PageLayouts/carded/PageCarded';
 export {default as FusePageCarded} from './components/PageLayouts/carded/PageCarded';
+
+export {default as AppNavigation} from './components/Navigation/Navigation';
+export {default as FuseNavigation} from './components/Navigation/Navigation';
+
+export {default as NavLinkAdapter} from './components/NavLinkAdapter/NavLinkAdapter';
 
 export {default as SideTeaserThumb} from './components/AppSharedComponents/SideTeaserThumb';
 export {default as CenterTeaserThumb} from './components/AppSharedComponents/CenterTeaserThumb';

@@ -29,8 +29,6 @@ const DefaultLayout = () => {
 
   function handleYscroll(){
     if( window.innerWidth > 1200 ){
-      console.log("Yahah")
-      console.log(ref.current.childNodes)
       if( ref.current.scrollTop > 66){
         ref.current.childNodes[2].classList.add("pin-nav")
       }
