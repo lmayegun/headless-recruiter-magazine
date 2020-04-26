@@ -88,12 +88,12 @@ const NavbarLayout = () => {
 
       <div className={classes.navigationLinksWrapper}>
         <div>
-          <Link to="/homes" className={clsx(classes.links, "news")}>News</Link>
-          <Link to="/about" className={clsx(classes.links, "knowledge")}>Knowledge</Link>
-          <Link to="/dashboard" className={clsx(classes.links, "jobs")}>Jobs</Link>
-          <Link to="/example" className={clsx(classes.links, "events")}>Events</Link>
-          <Link to="/example" className={clsx(classes.links, "directory")}>Directory</Link>
-          <Link to="/example" className={clsx(classes.links, "rec last")}>Rec</Link>
+          <Link to="/news" className={clsx(classes.links, "news")}>News</Link>
+          <Link to="/knowledge" className={clsx(classes.links, "knowledge")}>Knowledge</Link>
+          <Link to="/jobs" className={clsx(classes.links, "jobs")}>Jobs</Link>
+          <Link to="/events" className={clsx(classes.links, "events")}>Events</Link>
+          <Link to="/directory" className={clsx(classes.links, "directory")}>Directory</Link>
+          <Link to="/rec" className={clsx(classes.links, "rec last")}>Rec</Link>
         </div>
       </div>
 

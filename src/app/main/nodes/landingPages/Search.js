@@ -74,6 +74,13 @@ function Search(){
             }
           </div>
         }
+        rightSidebarContent={
+          <div>
+            <ThreeByTwoAd />
+            <AppIconHeader title="latest jobs"/>
+            <AppLatestJobs />
+          </div>
+        }
       />
     </div>
   )

@@ -6,14 +6,13 @@ import {useSelector} from 'react-redux';
 
 function FusePageSimpleSidebarContent(props)
 {
-    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark);
 
     const classes = props.classes;
 
     return (
         <FuseScrollbars enable={props.innerScroll}>
             {props.header && (
-                <ThemeProvider theme={mainThemeDark}>
+                <ThemeProvider>
                     <div className={clsx(classes.sidebarHeader, props.variant, props.sidebarInner && classes.sidebarHeaderInnerSidebar)}>
                         {props.header}
                     </div>
