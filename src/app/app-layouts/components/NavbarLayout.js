@@ -20,7 +20,7 @@ const useStyles = makeStyles( theme =>{
       flexGrow: 1,
     },
     navigationLinksWrapper:{
-      flexGrow: 10,
+      flexGrow: 5,
       display: 'flex',
       justifyContent: 'center',
       '& div':{
@@ -29,7 +29,7 @@ const useStyles = makeStyles( theme =>{
       }
     },
     secondaryNavsWrapper:{
-      flexGrow: 10,
+      flexGrow: 1,
       display: 'flex',
       height: 65,
       alignItems: 'center',

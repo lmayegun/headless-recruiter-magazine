@@ -11,9 +11,9 @@ export default function AppIconHeader( props ){
       },
       title:{
         color: '#4d4d4f',
-        padding: '2px 5px 20px 45px',
+        padding: '2px 5px 0px 45px',
         marginLeft: '0px',
-        marginBottom: '20px',
+        marginBottom: '10px',
         overflow: 'hidden',
         textTransform: 'uppercase',
         height: '45px',

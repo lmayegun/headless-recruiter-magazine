@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import {AppPremIcon} from './AppPremIcon';
 import {AppTags} from './AppTags';
 
-function CenterTeaserThumb( props ){
+function CenterTeaserThumb({content, type}){
 
   const centerThumbStyles = makeStyles(theme => ({
       root:{
@@ -63,9 +63,9 @@ function CenterTeaserThumb( props ){
   )
 
   function link(){
-    const contentType = props.content.contentType ? props.content.contentType.toLowerCase() : 'none';
-    const title = props.content.title ? props.content.title.replace(/\s|\?+/g, '-').toLowerCase() : 'noTitle';
-    const id = props.content.id ? props.content.id : '50344';
+    const contentType = content.contentType ? content.contentType.toLowerCase() : 'none';
+    const title = content.title ? content.title.replace(/\s|\?+/g, '-').toLowerCase() : 'noTitle';
+    const id = content.id ? content.id : '50344';
     return(
       '/article/'+ contentType +'/'+  title +'/'+ id
     )
@@ -75,23 +75,22 @@ function CenterTeaserThumb( props ){
 
   return(
     <div className={clsx(classes.root)}>
-      { props.type === 'featured' && (
+      { type === 'featured' && (
         <React.Fragment>
           <div className={clsx(classes.thumbImg)}>
-            {props.content.gated === true && (
+            {content.gated === true && (
                 <AppPremIcon />
             )}
 
             <Link to={ link() } >
-              <img className={clsx(classes.image)} src={props.content.image.src} title={props.content.imageTitle}  alt="center teaser"/>
+              <img className={clsx(classes.image)} src={content.image.src} title={content.imageTitle}  alt="center teaser"/>
             </Link>
 
             <div className={clsx(classes.type)}>
                 <Typography
                   variant='h5'
-                  className={clsx(classes.typeText, (props.type === 'featured' ? 'text-red' : 'text-black'))}>
-                  {props.type === 'featured' && ("The Big Story")}
-                  {props.type === 'normal' && (props.content.type)}
+                  className={clsx(classes.typeText, (type === 'featured' ? 'text-red' : 'text-black'))}>
+                  {type === 'featured' && ("The Big Story")}
                 </Typography>
             </div>
           </div>
@@ -100,35 +99,34 @@ function CenterTeaserThumb( props ){
             <Link to={ link() } >
               <div className={clsx(classes.title)}>
                 <Typography
-                  variant={(props.type === 'featured' ? 'h4' : 'h6')}
+                  variant={(type === 'featured' ? 'h4' : 'h6')}
                   className={clsx(classes.title)}
                   >
-                  {props.content.title}
+                  {content.title}
                 </Typography>
               </div>
             </Link>
 
-            <div dangerouslySetInnerHTML={{__html: props.content.summary}} />
-
-            <span className={clsx(classes.postOn)}> {props.content.publishedOn}</span>
+            <div dangerouslySetInnerHTML={{__html: content.summary}} />
+            <span className={clsx(classes.postOn)}> {content.publishedOn}</span>
           </div>
         </React.Fragment>
       )}
-      { props.type === 'normal' && (
+      { type === 'normal' && (
         <React.Fragment>
           <div className={clsx(classes.thumbImg)}>
-            {props.content.gated === true && (
+            {content.gated === true && (
                 <AppPremIcon />
             )}
 
             <Link to={ link() } >
-              <img className={clsx(classes.image)} src={props.content.image.src} title={props.content.imageTitle} alt="center teaser"/>
+              <img className={clsx(classes.image)} src={content.image.src} title={content.imageTitle} alt="center teaser"/>
             </Link>
             <div className={clsx(classes.type)}>
                 <Typography
                   variant='h6'
                   className={clsx(classes.typeText, 'text-black')}>
-                  {props.content.contentType}
+                  {content.contentType}
                 </Typography>
             </div>
           </div>
@@ -140,12 +138,12 @@ function CenterTeaserThumb( props ){
                   variant={'h6'}
                   className={clsx(classes.title)}
                   >
-                  {props.content.title}
+                  {content.title}
                 </Typography>
               </div>
             </Link>
-            <div dangerouslySetInnerHTML={{__html: props.content.summary}} />
-            <span className={clsx(classes.postOn)}> {props.content.publishedOn}</span>
+            <div dangerouslySetInnerHTML={{__html: content.summary}} />
+            <span className={clsx(classes.postOn)}> {content.publishedOn}</span>
           </div>
         </React.Fragment>
       )}
@@ -171,10 +169,7 @@ CenterTeaserThumb.defaultProps = {
       "hr",
       "ssk",
       "sales"
-    ],
-    image:{
-      src: "https://higherplainmusic.com/wp-content/uploads/2018/02/tashsultana.jpg"
-    }
+    ]
   }
 }
 

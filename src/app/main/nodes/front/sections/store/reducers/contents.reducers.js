@@ -5,22 +5,22 @@ const initialState = {}
 const contentReducers = function (state = initialState, action){
 
   switch (action.type) {
-    case Actions.ALL_CONTENTS:{
+    case 'HOME_FEATURED_ARTICLE_NEWS_SUCCESS':{
       return {
         ...state,
-        contentsState : action.contentsData
+        featuredArticleState : action.payload
       };
     }
-    case Actions.FEATURED_ARTICLE:{
+    case 'HOME_ARTICLE_TOP_RECENT_SUCCESS':{
       return {
         ...state,
-        featuredArticleState : action.featureArtcleData
+        articleMostRecentState : action.payload
       };
     }
-    case Actions.ARTICLE_MOST_RECENT:{
+    case 'HOME_NEWS_TOP_THREE_SUCCESS':{
       return {
         ...state,
-        articleMostRecentState : action.articleMostRecentData
+        newsTopRecentState : action.payload,
       };
     }
     case Actions.ARTICLE_MOST_POPULAR:{
@@ -40,12 +40,6 @@ const contentReducers = function (state = initialState, action){
         ...state,
         anArticleState: action.articleData
       }
-    }
-    case Actions.NEWS_TOP_RECENT:{
-      return {
-        ...state,
-        newsTopRecentState : action.topRecentNewsData,
-      };
     }
     case Actions.ARTICLE_PROFILES:{
       return {

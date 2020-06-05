@@ -1,54 +1,34 @@
 import axios from 'axios'
 
-export const FEATURED_ARTICLE = '[FEATURED ARTICLE] FEATURED_ARTICLE';
-export const NEWS_TOP_RECENT = '[NEWS CONTENT TYPE TOP THREE]';
-export const ARTICLE_MOST_RECENT = '[ARTICLE TOP RECENT]';
-export const ARTICLE_MOST_POPULAR = '[ARTICLE MOST POPULAR]';
-export const ARTICLE_SPONSORED = '[ARTICLE SPONSORED]';
-export const ARTICLE_PROFILES = '[ARTICLE PROFILES]';
-export const OPINION_TOP_THREE = '[OPINION TOP THREE]';
-export const INDEPTH_TOP_THREE = '[INDEPTH TOP THREE]';
-export const LIGHTERSIDE_TOP_THREE = '[LIGHTER TOP THREE]';
-export const EVENTS_TOP_THREE = '[EVENTS TOP THREE]';
-
-export const ALL_CONTENTS = '[ALL CONTENT TYPE] ALL_CONTENTS';
+export const HOME_FEATURED_ARTICLE = '[HOME] FEATURED_ARTICLE';
+export const HOME_ARTICLE_MOST_RECENT = '[HOME] ARTICLE_TOP_RECENT';
+export const HOME_NEWS_TOP_RECENT = '[HOME] NEWS_TOP_THREE]';
+export const ARTICLE_MOST_POPULAR = '[HOME] ARTICLE_MOST_POPULAR';
+export const ARTICLE_SPONSORED = '[HOME] ARTICLE_SPONSORED';
+export const ARTICLE_PROFILES = '[HOME] ARTICLE_PROFILES';
+export const OPINION_TOP_THREE = '[HOME] OPINION_TOP_THREE';
+export const INDEPTH_TOP_THREE = '[HOME] INDEPTH_TOP_THREE]';
+export const LIGHTERSIDE_TOP_THREE = '[HOME] LIGHTER_TOP_THREE]';
+export const EVENTS_TOP_THREE = '[HOME] EVENTS_TOP_THREE';
 export const A_CONTENT = '[GET A CONTENT] BY ID';
 
+const baseUrl = true ? 'http://recruiter.dd:8083' : 'https://recruiter.tsample.co.uk';
+
+
 export function getTopRecentNews(){
-  const request = axios.get('https://recruiter.tsample.co.uk/news-recent-top-four');
-  return (dispatch) =>
-    request.then(function(response){
-      dispatch({
-          type   :  NEWS_TOP_RECENT,
-          topRecentNewsData: response.data
-      })
-    });
+  return {type : HOME_NEWS_TOP_RECENT }
 }
 
 export function getFeaturedArticle(){
-  const request = axios.get('https://recruiter.tsample.co.uk/feature-article');
-  return (dispatch) =>
-    request.then(function(response){
-      dispatch({
-          type   :  FEATURED_ARTICLE,
-          featureArtcleData: response.data
-      })
-    });
+  return{ type : HOME_FEATURED_ARTICLE }
 }
 
 export function getArticleMostRecent(){
-  const request = axios.get('https://recruiter.tsample.co.uk/article-most-recent');
-  return (dispatch) =>
-    request.then(function(response){
-      dispatch({
-          type   :  ARTICLE_MOST_RECENT,
-          articleMostRecentData: response.data
-      })
-    });
+  return {type : HOME_ARTICLE_MOST_RECENT}
 }
 
 export function getArticleMostPopular(){
-  const request = axios.get('https://recruiter.tsample.co.uk/article-most-popular-six');
+  const request = axios.get(baseUrl + '/article-most-popular-six');
   return (dispatch) =>
     request.then(function(response){
       dispatch({
@@ -59,7 +39,7 @@ export function getArticleMostPopular(){
 }
 
 export function getArticleSponsored(){
-  const request = axios.get('https://recruiter.tsample.co.uk/sponsored-article');
+  const request = axios.get(baseUrl + '/sponsored-article');
   return (dispatch) =>
     request.then(function(response){
       dispatch({
@@ -70,7 +50,7 @@ export function getArticleSponsored(){
 }
 
 export function getArticleProfiles(){
-  const request = axios.get('https://recruiter.tsample.co.uk/article-profiles');
+  const request = axios.get(baseUrl + '/article-profiles');
   return (dispatch) =>
     request.then(function(response){
       dispatch({
@@ -81,7 +61,7 @@ export function getArticleProfiles(){
 }
 
 export function getOpinionTopThree(){
-  const request = axios.get('https://recruiter.tsample.co.uk/opinion-top-three');
+  const request = axios.get(baseUrl + '/opinion-top-three');
   return (dispatch) =>
     request.then(function(response){
       dispatch({
@@ -92,7 +72,7 @@ export function getOpinionTopThree(){
 }
 
 export function getIndepthTopThree(){
-  const request = axios.get('https://recruiter.tsample.co.uk/indepth-top-three');
+  const request = axios.get(baseUrl + '/indepth-top-three');
   return (dispatch) =>
     request.then(function(response){
       dispatch({
@@ -103,7 +83,7 @@ export function getIndepthTopThree(){
 }
 
 export function getLighterSideTopThree(){
-  const request = axios.get('https://recruiter.tsample.co.uk/lighterside-top-three');
+  const request = axios.get(baseUrl + '/lighterside-top-three');
   return (dispatch) =>
     request.then(function(response){
       dispatch({
@@ -114,7 +94,7 @@ export function getLighterSideTopThree(){
 }
 
 export function getEventsTopThree(){
-  const request = axios.get('https://recruiter.tsample.co.uk/event-top-three-json');
+  const request = axios.get(baseUrl + '/event-top-three-json');
   return (dispatch) =>
     request.then(function(response){
       dispatch({
@@ -123,28 +103,3 @@ export function getEventsTopThree(){
       })
     });
 }
-
-export function getContents(){
-  const request = axios.get('/api/news');
-  return (dispatch) =>
-    request.then(function(response){
-      // console.log(response, 'rara')
-      dispatch({
-          type   : ALL_CONTENTS,
-          contentsData: response.data
-      })
-    });
-}
-
-// export function getFeaturedContents(){
-//   const params = {featured:true}
-//   const request = axios.get('/api/news', {params});
-//     return (dispatch) =>
-//       request.then(function(response){
-//         // console.log(response, 'rara')
-//         dispatch({
-//             type   : FEATURED_CONTENTS,
-//             newsData: response.data
-//         })
-//       });
-// }

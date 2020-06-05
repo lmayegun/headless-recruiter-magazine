@@ -24,29 +24,29 @@ const useStyles = makeStyles( theme => ({
        flexDirection: 'row',
      }
    },
-   sectionOneCol: {
+   section: {
      minHeight: 600,
-     width: '100%',
      marginBottom: 20,
      marginTop: 80,
      '&.big-story':{
        [theme.breakpoints.up('lg')]:{
-         width: '150%',
+         flex:3.5,
          order: '1',
          marginRight: 20,
          padding: '0 12px',
        }
      },
-     '&.second-col':{
+     '&.news-col':{
        [theme.breakpoints.up('lg')]:{
+         flex:2.4,
          order: '0',
          marginRight: 20,
          paddingRight: 0
        }
      },
-     '&.third-col':{
+     '&.knowledge-col':{
        [theme.breakpoints.up('lg')]:{
-          width: '75%',
+         flex:2,
          order: '2',
          paddingLeft: 0
        }
@@ -88,64 +88,61 @@ const SectionOne = ()=>{
 
   const classes = useStyles();
 
-  return(
-      <div className={clsx(classes.container)}>
-        <div className={clsx(classes.sectionOneCol, "big-story")}>
+  if( !featuredArticleData || !newsData || !knowledgeData ){
+    return (<h1> Loading... </h1>);
+  }
 
-          {!featuredArticleData ? (
+  return(
+    <div className={clsx(classes.container)}>
+      <div className={clsx(classes.section, "big-story")}>
+        {
+          featuredArticleData.map(function(key, index){
+            return (
+              <CenterTeaserThumb content={key} type={"featured"}  key={key}/>
+            )
+          })
+        }
+
+        <Hidden mdDown>
+          <ThreeByTwoAd width="60%" />
+        </Hidden>
+
+        <Hidden mdDown>
+          {!featuredMagazine ? (
             <h1> Loading... </h1>
           ) : (
-            featuredArticleData.map(function(key, index){
-              return (
-                <CenterTeaserThumb content={key} type={"featured"}  key={key}/>
-              )
-            })
+            <SubscribeMag data={featuredMagazine}/>
           )}
-
-          <Hidden mdDown>
-            <ThreeByTwoAd width="60%" />
-          </Hidden>
-
-          <Hidden mdDown>
-            {!featuredMagazine ? (
-              <h1> Loading... </h1>
-            ) : (
-              <SubscribeMag data={featuredMagazine}/>
-            )}
-          </Hidden>
+        </Hidden>
 
 
-          <Hidden mdDown>
-            <ThreeByTwoAd width="60%" />
-          </Hidden>
-        </div>
-
-        <div className={clsx(classes.sectionOneCol, "second-col")}>
-            <AppIconHeader />
-            {!newsData ? (
-              <h1> Loading... </h1>
-            ) : (
-              newsData.map(function(key, index){
-                return (
-                  <SideTeaserThumb content={key} key={index}/>
-                )
-              })
-            )}
-        </div>
-
-        <div className={clsx(classes.sectionOneCol, "third-col")}>
-            <AppIconHeader title={'knowledge'} />
-            {!knowledgeData ? (
-              <h1> Loading... </h1>
-            ) : (
-              knowledgeData.map(function(key, index){
-                return (
-                  <CenterTeaserThumb content={key} type={"normal"}  key={index}/>
-                )
-              })
-            )}
-        </div>
+        <Hidden mdDown>
+          <ThreeByTwoAd width="60%" />
+        </Hidden>
       </div>
+
+      <div className={clsx(classes.section, "news-col")}>
+        <AppIconHeader />
+        {
+          newsData.map(function(key, index){
+            return (
+              <SideTeaserThumb content={key} key={index}/>
+            )
+          })
+        }
+      </div>
+
+      <div className={clsx(classes.section, "knowledge-col")}>
+        <AppIconHeader title={'knowledge'} />
+        {
+          knowledgeData.map(function(key, index){
+            return (
+              <CenterTeaserThumb content={key} type={"normal"}  key={index}/>
+            )
+          })
+        }
+      </div>
+    </div>
   )
 }
 
