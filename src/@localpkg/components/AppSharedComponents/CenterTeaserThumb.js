@@ -109,9 +109,7 @@ function CenterTeaserThumb( props ){
             </Link>
 
             <div dangerouslySetInnerHTML={{__html: props.content.summary}} />
-            <br />
-            <AppTags tags={props.content.tags} />
-            <br />
+
             <span className={clsx(classes.postOn)}> {props.content.publishedOn}</span>
           </div>
         </React.Fragment>
@@ -173,7 +171,10 @@ CenterTeaserThumb.defaultProps = {
       "hr",
       "ssk",
       "sales"
-    ]
+    ],
+    image:{
+      src: "https://higherplainmusic.com/wp-content/uploads/2018/02/tashsultana.jpg"
+    }
   }
 }
 
