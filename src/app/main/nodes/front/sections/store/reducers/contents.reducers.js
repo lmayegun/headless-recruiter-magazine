@@ -23,10 +23,10 @@ const contentReducers = function (state = initialState, action){
         newsTopRecentState : action.payload,
       };
     }
-    case Actions.ARTICLE_MOST_POPULAR:{
+    case 'HOME_ARTICLE_MOST_POPULAR_SUCCESS':{
       return {
         ...state,
-        articleMostPopularState : action.articleMostPopularData
+        articleMostPopularState : action.payload
       };
     }
     case Actions.ARTICLE_SPONSORED:{

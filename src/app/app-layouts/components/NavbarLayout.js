@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import Logo from './Logo';
 import {AppIcon} from '@localpkg';
 import SearchToggleBtn from './search/SearchToggleBtn';
-import Navigation from '../shared-components/Navigation';
+import ExtraNav from '../shared-components/ExtraNav';
 
 const useStyles = makeStyles( theme =>{
   return({
@@ -74,6 +74,12 @@ const useStyles = makeStyles( theme =>{
       '&.last':{
         margin: 0
       }
+    },
+    extraNav:{
+      flexGrow: 1,
+      display: 'flex',
+      height: '65px',
+      paddingTop: '40px',
     }
   })
 });
@@ -81,24 +87,6 @@ const useStyles = makeStyles( theme =>{
 const NavbarLayout = () => {
 
   const classes = useStyles();
-  const theRef = React.useRef()
-  const [checked, setChecked] = React.useState(false);
-  const handleChange = () => {
-    setChecked(prev =>{
-        return(
-          !prev
-        )
-      }
-    )
-  };
-
-  React.useEffect(()=>{
-    if( checked ){
-      theRef.current.classList.add("show")
-    }else if( !checked ){
-      theRef.current.classList.remove("show")
-    }
-  },[checked])
 
   return(
     <div className={clsx(classes.root, 'container')}>
@@ -127,19 +115,10 @@ const NavbarLayout = () => {
         <AppIcon iconPos={'0 -5899px'}/>
         <AppIcon iconPos={'0 -5946px'}/>
         <SearchToggleBtn/>
-        <Icon className={clsx(classes.burgerMenuIcon,"text-5xl")} style={{width:'35px'}} onClick={handleChange}>menu</Icon>
-        {checked && (
-          <div className={classes.closeBurgerMenu}>
-            <h2 style={{color:'#000', letterSpacing:'-1px', fontWeight:'1000'}}> DISCOVER <Icon className="float-right relative" onClick={handleChange}>close</Icon> </h2>
-          </div>
-         )}
-        <Fade in={checked} ref={theRef} className="burger-menu">
-          <div style={{background:'#000000', fontWeight:'1000'}}>
-            <div >
+      </div>
 
-            </div>
-          </div>
-        </Fade>
+      <div className={classes.extraNav}>
+        <ExtraNav />
       </div>
 
     </div>

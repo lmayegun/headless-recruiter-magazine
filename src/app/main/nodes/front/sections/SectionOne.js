@@ -85,7 +85,7 @@ const SectionOne = ()=>{
 
   const classes = useStyles();
 
-  if( !featuredArticleData || !newsData || !knowledgeData ){
+  if( !featuredArticleData || !newsData || !knowledgeData || !featuredMagazine){
     return (<h1> Loading... </h1>);
   }
 
@@ -105,13 +105,8 @@ const SectionOne = ()=>{
         </Hidden>
 
         <Hidden mdDown>
-          {!featuredMagazine ? (
-            <h1> Loading... </h1>
-          ) : (
-            <SubscribeMag data={featuredMagazine}/>
-          )}
+          <SubscribeMag data={featuredMagazine}/>
         </Hidden>
-
 
         <Hidden mdDown>
           <ThreeByTwoAd width="60%" />

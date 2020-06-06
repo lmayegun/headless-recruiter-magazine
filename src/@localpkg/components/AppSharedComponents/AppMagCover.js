@@ -4,13 +4,7 @@ import {Typography} from '@material-ui/core';
 import {Link, withRouter} from 'react-router-dom';
 import clsx from 'clsx';
 
-AppMagCover.deafultProps = {
-  default: {
-    cover: "",
-  }
-}
-
-function AppMagCover( props ){
+function AppMagCover( {magazine, longTitleLength} ){
 
   const useStyles = makeStyles( theme => ({
       wrapper:{
@@ -39,17 +33,16 @@ function AppMagCover( props ){
   )
 
   const classes = useStyles()
-  const longTitleLength = props.longTitleLength ? true : false;
 
   function link(){
-    const title = props.magazine.name ? props.magazine.name.replace(/\?+/g, '_').toLowerCase() : 'noTitle';
-    const id = props.magazine.id ? props.magazine.id : '50344';
+    const title = magazine.name ? magazine.name.replace(/\?+/g, '_').toLowerCase() : 'noTitle';
+    const id = magazine.id ? magazine.id : '50344';
     return(
       '/magazine/'+ title +'/'+ id
     )
   }
 
-  const img = props.magazine.field_cover ? props.magazine.field_cover.src : props.magazine.cover;
+  const img = magazine.field_cover ? magazine.field_cover.src : magazine.cover;
 
   return(
     <div>
@@ -57,11 +50,11 @@ function AppMagCover( props ){
         <div className={clsx(classes.title)}>
           {longTitleLength ? (
             <Link to={link()}>
-              <Typography variant='h6' className={clsx(classes.longTitleLength)}>{props.magazine.name}</Typography>
+              <Typography variant='h6' className={clsx(classes.longTitleLength)}>{magazine.name}</Typography>
             </Link>
           ): (
             <Link to={link()}>
-              <Typography variant='h6' className={clsx(classes.link)}>{props.magazine.name}</Typography>
+              <Typography variant='h6' className={clsx(classes.link)}>{magazine.name}</Typography>
             </Link>
           )}
         </div>
@@ -73,6 +66,12 @@ function AppMagCover( props ){
       </div>
     </div>
   )
+}
+
+AppMagCover.deafultProps = {
+  default: {
+    cover: "",
+  }
 }
 
 export default withRouter(AppMagCover)

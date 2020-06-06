@@ -3,7 +3,7 @@ import axios from 'axios'
 export const HOME_FEATURED_ARTICLE = '[HOME] FEATURED_ARTICLE';
 export const HOME_ARTICLE_MOST_RECENT = '[HOME] ARTICLE_TOP_RECENT';
 export const HOME_NEWS_TOP_RECENT = '[HOME] NEWS_TOP_THREE]';
-export const ARTICLE_MOST_POPULAR = '[HOME] ARTICLE_MOST_POPULAR';
+export const HOME_ARTICLE_MOST_POPULAR = '[HOME] ARTICLE_MOST_POPULAR';
 export const ARTICLE_SPONSORED = '[HOME] ARTICLE_SPONSORED';
 export const ARTICLE_PROFILES = '[HOME] ARTICLE_PROFILES';
 export const OPINION_TOP_THREE = '[HOME] OPINION_TOP_THREE';
@@ -28,14 +28,7 @@ export function getArticleMostRecent(){
 }
 
 export function getArticleMostPopular(){
-  const request = axios.get(baseUrl + '/article-most-popular-six');
-  return (dispatch) =>
-    request.then(function(response){
-      dispatch({
-          type   :  ARTICLE_MOST_POPULAR,
-          articleMostPopularData: response.data
-      })
-    });
+  return {type : HOME_ARTICLE_MOST_POPULAR}
 }
 
 export function getArticleSponsored(){

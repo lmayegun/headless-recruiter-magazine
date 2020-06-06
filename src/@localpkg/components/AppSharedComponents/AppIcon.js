@@ -13,7 +13,7 @@ export default function AppIcon( props ){
         color: '#4d4d4f',
         letterSpacing: '1px',
         padding: '2px 5px 20px 45px',
-        marginLeft: '0px',
+        margin: '0px',
         overflow: 'hidden',
         textTransform: 'uppercase',
         background: 'url(assets/images/icons/icons.png) no-repeat 0 0',

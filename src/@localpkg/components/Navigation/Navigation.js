@@ -15,6 +15,10 @@ function FuseNavigation(props)
 {
     const {navigation, layout, active, dense, className} = props;
 
+    if(!navigation){
+      return(<h1> no navigation data</h1>);
+    }
+
     const verticalNav = (
         <List className={clsx("navigation whitespace-no-wrap", className)}>
             {

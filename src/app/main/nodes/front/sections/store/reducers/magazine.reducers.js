@@ -4,10 +4,10 @@ const initialState = {}
 
 const magazineReducers = function (state = initialState, action){
   switch (action.type) {
-    case Actions.FEATURED_MAGAZINE:{
+    case 'HOME_FEATURED_MAGAZINE_SUCCESS':{
       return{
         ...state,
-        featuredMagazineState: action.featuredMagazineData
+        featuredMagazineState: action.payload
       }
     }
     case Actions.MAGAZINE_ISSUES_CAROUSEL:{

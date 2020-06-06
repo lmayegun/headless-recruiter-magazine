@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import clsx from 'clsx';
 import {AppIconHeader, AppIcon } from '@localpkg';
 
-export default function SubscribeMag(props){
+export default function SubscribeMag({data}){
 
   const subsMagStyles = makeStyles(theme => ({
       root:{
@@ -21,14 +21,17 @@ export default function SubscribeMag(props){
         width: '85%',
         paddingLeft: 20
       },
+      subLink:{
+        display: 'flex',
+      },
       title:{
         fontWeight: '1000',
       }
     })
   )
 
-  const featuredMagImg  = props.data[0].field_cover.src;
-  const featuredMagDesc = props.data[0].termdescription;
+  const featuredMagImg  = data[0].field_cover.src;
+  const featuredMagDesc = data[0].termDescription;
 
   const classes = subsMagStyles()
 
@@ -41,11 +44,13 @@ export default function SubscribeMag(props){
       </div>
       <div className={clsx(classes.thumbContent)}>
         <AppIconHeader title={'recruiter magazine'}/>
-        <div className='float-left'><AppIcon iconPos={'0 -2454px'}/></div>
-        <h3>
-          <Link to='/'> SUBSCRIBE TO PRINT</Link>
-        </h3>
-        <div style={{marginTop:'25px'}}>{featuredMagDesc}</div>
+        <div className={clsx(classes.subLink)}>
+          <div className='float-left'><AppIcon iconPos={'0 -2454px'}/></div>
+          <h3 style={{marginTop:5}}>
+            <Link to='/'> SUBSCRIBE TO PRINT</Link>
+          </h3>
+        </div>
+        <div>{featuredMagDesc}</div>
       </div>
      </div>
   )
