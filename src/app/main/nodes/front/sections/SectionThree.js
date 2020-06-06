@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/styles';
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
 
 import withReducer from 'app/store/withReducer';
 import {reducer} from './store/reducers';
@@ -74,7 +75,11 @@ const SectionThree = ()=>{
 
         <div className={clsx(classes.sectionThreeCol, "second-col")}>
           <AppIconHeader title="recruiter twitter" />
-          <AppLatestJobs />
+          <TwitterTimelineEmbed
+           sourceType="profile"
+           screenName="RecruiterMag"
+           options={{height: 400}}
+          />
         </div>
       </div>
   )

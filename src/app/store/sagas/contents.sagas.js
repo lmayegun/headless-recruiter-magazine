@@ -53,7 +53,7 @@ function* getHomeFeaturedMagazine(){
 
 function* getHomeArticleMostPopular(){
   try{
-    const request = yield axios.get( baseUrl + '/home-news-top-three').then((response) => {
+    const request = yield axios.get( baseUrl + '/home-article-most-popular').then((response) => {
         return response.data
       }
     );

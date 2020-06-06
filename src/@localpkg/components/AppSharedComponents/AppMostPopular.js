@@ -30,8 +30,9 @@ function AppMostPopular( props ){
         '& .numbered' : {
           fontSize: '4em',
           marginRight: '20px',
+          marginTop:'10px',
           float: 'left',
-          fontWeight: 800,
+          fontFamily: 'Kommissar Cond Web,Helvetica,Arial,sans-serif',
         },
         '& .colored1':{
           color: '#3fac49',
@@ -52,7 +53,6 @@ function AppMostPopular( props ){
           color: '#929497',
         },
         '& .title':{
-          marginTop: '20px',
           marginLeft: '50px',
           marginRight: '50px',
           minHeight: '65px',
@@ -75,13 +75,14 @@ function AppMostPopular( props ){
   return (
     <div>
       <ul className={clsx(classes.ul)}>
-      { props.content && (
+      { props.content &&
+        (
           props.content.map((key, index)=>{
             return(
               <React.Fragment key={index}>
                 <li className={clsx(classes.li, props.liClasses)}>
                   <div className={`numbered colored${index+1}`}>{index+1}</div>
-                  <div className="title"><h2 onClick={ event => handleClick(key)}>{key.title}</h2></div>
+                  <div className="title"><h4 onClick={ event => handleClick(key)}>{key.title}</h4></div>
                 </li>
               </React.Fragment>
             )
