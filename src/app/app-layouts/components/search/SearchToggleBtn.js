@@ -162,14 +162,15 @@ const useStyles = makeStyles(theme => ({
     },
     searchIcon : {
       position: "absolute",
-      top: "34px",
+      top: "10px",
       background: "white",
-      right:"200px",
+      right:"45px",
       height: "45px",
       transition: "all 3s ease-out 3s",
       borderRadius: "25px",
       padding: "0px 22px",
       marginRight: "20px",
+      width: '300px',
     }
 }));
 

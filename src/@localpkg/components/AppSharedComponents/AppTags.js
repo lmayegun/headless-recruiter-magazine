@@ -4,17 +4,18 @@ import clsx from 'clsx';
 
 export function AppTags( props ){
 
-  const useStyles = makeStyles( theme =>({
+  const useStyles = makeStyles( theme =>
+    ({
       tag: {
         color     : 'red !important',
         textTransform: 'uppercase',
         fontSize: '11px',
-        marginBottom: '20px',
         fontWeight: '800'
       },
       tagsWrapper:{
         float: 'left',
         marginRight: '10px',
+        marginBottom: '15px',
       }
     })
   )
@@ -25,12 +26,10 @@ export function AppTags( props ){
     <div className={clsx(classes.tagsWrapper)}>
       { tags.map(function(key, index){
         if (tags.length === index + 1) {
-          // last one
           return (
             <a href="/" key={index} className={clsx(classes.tag)}> {key} </a>
           )
         } else {
-          // not last one
           return (
             <a href="/" key={index} className={clsx(classes.tag)}> {key} , </a>
           )
@@ -41,6 +40,4 @@ export function AppTags( props ){
   )
 }
 
-AppTags.defaultProps = {
-  tags :""
-}
+AppTags.defaultProps = {}

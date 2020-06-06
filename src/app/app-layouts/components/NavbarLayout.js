@@ -31,6 +31,7 @@ const useStyles = makeStyles( theme =>{
     secondaryNavsWrapper:{
       flexGrow: 1,
       display: 'flex',
+      position: 'relative',
       height: 65,
       alignItems: 'center',
     },

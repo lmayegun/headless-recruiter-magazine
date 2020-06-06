@@ -27,7 +27,7 @@ const useStyles = makeStyles( theme => ({
    section: {
      minHeight: 600,
      marginBottom: 20,
-     marginTop: 80,
+     marginTop: 20,
      '&.big-story':{
        [theme.breakpoints.up('lg')]:{
          flex:3.5,
@@ -53,9 +53,6 @@ const useStyles = makeStyles( theme => ({
      },
      [theme.breakpoints.up('md')]: {
 
-     },
-     [theme.breakpoints.up('lg')]: {
-       marginTop: 40,
      }
    },
  })
