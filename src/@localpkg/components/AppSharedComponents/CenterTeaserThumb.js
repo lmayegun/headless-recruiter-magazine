@@ -38,8 +38,10 @@ function CenterTeaserThumb({content, type}){
       title:{
         color: '#4d4d4f !important',
         marginTop: '20px',
-        marginBottom: '20px',
-        fontWeight: '900',
+        marginBottom: '15px',
+        fontWeight: 'bold',
+        fontSize: '1.45rem',
+        fontFamily: 'Euclid Flex,Helvetica,Arial,sans-serif',
         cursor: 'pointer',
         line: '1.4',
       },
@@ -53,7 +55,7 @@ function CenterTeaserThumb({content, type}){
         padding: 10
       },
       typeText:{
-        fontWeight: 'bold',
+
       },
       postOn:{
         color: '#000 !important',
@@ -122,12 +124,13 @@ function CenterTeaserThumb({content, type}){
             <Link to={ link() } >
               <img className={clsx(classes.image)} src={content.image.src} title={content.imageTitle} alt="center teaser"/>
             </Link>
+
             <div className={clsx(classes.type)}>
-                <Typography
-                  variant='h6'
-                  className={clsx(classes.typeText, 'text-black')}>
-                  {content.contentType}
-                </Typography>
+              <Typography
+                variant='h6'
+                className={clsx(classes.typeText)}>
+                {content.contentType}
+              </Typography>
             </div>
           </div>
 
@@ -135,7 +138,7 @@ function CenterTeaserThumb({content, type}){
             <Link to={ link() } >
               <div className={clsx(classes.title)}>
                 <Typography
-                  variant={'h6'}
+                  variant={'h3'}
                   className={clsx(classes.title)}
                   >
                   {content.title}

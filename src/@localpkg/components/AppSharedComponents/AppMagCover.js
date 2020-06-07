@@ -50,11 +50,11 @@ function AppMagCover( {magazine, longTitleLength} ){
         <div className={clsx(classes.title)}>
           {longTitleLength ? (
             <Link to={link()}>
-              <Typography variant='h6' className={clsx(classes.longTitleLength)}>{magazine.name}</Typography>
+              <Typography variant='h3' className={clsx(classes.longTitleLength)}>{magazine.name}</Typography>
             </Link>
           ): (
             <Link to={link()}>
-              <Typography variant='h6' className={clsx(classes.link)}>{magazine.name}</Typography>
+              <Typography variant='h3' className={clsx(classes.link)}>{magazine.name}</Typography>
             </Link>
           )}
         </div>

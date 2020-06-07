@@ -5,7 +5,7 @@ export const defaultMuiTheme = ()=>{
   return createMuiTheme({
     palette: {
       primary: grey,
-      secondary: green,
+      secondary: grey,
     },
     typography:{
       fontFamily: ['Euclid Flex','Roboto','"Helvetica"','Arial','sans-serif'].join(','),

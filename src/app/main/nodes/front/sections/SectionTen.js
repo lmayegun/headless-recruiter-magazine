@@ -70,18 +70,9 @@ const SectionTen = ()=>{
     setLighterSideData(lighterSideTopThree);
   },[opinionTopThree, indepthTopThree, lighterSideTopThree])
 
-  if( !opinionData ){
-    return null
+  if( !opinionData || !indepthData || !lighterSideData){
+    return <h1> Loading... </h1>
   }
-
-  if( !indepthData ){
-    return null
-  }
-
-  if( !lighterSideData ){
-    return null
-  }
-
   return(
       <div className={clsx(classes.container)}>
         <div className={clsx(classes.sectionTenCol, "first-col")}>

@@ -2,7 +2,7 @@ import React from 'react';
 import {makeStyles} from '@material-ui/styles';
 import clsx from 'clsx';
 
-export function AppTags( props ){
+export function AppTags({tags}){
 
   const useStyles = makeStyles( theme =>
     ({
@@ -19,13 +19,20 @@ export function AppTags( props ){
       }
     })
   )
-  const tags = props.tags.split(",").slice(0,3);
+
   const classes = useStyles()
+
+
+  if(!tags){
+    return <h6> no tags </h6>
+  }
+
+  const tag = tags.split(",").slice(0,3);
 
   return(
     <div className={clsx(classes.tagsWrapper)}>
-      { tags.map(function(key, index){
-        if (tags.length === index + 1) {
+      { tag.map(function(key, index){
+        if (tag.length === index + 1) {
           return (
             <a href="/" key={index} className={clsx(classes.tag)}> {key} </a>
           )

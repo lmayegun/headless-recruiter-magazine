@@ -22,7 +22,7 @@ const useStyles = makeStyles( theme => ({
        flexDirection: 'row',
      }
    },
-   sectionThreeCol: {
+   section: {
      minHeight: 500,
      width: '100%',
      '&.first-col':{
@@ -63,17 +63,17 @@ const SectionThree = ()=>{
   },[articleMostPopular])
 
   if(!mostPopularData){
-    return null;
+    return <h1> Loading... </h1>;
   }
 
   return(
       <div className={clsx(classes.container)}>
-        <div className={clsx(classes.sectionThreeCol, "first-col")}>
+        <div className={clsx(classes.section, "first-col")}>
           <AppIconHeader title="most popular" />
           <AppMostPopular content={mostPopularData} />
         </div>
 
-        <div className={clsx(classes.sectionThreeCol, "second-col")}>
+        <div className={clsx(classes.section, "second-col")}>
           <AppIconHeader title="recruiter twitter" />
           <TwitterTimelineEmbed
            sourceType="profile"

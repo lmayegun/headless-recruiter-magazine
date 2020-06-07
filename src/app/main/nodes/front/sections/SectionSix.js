@@ -56,7 +56,7 @@ const useStyle = makeStyles( theme => ({
        flexDirection: 'row',
      }
    },
-   sectionCol: {
+   section: {
      minHeight: 100,
      width: '100%',
      '&.first-col':{
@@ -68,7 +68,6 @@ const useStyle = makeStyles( theme => ({
      },
      [theme.breakpoints.up('lg')]: {
 
-       // padding: '40px 100px 40px 100px',
      }
    },
  })
@@ -97,7 +96,7 @@ const SectionSix = ()=>{
 
   return(
       <div className={clsx(classes.container)}>
-        <div className={clsx(classes.sectionCol, "first-col")}>
+        <div className={clsx(classes.section, "first-col")}>
         {supplementsData.length > 0 && (
           <AppCarousel
             slideData={supplementsData}

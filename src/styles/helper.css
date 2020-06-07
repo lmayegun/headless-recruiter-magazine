@@ -26,3 +26,9 @@ a{
   position: fixed;
   width: 100%;
 }
+:focus{
+  outline:none;
+}
+button{
+  -webkit-appearance: media-slider;
+}

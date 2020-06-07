@@ -64,7 +64,7 @@ const SectionEight = ()=>{
   },[articleProfiles])
 
   if( !articleProfilesData ){
-    return null
+    return <h1> Loading... </h1>
   }
   return(
     <div>
@@ -73,12 +73,12 @@ const SectionEight = ()=>{
         <div className={clsx(classes.sectionEightCol, "first-col")}>
             {articleProfilesData.map((key, index)=>{
               return(
-                <div className="lg:w-1/3 lg:pl-24" key={index}>
+                <div style={{flex:1}} key={index}>
                   <CenterTeaserThumb content={key} />
                 </div>
               )
             })}
-            <div className="lg:w-1/3">
+            <div style={{flex:1}} >
               <ThreeByTwoAd width={'75%'}/>
             </div>
         </div>

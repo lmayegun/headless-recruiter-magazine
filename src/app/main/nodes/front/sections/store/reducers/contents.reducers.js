@@ -29,40 +29,34 @@ const contentReducers = function (state = initialState, action){
         articleMostPopularState : action.payload
       };
     }
-    case Actions.ARTICLE_SPONSORED:{
+    case 'HOME_ARTICLE_SPONSORED_SUCCESS':{
       return {
         ...state,
-        articleSponsoredState : action.articleSponsoredData
+        articleSponsoredState : action.payload
       };
     }
-    case Actions.A_CONTENT:{
-      return{
-        ...state,
-        anArticleState: action.articleData
-      }
-    }
-    case Actions.ARTICLE_PROFILES:{
+    case 'HOME_ARTICLE_POFILES_SUCCESS':{
       return {
         ...state,
-        articleProfilesState : action.articleProfilesData,
+        articleProfilesState : action.payload,
       };
     }
-    case Actions.OPINION_TOP_THREE:{
+    case 'HOME_OPINION_RECENT_SUCCESS':{
       return {
         ...state,
-        opinionTopThreeState : action.opinionTopThreeData,
+        opinionTopThreeState : action.payload,
       };
     }
-    case Actions.INDEPTH_TOP_THREE:{
+    case 'HOME_INDEPTH_RECENT_SUCCESS':{
       return {
         ...state,
-        indepthTopThreeState : action.indepthTopThreeData,
+        indepthTopThreeState : action.payload,
       };
     }
-    case Actions.LIGHTERSIDE_TOP_THREE:{
+    case 'HOME_LIGHTERSIDE_RECENT_SUCCESS':{
       return {
         ...state,
-        lighterSideTopThreeState : action.lighterSideTopThreeData,
+        lighterSideTopThreeState : action.payload,
       };
     }
     case Actions.EVENTS_TOP_THREE:{
@@ -70,6 +64,12 @@ const contentReducers = function (state = initialState, action){
         ...state,
         eventsTopThreeState : action.eventsTopThreeData,
       };
+    }
+    case Actions.A_CONTENT:{
+      return{
+        ...state,
+        anArticleState: action.articleData
+      }
     }
     default:
     {

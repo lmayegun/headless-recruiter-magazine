@@ -28,6 +28,7 @@ class News extends React.Component {
       speed: 500,
       slidesToShow: this.props.slidesToShow,
       slidesToScroll: 4,
+      arrows: false,
       responsive: [
         {
           breakpoint: 1024,
@@ -67,10 +68,10 @@ class News extends React.Component {
         <div>
             <div className={"subTitlesWrapper"}>
               {this.props.sliderTitle === 'recruiter magazine'  && (
-                <React.Fragment>
-                  <h2 className={"text"}> SUBSCRIBE TO PRINT </h2>
-                  <h2 className={"text"}> VIEW PAST ISSUES </h2>
-                </React.Fragment>
+                <div style={{display:'flex'}}>
+                  <h3 className={"text"}> SUBSCRIBE TO PRINT </h3>
+                  <h3 className={"text"}> VIEW PAST ISSUES </h3>
+                </div>
               )}
             </div>
         </div>
@@ -111,7 +112,7 @@ class News extends React.Component {
 
         <div>
           <button className="navBtn prevBtn" onClick={this.previous}>
-              <Icon>arrow_back_ios</Icon>
+            <Icon>arrow_back_ios</Icon>
           </button>
           <button className="navBtn nextBtn" onClick={this.next}>
             <Icon>arrow_forward_ios</Icon>

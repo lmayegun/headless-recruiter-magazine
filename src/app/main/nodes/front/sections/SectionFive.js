@@ -26,6 +26,8 @@ const useStyle = makeStyles( theme => ({
        justifyContent: 'center',
        '& .text':{
          margin: '20px',
+         color: '#f37920',
+         font: '1.6em Euclid Flex,Helvetica,Arial,sans-serif',
        }
      },
      '& .navBtn':{
@@ -57,7 +59,7 @@ const useStyle = makeStyles( theme => ({
        flexDirection: 'row',
      }
    },
-   sectionCol: {
+   section: {
      minHeight: 100,
      width: '100%',
      '&.first-col':{
@@ -69,7 +71,6 @@ const useStyle = makeStyles( theme => ({
      },
      [theme.breakpoints.up('lg')]: {
 
-       // padding: '40px 100px 40px 100px',
      }
    },
  })
@@ -98,7 +99,7 @@ const SectionFive = ()=>{
 
   return(
     <div className={clsx(classes.container)}>
-      <div className={clsx(classes.sectionCol, "first-col")}>
+      <div className={clsx(classes.section, "first-col")}>
       {magazineCarouselData.length > 0 && (
         <AppCarousel
           slideData={magazineCarouselData}

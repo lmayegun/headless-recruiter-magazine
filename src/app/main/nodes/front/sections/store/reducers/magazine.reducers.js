@@ -10,10 +10,10 @@ const magazineReducers = function (state = initialState, action){
         featuredMagazineState: action.payload
       }
     }
-    case Actions.MAGAZINE_ISSUES_CAROUSEL:{
+    case 'MAGAZINE_ISSUE_SUCCESS':{
       return{
         ...state,
-        magazineCarouselState: action.magazineCarouselData
+        magazineCarouselState: action.payload
       }
     }
     default:{
