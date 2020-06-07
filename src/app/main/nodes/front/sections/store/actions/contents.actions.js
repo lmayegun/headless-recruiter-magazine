@@ -9,7 +9,7 @@ export const HOME_ARTICLE_PROFILES = '[HOME] ARTICLE_PROFILES';
 export const HOME_OPINION_RECENT = '[HOME] OPINION_RECENT';
 export const HOME_INDEPTH_RECENT = '[HOME] INDEPTH_RECENT';
 export const HOME_LIGHTERSIDE_RECENT = '[HOME] LIGHTER_RECENT';
-export const EVENTS_TOP_THREE = '[HOME] EVENTS_TOP_THREE';
+export const HOME_EVENTS_RECENT = '[HOME] EVENTS_RECENT';
 export const A_CONTENT = '[GET A CONTENT] BY ID';
 
 const baseUrl = true ? 'http://recruiter.dd:8083' : 'https://recruiter.tsample.co.uk';
@@ -52,12 +52,5 @@ export function getLighterSideTopThree(){
 }
 
 export function getEventsTopThree(){
-  const request = axios.get(baseUrl + '/event-top-three-json');
-  return (dispatch) =>
-    request.then(function(response){
-      dispatch({
-        type   :  EVENTS_TOP_THREE,
-        eventsTopThreeData: response.data
-      })
-    });
+  return {type : HOME_EVENTS_RECENT};
 }

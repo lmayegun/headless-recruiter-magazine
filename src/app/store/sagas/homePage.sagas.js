@@ -123,6 +123,18 @@ function* getHomeLighterRecent(){
   }
 }
 
+function* getHomeEventsRecent(){
+  try{
+    const request = yield axios.get( baseUrl + '/home-article-most-recent').then((response) => {
+        return response.data
+      }
+    );
+    yield put({ type: 'HOME_EVENTS_RECENT_SUCCESS', payload:request });
+  } catch (error){
+    yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });
+  }
+}
+
 export const homePageSagas = [
   takeLatest('[HOME] NEWS_TOP_THREE]', getHomeNewsTopThree),
   takeLatest('[HOME] FEATURED_ARTICLE', getHomeFeaturedContent),
@@ -134,4 +146,5 @@ export const homePageSagas = [
   takeLatest('[HOME] OPINION_RECENT', getHomeOpinionRecent),
   takeLatest('[HOME] INDEPTH_RECENT', getHomeIndepthRecent),
   takeLatest('[HOME] LIGHTER_RECENT', getHomeLighterRecent),
+  takeLatest('[HOME] EVENTS_RECENT', getHomeEventsRecent)
 ]

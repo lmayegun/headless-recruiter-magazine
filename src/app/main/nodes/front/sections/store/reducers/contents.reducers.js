@@ -59,10 +59,10 @@ const contentReducers = function (state = initialState, action){
         lighterSideTopThreeState : action.payload,
       };
     }
-    case Actions.EVENTS_TOP_THREE:{
+    case 'HOME_EVENTS_RECENT_SUCCESS':{
       return {
         ...state,
-        eventsTopThreeState : action.eventsTopThreeData,
+        eventsTopThreeState : action.payload,
       };
     }
     case Actions.A_CONTENT:{
