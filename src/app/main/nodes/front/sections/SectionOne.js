@@ -61,9 +61,9 @@ const useStyles = makeStyles( theme => ({
 const SectionOne = ()=>{
   const dispatch = useDispatch();
 
-  const newsTopThree = useSelector( ({data}) => data.contents.newsTopRecentState );
-  const featuredArticle = useSelector( ({data}) => data.contents.featuredArticleState );
-  const articleMostRecent = useSelector( ({data}) => data.contents.articleMostRecentState );
+  const newsTopThree = useSelector( ({data}) => data.home.newsTopRecentState );
+  const featuredArticle = useSelector( ({data}) => data.home.featuredArticleState );
+  const articleMostRecent = useSelector( ({data}) => data.home.articleMostRecentState );
   const featuredMagazine = useSelector( ({data}) => data.magazine.featuredMagazineState );
 
   const [newsData, setNewsData] = useState(newsTopThree);

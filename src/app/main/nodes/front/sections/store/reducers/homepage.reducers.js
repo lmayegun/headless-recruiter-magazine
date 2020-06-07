@@ -2,7 +2,7 @@ import * as Actions from '../actions';
 
 const initialState = {}
 
-const contentReducers = function (state = initialState, action){
+const homepageReducers = function (state = initialState, action){
 
   switch (action.type) {
     case 'HOME_FEATURED_ARTICLE_NEWS_SUCCESS':{
@@ -78,4 +78,4 @@ const contentReducers = function (state = initialState, action){
   }
 }
 
-export default contentReducers;
+export default homepageReducers;

@@ -47,7 +47,7 @@ const useStyles = makeStyles( theme => ({
 const SectionTwelve = ()=> {
   const dispatch = useDispatch();
 
-  const eventsTopThree = useSelector( ({data}) => data.contents.eventsTopThreeState );
+  const eventsTopThree = useSelector( ({data}) => data.home.eventsTopThreeState );
   const [eventsData, setEventsData] = useState(eventsTopThree);
 
   useEffect(()=>{

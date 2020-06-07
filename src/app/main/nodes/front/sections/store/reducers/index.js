@@ -1,13 +1,13 @@
 import {combineReducers} from 'redux';
-import contents from './contents.reducers';
+import home from './homepage.reducers';
 import content from './content.reducers';
 import news from './news.reducers';
 import taxonomy from './taxonomy.reducers';
 import magazine from './magazine.reducers';
 
 const reducer = combineReducers({
-  content, 
-  contents,
+  content,
+  home,
   taxonomy,
   magazine
 })

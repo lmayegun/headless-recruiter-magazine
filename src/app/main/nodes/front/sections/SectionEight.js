@@ -51,7 +51,7 @@ const SectionEight = ()=>{
   const classes = useStyle();
 
   const dispatch = useDispatch();
-  const articleProfiles = useSelector( ({data}) => data.contents.articleProfilesState );
+  const articleProfiles = useSelector( ({data}) => data.home.articleProfilesState );
 
   const [articleProfilesData, setArticleProfilesData] = useState(articleProfiles);
 

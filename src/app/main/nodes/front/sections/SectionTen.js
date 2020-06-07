@@ -50,9 +50,9 @@ const SectionTen = ()=>{
   const classes = useStyles();
 
   const dispatch = useDispatch();
-  const opinionTopThree = useSelector( ({data}) => data.contents.opinionTopThreeState );
-  const indepthTopThree = useSelector( ({data}) => data.contents.indepthTopThreeState );
-  const lighterSideTopThree = useSelector( ({data}) => data.contents.lighterSideTopThreeState );
+  const opinionTopThree = useSelector( ({data}) => data.home.opinionTopThreeState );
+  const indepthTopThree = useSelector( ({data}) => data.home.indepthTopThreeState );
+  const lighterSideTopThree = useSelector( ({data}) => data.home.lighterSideTopThreeState );
 
   const [opinionData, setOpinionData] = useState(opinionTopThree);
   const [indepthData, setIndepthData] = useState(indepthTopThree);

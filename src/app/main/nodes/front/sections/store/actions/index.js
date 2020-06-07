@@ -1,4 +1,4 @@
-export * from './contents.actions'
+export * from './homepage.actions'
 export * from './news.actions'
 export * from './taxonomy.actions'
 export * from './magazine.actions'

@@ -50,7 +50,7 @@ const SectionThree = ()=>{
   const classes = useStyles();
 
   const dispatch = useDispatch();
-  const articleMostPopular = useSelector( ({data}) => data.contents.articleMostPopularState );
+  const articleMostPopular = useSelector( ({data}) => data.home.articleMostPopularState );
 
   const [mostPopularData, setMostPopularData] = useState(articleMostPopular);
 

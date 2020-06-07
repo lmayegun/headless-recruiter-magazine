@@ -83,7 +83,7 @@ const SectionFour = ()=>{
   const classes = useStyle();
 
   const dispatch = useDispatch();
-  const articleSponsored = useSelector( ({data}) => data.contents.articleSponsoredState );
+  const articleSponsored = useSelector( ({data}) => data.home.articleSponsoredState );
 
   const [newsData, setNewsData] = useState(articleSponsored);
 
