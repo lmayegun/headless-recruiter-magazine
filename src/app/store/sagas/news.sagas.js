@@ -8,7 +8,7 @@ const newsApiKey = '&apiKey=5caeb841f9df4be58fee5b88328a073d';
 
 function* getNewsTerms(){
   try{
-    const request = yield axios.get( baseUrl + '/terms-list-by-vocabulary/6').then((response) => {
+    const request = yield axios.get( '/api/terms/news').then((response) => {
         return response.data
       }
     );

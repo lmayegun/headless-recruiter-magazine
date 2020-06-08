@@ -1,4 +1,4 @@
 import mock from './mock';
-import './db/contents-db';
+import './db/taxonomy-db';
 
 mock.onAny().passThrough();

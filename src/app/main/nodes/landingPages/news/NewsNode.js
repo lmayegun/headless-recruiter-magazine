@@ -279,7 +279,7 @@ function NewsNode( props ){
    },[content])
 
    if(!article){
-     return null
+     return <h1> Loading... </h1>
    }
 
   return(

@@ -73,15 +73,15 @@ function News(){
 
   const classes = useStyles();
 
-  if(!termTopThreeData || !termTopSixData ){
+  if(!termTopThreeData || !termTopSixData || !newsTermsData ){
     return <h1> Loading... </h1>
   }
 
   return(
     <div>
-      {/*newsTermsData.length > 0 && (
+      {newsTermsData.length > 0 && (
         <AppSubNav terms={newsTermsData} />
-      )*/}
+      )}
       <FusePageSimple
         featuredContents={
           <div>
@@ -116,24 +116,15 @@ function News(){
 
         rightSidebarContent={
           <div>
-            <ThreeByTwoAd />
-            <br />
-            <ThreeByTwoAd />
-            <br />
-            <ThreeByTwoAd />
-            <br />
             <AppIconHeader title="most popular"/>
             <AppMostPopular liClasses={'width-full'}/>
             <br />
             <ThreeByTwoAd />
             <br />
-            <AppIconHeader title="latest jobs"/>
-            <AppLatestJobs />
-            <br />
-            <br />
-            <br />
             <AppIconHeader title="featured recruiters"/>
             <AppFeaturedRecruiters />
+            <br />
+            <ThreeByTwoAd />
           </div>
         }
       />

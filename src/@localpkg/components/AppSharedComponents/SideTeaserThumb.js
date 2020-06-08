@@ -36,6 +36,8 @@ function SideTeaserThumb( {content, minHeight} ){
           }
       },
       thumbContent:{
+        display: 'flex',
+        flexDirection: 'column',
         width: '65%',
         paddingLeft: 20,
       },
@@ -57,7 +59,7 @@ function SideTeaserThumb( {content, minHeight} ){
 
   function link(){
     const contentType = content.contentType ? content.contentType.toLowerCase() : 'none';
-    const title = content.title ? content.title.replace(/\s|\?+/g, '-').toLowerCase() : 'noTitle';
+    const title = content.title ? content.title.replace(/\s|\?|\%+/g, '-').toLowerCase() : 'noTitle';
     const id = content.id ? content.id : '50344';
     return(
       '/article/'+ contentType +'/'+  title +'/'+ id
@@ -82,9 +84,9 @@ function SideTeaserThumb( {content, minHeight} ){
         </Link>
         <div className={clsx(classes.summary)} dangerouslySetInnerHTML={{__html: content.description }} />
         <div>
-          <AppTags tags={content.tags} />
-          <span className={clsx(classes.postOn)}> {content.publishedAt}</span>
+          <AppTags tags={content.source} />
         </div>
+        <span className={clsx(classes.postOn)}> {content.publishedAt}</span>
       </div>
      </div>
   )

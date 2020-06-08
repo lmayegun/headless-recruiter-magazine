@@ -1,5 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/styles';
+import {withRouter, Link} from 'react-router-dom';
 import clsx from 'clsx';
 
 export function AppTags({tags}){
@@ -9,8 +10,6 @@ export function AppTags({tags}){
       tag: {
         color     : 'red !important',
         textTransform: 'uppercase',
-        fontSize: '11px',
-        fontWeight: '800'
       },
       tagsWrapper:{
         float: 'left',
@@ -24,24 +23,20 @@ export function AppTags({tags}){
 
 
   if(!tags){
-    return <h6> no tags </h6>
+    return null
   }
-
-  const tag = tags.split(",").slice(0,3);
 
   return(
     <div className={clsx(classes.tagsWrapper)}>
-      { tag.map(function(key, index){
-        if (tag.length === index + 1) {
-          return (
-            <a href="/" key={index} className={clsx(classes.tag)}> {key} </a>
-          )
-        } else {
-          return (
-            <a href="/" key={index} className={clsx(classes.tag)}> {key} , </a>
-          )
-        }
-        })
+      {tags.id != null &&
+        <Link to="" className={clsx(classes.tag)}>
+          {tags.name}
+        </Link>
+      }
+      {tags.id === null &&
+        <>
+          {tags.name}
+        </>
       }
     </div>
   )
