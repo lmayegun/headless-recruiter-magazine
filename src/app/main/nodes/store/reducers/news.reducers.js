@@ -5,10 +5,22 @@ const initialState = {}
 const newsReducers = function (state = initialState, action){
 
   switch (action.type) {
-    case Actions.SCROLL_Y_END:{
+    case 'NEWS_TERMS_SUCCESS':{
       return{
         ...state,
-        frontLoadMoreState: action.frontScrollYEnd
+        newsTermsState: action.payload
+      }
+    }
+    case 'NEWS_TOP_THREE_SUCCESS':{
+      return{
+        ...state,
+        newsTopThreeState: action.payload
+      }
+    }
+    case 'NEWS_TOP_SIX_SUCCESS':{
+      return{
+        ...state,
+        newsTopSixState: action.payload
       }
     }
     default:

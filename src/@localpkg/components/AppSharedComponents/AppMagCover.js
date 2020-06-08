@@ -42,7 +42,7 @@ function AppMagCover( {magazine, longTitleLength} ){
     )
   }
 
-  const img = magazine.field_cover ? magazine.field_cover.src : magazine.cover;
+  const img = magazine.field_cover ? magazine.field_cover.src : 'https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec_junjul20_linkedversion.jpg?itok=us_k97eC';
 
   return(
     <div>

@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme=>({
   })
 )
 
-function AppSubNav( props ){
+function AppSubNav( {terms} ){
 
   const classes = useStyles()
 
@@ -37,10 +37,13 @@ function AppSubNav( props ){
       <div className={clsx(classes.container)}>
       <ul className={clsx(classes.ul)}>
         {
-          props.terms.map((term, index)=>{
-
+          terms.map((term, index)=>{
             return(
-              <li className={clsx(classes.li)} key={term.id}><Link to={"/" + term.vocabularyName.toLowerCase() + "/" + term.name.toLowerCase() + "/" + term.id }> {term.name}</Link> </li>
+              <li className={clsx(classes.li)} key={term.id}>
+                <Link to={"/" + term.vocabularyName.toLowerCase() + "/" + term.name.toLowerCase() + "/" + term.id }>
+                  {term.name}
+                </Link>
+              </li>
             )
           })
         }

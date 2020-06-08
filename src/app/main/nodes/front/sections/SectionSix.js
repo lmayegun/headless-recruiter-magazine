@@ -78,7 +78,7 @@ const SectionSix = ()=>{
   const classes = useStyle();
 
   const dispatch = useDispatch();
-  const supplements = useSelector( ({data}) => data.taxonomy.supplementsState  );
+  const supplements = useSelector( ({data}) => data.home.supplementsState  );
 
   const [supplementsData, setSupplementsData] = useState(supplements);
 
@@ -97,9 +97,9 @@ const SectionSix = ()=>{
   return(
       <div className={clsx(classes.container)}>
         <div className={clsx(classes.section, "first-col")}>
-        {supplementsData.length > 0 && (
+        {supplementsData.articles.length > 0 && (
           <AppCarousel
-            slideData={supplementsData}
+            slideData={supplementsData.articles}
             slidesToShow={4}
             classes={classes}
             type={"cover"}

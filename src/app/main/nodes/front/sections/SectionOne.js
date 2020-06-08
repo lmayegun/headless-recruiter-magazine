@@ -64,7 +64,7 @@ const SectionOne = ()=>{
   const newsTopThree = useSelector( ({data}) => data.home.newsTopRecentState );
   const featuredArticle = useSelector( ({data}) => data.home.featuredArticleState );
   const articleMostRecent = useSelector( ({data}) => data.home.articleMostRecentState );
-  const featuredMagazine = useSelector( ({data}) => data.magazine.featuredMagazineState );
+  const featuredMagazine = useSelector( ({data}) => data.home.featuredMagazineState );
 
   const [newsData, setNewsData] = useState(newsTopThree);
   const [featuredArticleData, setFeaturedData] = useState(featuredArticle);
@@ -93,7 +93,7 @@ const SectionOne = ()=>{
     <div className={clsx(classes.container)}>
       <div className={clsx(classes.section, "big-story")}>
         {
-          featuredArticleData.map(function(key, index){
+          featuredArticleData.articles.map(function(key, index){
             return (
               <CenterTeaserThumb content={key} type={"featured"}  key={key}/>
             )
@@ -105,7 +105,7 @@ const SectionOne = ()=>{
         </Hidden>
 
         <Hidden mdDown>
-          <SubscribeMag data={featuredMagazine}/>
+          <SubscribeMag data={featuredMagazine.articles}/>
         </Hidden>
 
         <Hidden mdDown>
@@ -116,7 +116,7 @@ const SectionOne = ()=>{
       <div className={clsx(classes.section, "news-col")}>
         <AppIconHeader />
         {
-          newsData.map(function(key, index){
+          newsData.articles.map(function(key, index){
             return (
               <SideTeaserThumb content={key} key={index}/>
             )
@@ -127,7 +127,7 @@ const SectionOne = ()=>{
       <div className={clsx(classes.section, "knowledge-col")}>
         <AppIconHeader title={'knowledge'} />
         {
-          knowledgeData.map(function(key, index){
+          knowledgeData.articles.map(function(key, index){
             return (
               <CenterTeaserThumb content={key} type={"normal"}  key={index}/>
             )

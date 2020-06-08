@@ -65,6 +65,24 @@ const homepageReducers = function (state = initialState, action){
         eventsTopThreeState : action.payload,
       };
     }
+    case 'HOME_SUPPLEMENTS_SUCCESS':{
+      return {
+        ...state,
+        supplementsState : action.payload,
+      };
+    }
+    case 'HOME_MAGAZINE_ISSUE_SUCCESS':{
+      return {
+        ...state,
+        magazinesIssueState : action.payload,
+      };
+    }
+    case 'HOME_FEATURED_MAGAZINE_SUCCESS':{
+      return {
+        ...state,
+        featuredMagazineState : action.payload,
+      };
+    }
     case Actions.A_CONTENT:{
       return{
         ...state,

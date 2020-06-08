@@ -70,7 +70,7 @@ const SectionThree = ()=>{
       <div className={clsx(classes.container)}>
         <div className={clsx(classes.section, "first-col")}>
           <AppIconHeader title="most popular" />
-          <AppMostPopular content={mostPopularData} />
+          <AppMostPopular content={mostPopularData.articles} />
         </div>
 
         <div className={clsx(classes.section, "second-col")}>

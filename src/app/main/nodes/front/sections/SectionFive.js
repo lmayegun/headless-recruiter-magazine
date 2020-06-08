@@ -81,12 +81,12 @@ const SectionFive = ()=>{
   const classes = useStyle();
 
   const dispatch = useDispatch();
-  const magazineCarousel = useSelector( ({data}) => data.magazine.magazineCarouselState );
+  const magazineCarousel = useSelector( ({data}) => data.home.magazinesIssueState );
 
   const [magazineCarouselData, setMagazineCarouselData] = useState(magazineCarousel);
 
   useEffect(()=>{
-    dispatch(Actions.getMagazineIssueCarousel())
+    dispatch(Actions.getMagazineIssues())
   },[dispatch])
 
   useEffect(()=>{
@@ -100,9 +100,9 @@ const SectionFive = ()=>{
   return(
     <div className={clsx(classes.container)}>
       <div className={clsx(classes.section, "first-col")}>
-      {magazineCarouselData.length > 0 && (
+      {magazineCarouselData.articles.length > 0 && (
         <AppCarousel
-          slideData={magazineCarouselData}
+          slideData={magazineCarouselData.articles}
           slidesToShow={4}
           classes={classes}
           type={"cover"}

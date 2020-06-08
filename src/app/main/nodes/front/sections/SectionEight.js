@@ -14,34 +14,21 @@ const useStyle = makeStyles( theme => ({
        flexDirection: 'row',
      }
    },
-   sectionEightCol: {
+   section: {
      minHeight: 500,
      width: '100%',
      '&.first-col':{
-
        [theme.breakpoints.up('lg')]:{
          marginRight: 20,
          width: '100%',
          flexDirection: 'row',
-         display: 'flex'
+         display: 'flex',
+
+         '& .content':{
+           marginRight: 20
+         }
        }
      },
-     '&.second-col':{
-       [theme.breakpoints.up('lg')]:{
-         marginRight: 20,
-       }
-     },
-     '&.third-col':{
-       [theme.breakpoints.up('lg')]:{
-
-       }
-     },
-     [theme.breakpoints.up('md')]: {
-
-     },
-     [theme.breakpoints.up('lg')]: {
-
-     }
    },
  })
 );
@@ -70,11 +57,11 @@ const SectionEight = ()=>{
     <div>
       <div className={clsx(classes.container)}>
         <AppIconHeader title="profiles" />
-        <div className={clsx(classes.sectionEightCol, "first-col")}>
-            {articleProfilesData.map((key, index)=>{
+        <div className={clsx(classes.section, "first-col")}>
+            {articleProfilesData.articles.map((key, index)=>{
               return(
-                <div style={{flex:1}} key={index}>
-                  <CenterTeaserThumb content={key} />
+                <div className="content" style={{flex:1}} key={index}>
+                  <CenterTeaserThumb content={key} imgHeight="250px"/>
                 </div>
               )
             })}

@@ -71,19 +71,19 @@ function SideTeaserThumb( {content, minHeight} ){
             <AppPremIcon />
         )}
         <Link to={link()}>
-          <img className={clsx(classes.image)} src={content.image.src} title={content.imageTitle} alt="SideTeaserImg"/>
+          <img className={clsx(classes.image)} src={content.urlToImage} title={content.imageTitle} alt="SideTeaserImg"/>
         </Link>
       </div>
       <div className={clsx(classes.thumbContent)}>
         <Link to={link()}>
           <h3 className={clsx(classes.title)}>
-            {content.title}
+            {content.title.substring(0, 60) + '...'}
           </h3>
         </Link>
-        <div className={clsx(classes.summary)} dangerouslySetInnerHTML={{__html: content.summary }} />
+        <div className={clsx(classes.summary)} dangerouslySetInnerHTML={{__html: content.description }} />
         <div>
           <AppTags tags={content.tags} />
-          <span className={clsx(classes.postOn)}> {content.publishedOn}</span>
+          <span className={clsx(classes.postOn)}> {content.publishedAt}</span>
         </div>
       </div>
      </div>

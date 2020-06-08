@@ -20,40 +20,30 @@ import {useDispatch, useSelector} from 'react-redux';
 
 
 const useStyles = makeStyles( theme => ({
-   container: {
+   topThree: {
      display: 'flex',
      flexDirection: 'column',
+     justifyContent: 'space-between',
      marginBottom: 50,
+     marginLeft: -15,
      [theme.breakpoints.up('lg')]:{
        flexDirection: 'row',
      }
    },
-   sectionThreeCol: {
-     minHeight: 200,
-     width: '100%',
-     marginRight: 20,
-     '&.first-col':{
-       [theme.breakpoints.up('lg')]:{
-
+   topSix: {
+     display: 'flex',
+     flexDirection: 'column',
+     flexWrap: 'wrap',
+     justifyContent: 'space-between',
+     marginBottom: 50,
+     [theme.breakpoints.up('lg')]:{
+       flexDirection: 'row',
+       '& .item':{
+          width: '45%',
+          padding: '10px',
        }
-     },
-     '&.second-col':{
-       [theme.breakpoints.up('lg')]:{
-
-       }
-     },
-     '&.third-col':{
-       [theme.breakpoints.up('lg')]:{
-
-       }
-     },
-     [theme.breakpoints.up('md')]: {
-
-     },
-     [theme.breakpoints.up('lg')]: {
-
      }
-   },
+   }
  })
 );
 
@@ -61,9 +51,9 @@ function News(){
 
   const dispatch = useDispatch();
 
-  const newsTerms = useSelector( ({data}) => data.taxonomy.newsTermsState  );
-  const termTopThree = useSelector( ({data}) => data.taxonomy.termNewsTopThreeState  );
-  const termTopSix = useSelector( ({data}) => data.taxonomy.termNewsTopSixState  );
+  const newsTerms = useSelector( ({news}) => news.news.newsTermsState  );
+  const termTopThree = useSelector( ({news}) => news.news.newsTopThreeState  );
+  const termTopSix = useSelector( ({news}) => news.news.newsTopSixState  );
 
   const [newsTermsData, setNewsTermsData] = useState(newsTerms);
   const [termTopThreeData, setTermTopThreeData] = useState(termTopThree);
@@ -71,8 +61,8 @@ function News(){
 
   useEffect(()=>{
    dispatch(Actions.getNewsTerms())
-   dispatch(Actions.getTermTopThree('80'))
-   dispatch(Actions.getTermTopSix('80'))
+   dispatch(Actions.getNewsTopThree())
+   dispatch(Actions.getNewsTopSix())
   },[dispatch])
 
   useEffect (()=>{
@@ -83,33 +73,25 @@ function News(){
 
   const classes = useStyles();
 
-  if(!termTopThreeData){
-    return null
-  }
-
-  if(!termTopSixData){
-    return null
-  }
-
-  if(!newsTermsData){
-    return null
+  if(!termTopThreeData || !termTopSixData ){
+    return <h1> nothing </h1>
   }
 
   return(
     <div>
-      {newsTermsData.length > 0 && (
+      {/*newsTermsData.length > 0 && (
         <AppSubNav terms={newsTermsData} />
-      )}
+      )*/}
       <FusePageSimple
         featuredContents={
           <div>
             <AppIconHeader />
-            <div className={clsx(classes.container)}>
+            <div className={clsx(classes.topThree)}>
               {
-                termTopThreeData.map((key, index)=>{
+                termTopThreeData.articles.map((key, index)=>{
                   return(
-                    <div className="lg:w-1/2 sm:w-full pr-24" key={index}>
-                      <CenterTeaserThumb content={key}/>
+                    <div style={{flex:1, padding: 15}} key={index}>
+                      <CenterTeaserThumb content={key} imgHeight="250px"/>
                     </div>
                   )
                 })
@@ -119,12 +101,12 @@ function News(){
         }
 
         content={
-          <div className="flex flex-wrap" >
+          <div className={clsx(classes.topSix)}>
             {
-              termTopSixData.map((key, index)=>{
+              termTopSixData.articles.map((key, index)=>{
                 return(
-                  <div className="w-1/2 pr-24" key={index}>
-                    <SideTeaserThumb content={key}/>
+                  <div className="item" key={index}>
+                    <SideTeaserThumb content={key} minHeight="330px"/>
                   </div>
                 )
               })
@@ -159,4 +141,4 @@ function News(){
   )
 }
 
-export default withReducer('data', reducer)(News)
+export default withReducer('news', reducer)(News)

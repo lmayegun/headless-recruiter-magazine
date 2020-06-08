@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import {AppPremIcon} from './AppPremIcon';
 import {AppTags} from './AppTags';
 
-function CenterTeaserThumb({content, type}){
+function CenterTeaserThumb({content, type, imgHeight}){
 
   const centerThumbStyles = makeStyles(theme => ({
       root:{
@@ -66,7 +66,7 @@ function CenterTeaserThumb({content, type}){
 
   function link(){
     const contentType = content.contentType ? content.contentType.toLowerCase() : 'none';
-    const title = content.title ? content.title.replace(/\s|\?+/g, '-').toLowerCase() : 'noTitle';
+    const title = content.title ? content.title.replace(/\s|\?|\%+/g, '-').toLowerCase() : 'noTitle';
     const id = content.id ? content.id : '50344';
     return(
       '/article/'+ contentType +'/'+  title +'/'+ id
@@ -74,6 +74,7 @@ function CenterTeaserThumb({content, type}){
   }
 
   const classes = centerThumbStyles();
+  const category = content.source ? content.source.name : null
 
   return(
     <div className={clsx(classes.root)}>
@@ -85,7 +86,7 @@ function CenterTeaserThumb({content, type}){
             )}
 
             <Link to={ link() } >
-              <img className={clsx(classes.image)} src={content.image.src} title={content.imageTitle}  alt="center teaser"/>
+              <img className={clsx(classes.image)} src={content.urlToImage} title={content.imageTitle}  alt="center teaser"/>
             </Link>
 
             <div className={clsx(classes.type)}>
@@ -109,8 +110,8 @@ function CenterTeaserThumb({content, type}){
               </div>
             </Link>
 
-            <div dangerouslySetInnerHTML={{__html: content.summary}} />
-            <span className={clsx(classes.postOn)}> {content.publishedOn}</span>
+            <div dangerouslySetInnerHTML={{__html: content.description}} />
+            <span className={clsx(classes.postOn)}> {content.publishedAt}</span>
           </div>
         </React.Fragment>
       )}
@@ -122,14 +123,14 @@ function CenterTeaserThumb({content, type}){
             )}
 
             <Link to={ link() } >
-              <img className={clsx(classes.image)} src={content.image.src} title={content.imageTitle} alt="center teaser"/>
+              <img className={clsx(classes.image)} src={content.urlToImage} title={content.imageTitle} alt="center teaser" height={imgHeight}/>
             </Link>
 
             <div className={clsx(classes.type)}>
               <Typography
                 variant='h6'
                 className={clsx(classes.typeText)}>
-                {content.contentType}
+                {category}
               </Typography>
             </div>
           </div>
@@ -145,8 +146,8 @@ function CenterTeaserThumb({content, type}){
                 </Typography>
               </div>
             </Link>
-            <div dangerouslySetInnerHTML={{__html: content.summary}} />
-            <span className={clsx(classes.postOn)}> {content.publishedOn}</span>
+            <div dangerouslySetInnerHTML={{__html: content.description}} />
+            <span className={clsx(classes.postOn)}> {content.publishedAt}</span>
           </div>
         </React.Fragment>
       )}

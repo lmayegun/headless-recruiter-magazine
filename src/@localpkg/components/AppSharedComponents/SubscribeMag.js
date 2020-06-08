@@ -30,8 +30,8 @@ export default function SubscribeMag({data}){
     })
   )
 
-  const featuredMagImg  = data[0].field_cover.src;
-  const featuredMagDesc = data[0].termDescription;
+  const featuredMagImg  = 'https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec_junjul20_linkedversion.jpg?itok=us_k97eC';
+  const featuredMagDesc = data[0].description;
 
   const classes = subsMagStyles()
 

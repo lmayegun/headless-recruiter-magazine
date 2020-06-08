@@ -10,6 +10,9 @@ export const HOME_OPINION_RECENT = '[HOME] OPINION_RECENT';
 export const HOME_INDEPTH_RECENT = '[HOME] INDEPTH_RECENT';
 export const HOME_LIGHTERSIDE_RECENT = '[HOME] LIGHTER_RECENT';
 export const HOME_EVENTS_RECENT = '[HOME] EVENTS_RECENT';
+export const HOME_SUPPLEMENTS = '[HOME] SUPPLEMENTS';
+export const HOME_FEATURED_MAGAZINE   = '[HOME] FEATURED_MAGAZINE';
+export const HOME_MAGAZINE_ISSUES = '[HOME] MAGAZINE_ISSUES';
 export const A_CONTENT = '[GET A CONTENT] BY ID';
 
 const baseUrl = true ? 'http://recruiter.dd:8083' : 'https://recruiter.tsample.co.uk';
@@ -53,4 +56,16 @@ export function getLighterSideTopThree(){
 
 export function getEventsTopThree(){
   return {type : HOME_EVENTS_RECENT};
+}
+
+export function getSupplements(){
+  return {type : HOME_SUPPLEMENTS};
+}
+
+export function getFeaturedMagazine(){
+  return {type : HOME_FEATURED_MAGAZINE};
+}
+
+export function getMagazineIssues(){
+  return {type : HOME_MAGAZINE_ISSUES}
 }

@@ -3,21 +3,25 @@ import axios from 'axios';
 
 const baseUrl = true ? 'http://recruiter.dd:8083' : 'https://recruiter.tsample.co.uk';
 
+const newsApi = 'https://newsapi.org/v2/';
+const newsApiKey = '&apiKey=5caeb841f9df4be58fee5b88328a073d';
+
 function* getHomeFeaturedContent(){
   try{
-    const request = yield axios.get( baseUrl + '/featured-article').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?country=us&pageSize=1' + newsApiKey).then((response) => {
         return response.data
       }
     );
     yield put({ type: 'HOME_FEATURED_ARTICLE_NEWS_SUCCESS', payload:request });
   } catch (error){
+
     yield put({ type: 'HOME_FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });
   }
 }
 
 function* getHomeArticleMostRecent(){
   try{
-    const request = yield axios.get( baseUrl + '/home-article-most-recent').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?country=us&pageSize=3&page=2' + newsApiKey).then((response) => {
         return response.data
       }
     );
@@ -29,7 +33,7 @@ function* getHomeArticleMostRecent(){
 
 function* getHomeNewsTopThree(){
   try{
-    const request = yield axios.get( baseUrl + '/home-news-top-three').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=4&page=2' + newsApiKey).then((response) => {
         return response.data
       }
     );
@@ -41,7 +45,7 @@ function* getHomeNewsTopThree(){
 
 function* getHomeFeaturedMagazine(){
   try{
-    const request = yield axios.get( baseUrl + '/home-featured-magazine').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?q=jobs&pageSize=1&page=2' + newsApiKey).then((response) => {
         return response.data
       }
     );
@@ -53,7 +57,7 @@ function* getHomeFeaturedMagazine(){
 
 function* getHomeArticleMostPopular(){
   try{
-    const request = yield axios.get( baseUrl + '/home-article-most-popular').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=6&page=2' + newsApiKey).then((response) => {
         return response.data
       }
     );
@@ -65,7 +69,7 @@ function* getHomeArticleMostPopular(){
 
 function* getHomeArticleSponsored(){
   try{
-    const request = yield axios.get( baseUrl + '/home-article-most-popular').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=10&page=2' + newsApiKey).then((response) => {
         return response.data
       }
     );
@@ -77,7 +81,7 @@ function* getHomeArticleSponsored(){
 
 function* getHomeArticleProfiles(){
   try{
-    const request = yield axios.get( baseUrl + '/home-article-profiles').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=2&page=3' + newsApiKey).then((response) => {
         return response.data
       }
     );
@@ -89,7 +93,7 @@ function* getHomeArticleProfiles(){
 
 function* getHomeOpinionRecent(){
   try{
-    const request = yield axios.get( baseUrl + '/home-news-top-three').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=3&page=3' + newsApiKey).then((response) => {
         return response.data
       }
     );
@@ -101,7 +105,7 @@ function* getHomeOpinionRecent(){
 
 function* getHomeIndepthRecent(){
   try{
-    const request = yield axios.get( baseUrl + '/home-news-top-three').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=3&page=3' + newsApiKey).then((response) => {
         return response.data
       }
     );
@@ -113,7 +117,7 @@ function* getHomeIndepthRecent(){
 
 function* getHomeLighterRecent(){
   try{
-    const request = yield axios.get( baseUrl + '/home-news-top-three').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=3&page=3' + newsApiKey).then((response) => {
         return response.data
       }
     );
@@ -125,7 +129,7 @@ function* getHomeLighterRecent(){
 
 function* getHomeEventsRecent(){
   try{
-    const request = yield axios.get( baseUrl + '/home-article-most-recent').then((response) => {
+    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=3&page=2' + newsApiKey).then((response) => {
         return response.data
       }
     );
@@ -135,16 +139,42 @@ function* getHomeEventsRecent(){
   }
 }
 
+function* getHomeSupplements(){
+  try{
+    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=10&page=2' + newsApiKey).then((response) => {
+        return response.data
+      }
+    );
+    yield put({ type: 'HOME_SUPPLEMENTS_SUCCESS', payload:request });
+  } catch (error){
+    yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });
+  }
+}
+
+function* getHomeMagazinesIssue(){
+  try{
+    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=10&page=2' + newsApiKey).then((response) => {
+        return response.data
+      }
+    );
+    yield put({ type: 'HOME_MAGAZINE_ISSUE_SUCCESS', payload:request });
+  } catch (error){
+    yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });
+  }
+}
+
 export const homePageSagas = [
-  takeLatest('[HOME] NEWS_TOP_THREE]', getHomeNewsTopThree),
-  takeLatest('[HOME] FEATURED_ARTICLE', getHomeFeaturedContent),
-  takeLatest('[HOME] ARTICLE_TOP_RECENT', getHomeArticleMostRecent ),
-  takeLatest('[HOME] FEATURED_MAGAZINE', getHomeFeaturedMagazine ),
-  takeLatest('[HOME] ARTICLE_MOST_POPULAR', getHomeArticleMostPopular ),
-  takeLatest('[HOME] ARTICLE_SPONSORED', getHomeArticleSponsored),
-  takeLatest('[HOME] ARTICLE_PROFILES', getHomeArticleProfiles),
-  takeLatest('[HOME] OPINION_RECENT', getHomeOpinionRecent),
-  takeLatest('[HOME] INDEPTH_RECENT', getHomeIndepthRecent),
-  takeLatest('[HOME] LIGHTER_RECENT', getHomeLighterRecent),
-  takeLatest('[HOME] EVENTS_RECENT', getHomeEventsRecent)
+  // takeLatest('[HOME] NEWS_TOP_THREE]', getHomeNewsTopThree),
+  // takeLatest('[HOME] FEATURED_ARTICLE', getHomeFeaturedContent),
+  // takeLatest('[HOME] ARTICLE_TOP_RECENT', getHomeArticleMostRecent ),
+  // takeLatest('[HOME] FEATURED_MAGAZINE', getHomeFeaturedMagazine ),
+  // takeLatest('[HOME] ARTICLE_MOST_POPULAR', getHomeArticleMostPopular ),
+  // takeLatest('[HOME] ARTICLE_SPONSORED', getHomeArticleSponsored),
+  // takeLatest('[HOME] ARTICLE_PROFILES', getHomeArticleProfiles),
+  // takeLatest('[HOME] OPINION_RECENT', getHomeOpinionRecent),
+  // takeLatest('[HOME] INDEPTH_RECENT', getHomeIndepthRecent),
+  // takeLatest('[HOME] LIGHTER_RECENT', getHomeLighterRecent),
+  // takeLatest('[HOME] EVENTS_RECENT', getHomeEventsRecent),
+  // takeLatest('[HOME] SUPPLEMENTS', getHomeSupplements),
+  // takeLatest('[HOME] MAGAZINE_ISSUES', getHomeMagazinesIssue),
 ]

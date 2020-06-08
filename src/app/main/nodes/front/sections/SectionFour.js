@@ -33,7 +33,7 @@ const useStyle = makeStyles( theme => ({
      },
      '& .navBtn':{
        position: 'relative',
-       top: '-250px',
+       top: '-380px',
        background: 'orange',
        padding: '10px',
        borderRadius: '50px',
@@ -94,15 +94,16 @@ const SectionFour = ()=>{
   useEffect(()=>{
     setNewsData(articleSponsored)
   },[articleSponsored])
+
   if( !newsData ){
-    return null
+    return <h1> Loading.. </h1>
   }
   return(
       <div className={clsx(classes.container)}>
         <div className={clsx(classes.sectionCol, "first-col")}>
-        {newsData.length > 0 && (
+        {newsData.articles.length > 0 && (
           <AppCarousel
-            slideData={newsData}
+            slideData={newsData.articles}
             slidesToShow={3}
             classes={classes}
             type={"content"}

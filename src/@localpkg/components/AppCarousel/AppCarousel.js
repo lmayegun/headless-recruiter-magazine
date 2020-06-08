@@ -83,7 +83,7 @@ class News extends React.Component {
                 return(
                   <div key={index}>
                     <div className={"magazine"}>
-                      <CenterTeaserThumb content={key} />
+                      <CenterTeaserThumb content={key} imgHeight="180px"/>
                     </div>
                   </div>
                 )

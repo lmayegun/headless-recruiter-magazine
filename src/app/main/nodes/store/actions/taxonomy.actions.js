@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const TAXONOMY = '[ALL VOCABULATY AND TERM] ALL';
 export const SUPPLEMENTS = '[SUPPLEMENTS] ALL';
-export const TERM_TOP_THREE = '[TERM TOP THREE] 3';
+export const TERM_TOP_THREE = '[TERM] TOP_THREE';
 export const NEWS_TERM_TOP_THREE = '[TERM TOP THREE] 3';
 export const NEWS_TERM_TOP_SIX = '[TERM TOP SIX] 6';
 export const NEWS_TERMS = '[NEWS TERMS] NEWS TERMS';
@@ -49,17 +49,6 @@ export function getTermTopSix(id){
       dispatch({
           type : NEWS_TERM_TOP_SIX,
           termNewsTopSixData: response.data
-      })
-    });
-}
-
-export function getNewsTerms(){
-  const request = axios.get('https://recruiter.tsample.co.uk/terms-list-by-vocabulary/6');
-  return (dispatch) =>
-    request.then(function(response){
-      dispatch({
-          type   :  NEWS_TERMS,
-          newsTermsData: response.data
       })
     });
 }
