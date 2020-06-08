@@ -74,7 +74,7 @@ function News(){
   const classes = useStyles();
 
   if(!termTopThreeData || !termTopSixData ){
-    return <h1> nothing </h1>
+    return <h1> Loading... </h1>
   }
 
   return(
