@@ -11,9 +11,9 @@ import routes from './configs/routesConfig';
 import {defaultMuiTheme} from './configs/themeConfig';
 import { ReactRouterConfig } from './route-system';
 
+import '../firebase/firebase';
 
 const App = () =>  {
-  // console.log(defaultMuiTheme());
   return (
     <AppContext.Provider
       value={{routes}}

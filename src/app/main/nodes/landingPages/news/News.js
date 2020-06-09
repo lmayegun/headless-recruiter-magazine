@@ -88,7 +88,7 @@ function News(){
             <AppIconHeader />
             <div className={clsx(classes.topThree)}>
               {
-                termTopThreeData.articles.map((key, index)=>{
+                termTopThreeData.map((key, index)=>{
                   return(
                     <div style={{flex:1, padding: 15}} key={index}>
                       <CenterTeaserThumb content={key} imgHeight="250px"/>
