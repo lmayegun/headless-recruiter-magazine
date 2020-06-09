@@ -1,5 +1,4 @@
 import React from "react";
-import Example from 'app/main/example/Example';
 import {
   Switch,
   Route,
@@ -16,9 +15,6 @@ export default function BasicRoute() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
-          </Route>
-          <Route path="/example">
-            <Example />
           </Route>
         </Switch>
   );

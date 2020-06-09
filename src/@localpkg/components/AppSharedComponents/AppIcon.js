@@ -6,9 +6,6 @@ import clsx from 'clsx';
 export default function AppIcon( props ){
 
   const useStyles = makeStyles( theme => ({
-      root: {
-
-      },
       title:{
         color: '#4d4d4f',
         letterSpacing: '1px',
@@ -16,7 +13,7 @@ export default function AppIcon( props ){
         margin: '0px',
         overflow: 'hidden',
         textTransform: 'uppercase',
-        background: 'url(assets/images/icons/icons.png) no-repeat 0 0',
+        background: 'url(/assets/images/icons/icons.png) no-repeat 0 0',
         minHeight: 20,
       }
     })

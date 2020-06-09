@@ -27,19 +27,17 @@ const useStyles = makeStyles(theme=>{
   });
 });
 
-const Logo = ( props ) => {
+const Logo = ( {brandDescription} ) => {
   const classes = useStyles();
   return (
     <div className={clsx(classes.root, "items-center")}>
-        <img className="logo-icon" src="assets/images/logos/logo.png" alt="logo"/>
-
-          { props.brandDescription && (
-            <Typography className="text-16 ml-4 font-light logo-text" color="textPrimary">
-               News & business intelligence for recruiters
-            </Typography>
-            )
-          }
-
+      <img className="logo-icon" src="/assets/images/logos/logo.png" alt="logo"/>
+      { brandDescription && (
+        <Typography className="text-16 ml-4 font-light logo-text" color="textPrimary">
+           News & business intelligence for recruiters
+        </Typography>
+        )
+      }
     </div>
   )
 }

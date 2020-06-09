@@ -13,8 +13,6 @@ export default function AppArticle( {article} ){
     }
   }))
 
-  console.log(article, "traumatize");
-
   const classes = style()
 
   return(
@@ -32,5 +30,5 @@ export default function AppArticle( {article} ){
       <br />
       <div  className={ classes.contentWrapper } dangerouslySetInnerHTML={{__html: '<div class="font-18px" style="font-size: 16px;">' + article.content + '</div>'}} />
     </div>
-  )
+  );
 }

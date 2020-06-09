@@ -20,32 +20,12 @@ export const NodesConfig = {
         },
         {
             exact    : true,
-            path     : '/news/:term/:id',
-            component: React.lazy(() => import('./landingPages/news/TermNews'))
-        },
-        {
-            exact    : true,
             path     : '/knowledge',
             component: React.lazy(() => import('./landingPages/knowledge/Knowledge'))
         },
         {
-            exact    : true,
-            path     : '/knowledge/:term/:id',
-            component: React.lazy(() => import('./landingPages/knowledge/TermKnowledge'))
-        },
-        {
-            exact    : true,
-            path     : '/magazine/:term/:id',
-            component: React.lazy(() => import('./landingPages/magazine/TermMagazine'))
-        },
-        {
-            exact    : true,
-            path     : '/events',
-            component: React.lazy(() => import('./landingPages/events/Events'))
-        },
-        {
             path     : '/article/:contenttype/:title/:id',
-            component: React.lazy(() => import('./landingPages/news/NewsNode'))
+            component: React.lazy(() => import('./landingPages/article/ArticleNode'))
         },
         {
             path     : '/search',
