@@ -266,13 +266,13 @@ function NewsNode( props ){
 
   const dispatch = useDispatch();
   const paramsId = props.match.params.id;
-  const content = useSelector( ({data}) => data.content.contentState );
+  const content = useSelector( ({content}) => content.content.contentState );
 
   const [article, setArticle] = useState(content);
 
    useEffect(()=>{
      dispatch(Actions.getContent(paramsId))
-   },[dispatch, paramsId  ])
+   },[dispatch])
 
    useEffect(()=>{
      setArticle(content)
@@ -308,4 +308,4 @@ function NewsNode( props ){
   )
 }
 
-export default withReducer('data', reducer)(NewsNode)
+export default withReducer('content', reducer)(NewsNode)

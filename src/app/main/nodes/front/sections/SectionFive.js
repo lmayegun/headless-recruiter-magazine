@@ -100,9 +100,9 @@ const SectionFive = ()=>{
   return(
     <div className={clsx(classes.container)}>
       <div className={clsx(classes.section, "first-col")}>
-      {magazineCarouselData.articles.length > 0 && (
+      {magazineCarouselData.length > 0 && (
         <AppCarousel
-          slideData={magazineCarouselData.articles}
+          slideData={magazineCarouselData}
           slidesToShow={4}
           classes={classes}
           type={"cover"}

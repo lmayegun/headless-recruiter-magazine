@@ -3,12 +3,14 @@ import { homePageSagas } from './homePage.sagas';
 import { newsSagas } from './news.sagas';
 import { magazineSagas } from './magazine.sagas';
 import { taxonomySagas } from './taxonomy.sagas';
+import { contentSagas } from './content.sagas';
 
 export default function* APPsagas(){
   yield all([
     ...homePageSagas,
     ...magazineSagas,
     ...newsSagas,
-    ...taxonomySagas
+    ...taxonomySagas,
+    ...contentSagas
   ])
 }

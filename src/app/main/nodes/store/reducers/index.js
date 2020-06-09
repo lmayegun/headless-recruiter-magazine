@@ -11,8 +11,4 @@ const reducer = combineReducers({
   news,
 })
 
-// const scrollReducer = combineReducers({
-//   news,
-// })
-
 export {reducer};

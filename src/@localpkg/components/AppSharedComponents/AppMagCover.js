@@ -37,9 +37,8 @@ function AppMagCover( {magazine, longTitleLength} ){
   function link(){
     const title = magazine.name ? magazine.name.replace(/\?+/g, '_').toLowerCase() : 'noTitle';
     const id = magazine.id ? magazine.id : '50344';
-    return(
-      '/magazine/'+ title +'/'+ id
-    )
+    const link = magazine.link ? magazine.link : "https://issuu.com/redactive/docs/rec_junjul20_linkedversion?fr=sMTQyMDY3MzMwMA"
+    return(link)
   }
 
   const img = magazine.field_cover ? magazine.field_cover.src : 'https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec_junjul20_linkedversion.jpg?itok=us_k97eC';
@@ -49,19 +48,19 @@ function AppMagCover( {magazine, longTitleLength} ){
       <div className={clsx(classes.wrapper)}>
         <div className={clsx(classes.title)}>
           {longTitleLength ? (
-            <Link to={link()}>
+            <a href={link()} target="_blank">
               <Typography variant='h3' className={clsx(classes.longTitleLength)}>{magazine.name}</Typography>
-            </Link>
+            </a>
           ): (
-            <Link to={link()}>
+            <a href={link()} target="_blank">
               <Typography variant='h3' className={clsx(classes.link)}>{magazine.name}</Typography>
-            </Link>
+            </a>
           )}
         </div>
         <div>
-          <Link to={link()}>
+          <a href={link()} target="_blank">
             <img className={clsx(classes.img)} src={img} alt="app mag cover"/>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

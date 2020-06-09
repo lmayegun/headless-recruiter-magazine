@@ -4,10 +4,10 @@ const initialState = {}
 
 const contentReducers = function(state = initialState, action){
   switch (action.type) {
-    case Actions.CONTENT:{
+    case 'CURRENT_CONTENT_SUCCESS':{
       return{
         ...state,
-        contentState: action.contentData
+        contentState: action.payload
       }
     }
     default:{
