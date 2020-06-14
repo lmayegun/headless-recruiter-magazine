@@ -50,7 +50,7 @@ export default function SubscribeMag({data}){
             <Link to='/'> SUBSCRIBE TO PRINT</Link>
           </h3>
         </div>
-        <div>{featuredMagDesc}</div>
+        <div dangerouslySetInnerHTML={{__html:featuredMagDesc.substring(0, 100) + '...'}} />
       </div>
      </div>
   )

@@ -8,7 +8,7 @@ import moment from 'moment';
 import {AppPremIcon} from './AppPremIcon';
 import {AppTags} from './AppTags';
 
-function CenterTeaserThumb({content, type, imgHeight}){
+function CenterTeaserThumb({content, type, imgHeight, descrLength}){
 
   const centerThumbStyles = makeStyles(theme => ({
       root:{
@@ -67,7 +67,7 @@ function CenterTeaserThumb({content, type, imgHeight}){
   )
 
   function link(){
-    const contentType = content.contentType ? content.contentType.toLowerCase() : 'none';
+    const contentType = content.category ? content.category.toLowerCase() : 'none';
     const title = content.title ? content.title.replace(/\s|\?|\%+/g, '-').toLowerCase() : 'noTitle';
     const id = content.id ? content.id : '50344';
     return(
@@ -112,7 +112,7 @@ function CenterTeaserThumb({content, type, imgHeight}){
               </div>
             </Link>
 
-            <div dangerouslySetInnerHTML={{__html: content.description}} />
+            <div dangerouslySetInnerHTML={{__html: content.description.substring(0, descrLength) + '...'}} />
             <div className={clsx(classes.postOn)}> {moment(`${content.publishedAt}`).format('D MMMM YYYY, hh:mm')} </div>
           </div>
         </React.Fragment>
@@ -148,7 +148,7 @@ function CenterTeaserThumb({content, type, imgHeight}){
                 </Typography>
               </div>
             </Link>
-            <div dangerouslySetInnerHTML={{__html: content.description}} />
+            <div dangerouslySetInnerHTML={{__html: content.description.substring(0, descrLength) + '...'}} />
             <div className={clsx(classes.postOn)}> {moment(`${content.publishedAt}`).format('D MMMM YYYY, hh:mm')} </div>
           </div>
         </React.Fragment>
@@ -157,6 +157,7 @@ function CenterTeaserThumb({content, type, imgHeight}){
   )
 }
 CenterTeaserThumb.defaultProps = {
+  descrLength: 200,
   type   : 'normal',
   content:    {
     "id": 0,

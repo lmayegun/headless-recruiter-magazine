@@ -1,9 +1,9 @@
 import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 import database from '../../../firebase/firebase';
 
-function* getContent(id){
+function* getContent({payload}){
   try{
-    const request = yield database.ref('articles/-M9M7Ud_uJMJyUbfdTlH')
+    const request = yield database.ref(`${payload.category}/${payload.id}`)
                             .once('value')
                             .then(function(snapshot) {
                               return snapshot.val();

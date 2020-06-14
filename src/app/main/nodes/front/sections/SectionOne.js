@@ -105,7 +105,7 @@ const SectionOne = ()=>{
         </Hidden>
 
         <Hidden mdDown>
-          <SubscribeMag data={featuredMagazine.articles}/>
+          <SubscribeMag data={featuredMagazine}/>
         </Hidden>
 
         <Hidden mdDown>

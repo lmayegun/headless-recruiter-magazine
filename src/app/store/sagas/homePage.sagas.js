@@ -63,10 +63,18 @@ function* getHomeNewsTopThree(){
 
 function* getHomeFeaturedMagazine(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?q=jobs&pageSize=1&page=2' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request =  yield database.ref('business')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 1);
+                            });
     yield put({ type: 'HOME_FEATURED_MAGAZINE_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });
@@ -75,10 +83,18 @@ function* getHomeFeaturedMagazine(){
 
 function* getHomeArticleMostPopular(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=6&page=2' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('sports')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 6);
+                            });
     yield put({ type: 'HOME_ARTICLE_MOST_POPULAR_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });
@@ -87,10 +103,18 @@ function* getHomeArticleMostPopular(){
 
 function* getHomeArticleSponsored(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=10&page=2' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('sports')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 8);
+                            });
     yield put({ type: 'HOME_ARTICLE_SPONSORED_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });
@@ -99,10 +123,18 @@ function* getHomeArticleSponsored(){
 
 function* getHomeArticleProfiles(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=2&page=3' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('sports')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 2);
+                            });
     yield put({ type: 'HOME_ARTICLE_POFILES_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });
@@ -171,10 +203,18 @@ function* getHomeLighterRecent(){
 
 function* getHomeEventsRecent(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=3&page=2' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('entertainment')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 3);
+                            });
     yield put({ type: 'HOME_EVENTS_RECENT_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });

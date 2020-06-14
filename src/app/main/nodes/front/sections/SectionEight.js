@@ -58,7 +58,7 @@ const SectionEight = ()=>{
       <div className={clsx(classes.container)}>
         <AppIconHeader title="profiles" />
         <div className={clsx(classes.section, "first-col")}>
-            {articleProfilesData.articles.map((key, index)=>{
+            {articleProfilesData.map((key, index)=>{
               return(
                 <div className="content" style={{flex:1}} key={index}>
                   <CenterTeaserThumb content={key} imgHeight="250px"/>

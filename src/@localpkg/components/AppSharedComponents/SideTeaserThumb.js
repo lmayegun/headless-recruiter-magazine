@@ -59,7 +59,7 @@ function SideTeaserThumb( {content, minHeight, descrLength} ){
   const classes = sideThumbStyles();
 
   function link(){
-    const contentType = content.contentType ? content.contentType.toLowerCase() : 'none';
+    const contentType = content.category ? content.category.toLowerCase() : 'none';
     const title = content.title ? content.title.replace(/\s|\?|\%+/g, '-').toLowerCase() : 'noTitle';
     const id = content.id ? content.id : '50344';
     return(

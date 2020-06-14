@@ -71,7 +71,7 @@ const SectionTwelve = ()=> {
             <AppIconHeader title={'events'} />
             <div className={clsx(classes.columns)}>
               {
-                eventsData.articles.map(function(key, index){
+                eventsData.map(function(key, index){
                   return (
                     <div className="column"  key={index}>
                       <CenterTeaserThumb content={key} imgHeight={"210px"}/>

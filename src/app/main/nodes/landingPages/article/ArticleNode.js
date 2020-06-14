@@ -261,21 +261,22 @@ const useStyles = makeStyles( theme => ({
  })
 );
 
-function NewsNode( props ){
+function ArticleNode( props ){
   const classes = useStyles();
 
-  const dispatch = useDispatch();
-  const paramsId = props.match.params.id;
-  const content = useSelector( ({content}) => content.content.contentState );
+  const dispatch  = useDispatch();
+  const id        = props.match.params.id;
+  const category  = props.match.params.contenttype;
+  const content   = useSelector( ({content}) => content.content.contentState );
 
   const [article, setArticle] = useState(content);
 
    useEffect(()=>{
-     dispatch(Actions.getContent(paramsId))
+     dispatch(Actions.getContent({id,category}))
    },[dispatch])
 
    useEffect(()=>{
-     setArticle(content)
+     setArticle(content);
    },[content])
 
    if(!article){
@@ -308,4 +309,4 @@ function NewsNode( props ){
   )
 }
 
-export default withReducer('content', reducer)(NewsNode)
+export default withReducer('content', reducer)(ArticleNode)
