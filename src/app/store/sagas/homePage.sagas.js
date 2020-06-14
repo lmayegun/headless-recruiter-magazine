@@ -151,10 +151,18 @@ function* getHomeIndepthRecent(){
 
 function* getHomeLighterRecent(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=3&page=3' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('health')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 3);
+                            });
     yield put({ type: 'HOME_LIGHTERSIDE_RECENT_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });

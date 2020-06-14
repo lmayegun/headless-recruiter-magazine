@@ -95,7 +95,7 @@ const SectionTen = ()=>{
 
         <div className={clsx(classes.sectionTenCol, "third-col")}>
         <AppIconHeader title={'lighter side'}/>
-        {lighterSideData.articles.map((key, index)=>{
+        {lighterSideData.map((key, index)=>{
           return(
               <SideTeaserThumb key={index} content={key} minHeight="210px"/>
           )
