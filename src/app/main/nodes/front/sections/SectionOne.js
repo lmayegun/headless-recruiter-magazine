@@ -116,7 +116,7 @@ const SectionOne = ()=>{
       <div className={clsx(classes.section, "news-col")}>
         <AppIconHeader />
         {
-          newsData.articles.map(function(key, index){
+          newsData.map(function(key, index){
             return (
               <SideTeaserThumb content={key} key={index}/>
             )
@@ -127,7 +127,7 @@ const SectionOne = ()=>{
       <div className={clsx(classes.section, "knowledge-col")}>
         <AppIconHeader title={'knowledge'} />
         {
-          knowledgeData.articles.map(function(key, index){
+          knowledgeData.map(function(key, index){
             return (
               <CenterTeaserThumb content={key} type={"normal"}  key={index}/>
             )

@@ -17,6 +17,7 @@
     "firebase": "^7.15.0",
     "lodash": "^4.17.15",
     "mobile-detect": "^1.4.4",
+    "moment": "^2.26.0",
     "perfect-scrollbar": "1.4.0",
     "react": "^16.13.1",
     "react-autosuggest": "^10.0.1",

@@ -77,7 +77,7 @@ const SectionTen = ()=>{
       <div className={clsx(classes.container)}>
         <div className={clsx(classes.sectionTenCol, "first-col")}>
           <AppIconHeader title={'opinion'}/>
-          {opinionData.articles.map((key, index)=>{
+          {opinionData.map((key, index)=>{
             return(
                 <SideTeaserThumb key={index} content={key} minHeight="210px" />
             )
@@ -86,7 +86,7 @@ const SectionTen = ()=>{
 
         <div className={clsx(classes.sectionTenCol, "second-col")}>
         <AppIconHeader title={'in depth'}/>
-        {indepthData.articles.map((key, index)=>{
+        {indepthData.map((key, index)=>{
           return(
               <SideTeaserThumb key={index} content={key} minHeight="210px" />
           )

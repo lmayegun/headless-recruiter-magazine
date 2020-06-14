@@ -5,8 +5,9 @@ import clsx from 'clsx';
 
 import {AppPremIcon} from './AppPremIcon';
 import {AppTags} from './AppTags';
+import moment from 'moment';
 
-function SideTeaserThumb( {content, minHeight} ){
+function SideTeaserThumb( {content, minHeight, descrLength} ){
 
   const sideThumbStyles = makeStyles(theme => ({
       root:{
@@ -82,11 +83,11 @@ function SideTeaserThumb( {content, minHeight} ){
             {content.title.substring(0, 60) + '...'}
           </h3>
         </Link>
-        <div className={clsx(classes.summary)} dangerouslySetInnerHTML={{__html: content.description }} />
+        <div className={clsx(classes.summary)} dangerouslySetInnerHTML={{__html: content.description.substring(0, descrLength) + '...' }} />
         <div>
           <AppTags tags={content.source} />
         </div>
-        <span className={clsx(classes.postOn)}> {content.publishedAt}</span>
+        <div className={clsx(classes.postOn)}> {moment(`${content.publishedAt}`).format('D MMMM YYYY, hh:mm')} </div>
       </div>
      </div>
   )
@@ -94,4 +95,6 @@ function SideTeaserThumb( {content, minHeight} ){
 
 export default withRouter(SideTeaserThumb)
 
-SideTeaserThumb.defaultProps = {}
+SideTeaserThumb.defaultProps = {
+  descrLength: 120
+}

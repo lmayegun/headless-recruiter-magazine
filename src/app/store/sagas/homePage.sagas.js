@@ -1,5 +1,6 @@
 import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
+import _ from '@lodash';
 import database from '../../../firebase/firebase';
 
 const baseUrl = true ? 'http://recruiter.dd:8083' : 'https://recruiter.tsample.co.uk';
@@ -22,10 +23,18 @@ function* getHomeFeaturedContent(){
 
 function* getHomeArticleMostRecent(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=us&pageSize=3&page=2' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('entertainment')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 3);
+                            });
     yield put({ type: 'HOME_ARTICLE_TOP_RECENT_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'HOME_ARTICLE_TOP_RECENT_FAILED', payload:'failed' });
@@ -34,10 +43,18 @@ function* getHomeArticleMostRecent(){
 
 function* getHomeNewsTopThree(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=4&page=2' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('business')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 4);
+                            });
     yield put({ type: 'HOME_NEWS_TOP_THREE_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });
@@ -94,10 +111,18 @@ function* getHomeArticleProfiles(){
 
 function* getHomeOpinionRecent(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=3&page=3' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('business')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 3);
+                            });
     yield put({ type: 'HOME_OPINION_RECENT_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });
@@ -106,10 +131,18 @@ function* getHomeOpinionRecent(){
 
 function* getHomeIndepthRecent(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=3&page=3' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('entertainment')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 3);
+                            });
     yield put({ type: 'HOME_INDEPTH_RECENT_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });

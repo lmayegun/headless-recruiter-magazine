@@ -3,6 +3,7 @@ import {makeStyles} from '@material-ui/styles';
 import {Typography} from '@material-ui/core';
 import {withRouter, Link} from 'react-router-dom';
 import clsx from 'clsx';
+import moment from 'moment';
 
 import {AppPremIcon} from './AppPremIcon';
 import {AppTags} from './AppTags';
@@ -59,7 +60,8 @@ function CenterTeaserThumb({content, type, imgHeight}){
       },
       postOn:{
         color: '#000 !important',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginTop: 10
       }
     })
   )
@@ -111,7 +113,7 @@ function CenterTeaserThumb({content, type, imgHeight}){
             </Link>
 
             <div dangerouslySetInnerHTML={{__html: content.description}} />
-            <span className={clsx(classes.postOn)}> {content.publishedAt}</span>
+            <div className={clsx(classes.postOn)}> {moment(`${content.publishedAt}`).format('D MMMM YYYY, hh:mm')} </div>
           </div>
         </React.Fragment>
       )}
@@ -147,7 +149,7 @@ function CenterTeaserThumb({content, type, imgHeight}){
               </div>
             </Link>
             <div dangerouslySetInnerHTML={{__html: content.description}} />
-            <span className={clsx(classes.postOn)}> {content.publishedAt}</span>
+            <div className={clsx(classes.postOn)}> {moment(`${content.publishedAt}`).format('D MMMM YYYY, hh:mm')} </div>
           </div>
         </React.Fragment>
       )}
