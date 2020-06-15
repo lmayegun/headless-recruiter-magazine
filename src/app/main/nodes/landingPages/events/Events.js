@@ -79,13 +79,10 @@ function Term(){
 
   return(
     <div>
-      {newsTermsData.length > 0 && (
-        <AppSubNav terms={newsTermsData} />
-      )}
       <FusePageSimple
         featuredContents={
           <div>
-            <AppIconHeader />
+            <AppIconHeader title={"events"}/>
             <div className={clsx(classes.topThree)}>
               {
                 termTopThreeData.map((key, index)=>{
@@ -129,4 +126,4 @@ function Term(){
   )
 }
 
-export default withReducer('news', reducer)(Term)
+ export default withReducer('data', reducer)(Term)

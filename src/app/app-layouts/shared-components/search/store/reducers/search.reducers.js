@@ -1,6 +1,6 @@
 import * as Actions from '../actions';
 
-const initialState = { searchTextState:'Search Text', searchResultsState: []}
+const initialState = { searchTextState:'', searchResultsState: []}
 
 const searchReducers = function (state = initialState, action){
 
@@ -11,10 +11,10 @@ const searchReducers = function (state = initialState, action){
         searchTextState: action.searchTextData
       }
     }
-    case Actions.SEARCH_RESPONSE:{
+    case 'SEARCH_RESULTS_SUCCESS':{
       return{
         ...state,
-        searchResultsState: action.searchData
+        searchResultsState: action.payload
       }
     }
     default:

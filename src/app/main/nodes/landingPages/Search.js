@@ -5,42 +5,38 @@ import {makeStyles} from '@material-ui/styles';
 import {Link} from 'react-router-dom';
 import clsx from 'clsx';
 
+import SearchFilter from 'app/app-layouts/shared-components/search/SearchComponent';
+
 const useStyles = makeStyles( theme => ({
+    root:{
+      paddingTop: '50px',
+    },
+    results:{
+
+    },
     result:{
       paddingRight: '20px',
       marginBottom: '50px',
+      width:'50%',
+      float: 'left',
+      boxSizing: 'border-box',
+      [theme.breakpoints.down('sm')]:{
+        width:'100%',
+        paddingRight: '0px',
+      }
     },
     innerDiv:{
       borderBottom: '1px solid #000',
-      minHeight: '155px',
+      minHeight: '125px',
     },
     title:{
       fontSize: '20px',
-      minHeight: '65px',
     }
   })
 );
 
-function TitleSummary( props ){
-
-  const classes = useStyles();
-
-  return(
-    <div className={clsx(classes.result, "lg:w-1/2 float-left")}>
-      <div className={clsx(classes.innerDiv)}>
-        <h1 className={clsx(classes.title, " col")}> <Link to='/'> {props.content.title} </Link> </h1>
-        <span> {props.content.body} </span>
-      </div>
-    </div>
-  )
-}
-
-TitleSummary.defaultProps = {
-  content: "way too young to be getting old"
-}
-
 function Search(){
-
+  const classes = useStyles();
   const searchNode = useSelector(({search}) => (search.searchText.searchResultsState) );
 
   const [searchData, setSearchData] = useState(searchNode);
@@ -54,21 +50,26 @@ function Search(){
   }
 
   return(
-    <div>
+    <div className={classes.root}>
       <FusePageSimple
-        featuredContents={
-          <div>
-            <AppIconHeader title={"search"} />
-          </div>
-        }
+
         content={
-          <div>
+          <div className={classes.results}>
+            <div>
+              <AppIconHeader title={"search page"} />
+            </div>
+            <div>
+              <SearchFilter variant={'search-and-filter'} />
+            </div>
             {
               searchData.map((key, index) => {
                 return(
-                  <React.Fragment>
-                    <TitleSummary content={key} />
-                  </React.Fragment>
+                  <div className={clsx(classes.result, "float-left")}>
+                    <div className={clsx(classes.innerDiv)}>
+                      <h1 className={clsx(classes.title, " col")}> <Link to='/'> {key.title.substring(0,50) + '...'} </Link> </h1>
+                      <div dangerouslySetInnerHTML={{__html:key.description.substring(0,50)+'...'}}/>
+                    </div>
+                  </div>
                 )
               })
             }
@@ -77,8 +78,7 @@ function Search(){
         rightSidebarContent={
           <div>
             <ThreeByTwoAd />
-            <AppIconHeader title="latest jobs"/>
-            <AppLatestJobs />
+            <ThreeByTwoAd />
           </div>
         }
       />

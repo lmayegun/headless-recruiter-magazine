@@ -26,6 +26,7 @@ function AppMostPopular( props ){
         },
         '&.width-full':{
           width: '100%',
+          marginRight: '0px'
         },
         '& .numbered' : {
           fontSize: '4em',

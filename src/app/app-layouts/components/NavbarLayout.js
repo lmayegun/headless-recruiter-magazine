@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import Logo from './Logo';
 import {AppIcon} from '@localpkg';
-import SearchToggleBtn from './search/SearchToggleBtn';
+import SearchToggleBtn from '../shared-components/search/SearchComponent';
 import ExtraNav from '../shared-components/ExtraNav';
 
 const useStyles = makeStyles( theme =>{
@@ -99,9 +99,8 @@ const NavbarLayout = () => {
       <div className={classes.navigationLinksWrapper}>
         <div>
           <Link to="/news" className={clsx(classes.links, "news")}>News</Link>
-          <Link to="/#" className={clsx(classes.links, "knowledge")}>Knowledge</Link>
-          <Link to="/#" className={clsx(classes.links, "jobs")}>Jobs</Link>
-          <Link to="/#" className={clsx(classes.links, "events")}>Events</Link>
+          <Link to="/knowledge" className={clsx(classes.links, "knowledge")}>Knowledge</Link>
+          <Link to="/events" className={clsx(classes.links, "events")}>Events</Link>
           <Link to="/#" className={clsx(classes.links, "directory")}>Directory</Link>
           <Link to="/#" className={clsx(classes.links, "rec last")}>Rec</Link>
         </div>

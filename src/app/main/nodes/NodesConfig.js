@@ -24,6 +24,11 @@ export const NodesConfig = {
             component: React.lazy(() => import('./landingPages/knowledge/Knowledge'))
         },
         {
+            exact    : true,
+            path     : '/events',
+            component: React.lazy(() => import('./landingPages/events/Events'))
+        },
+        {
             path     : '/article/:contenttype/:title/:id',
             component: React.lazy(() => import('./landingPages/article/ArticleNode'))
         },

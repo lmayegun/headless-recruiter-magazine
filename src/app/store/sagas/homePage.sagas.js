@@ -253,6 +253,32 @@ function* getHomeMagazinesIssue(){
   }
 }
 
+function* getSearchResults({payload}){
+  const value = payload;
+  try{
+    const request = yield database.ref('business')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+
+                                if( child.val().title.toLowerCase().includes(value) ){
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                                }
+
+                              })
+                              return _.reverse(articles);
+                            });
+    yield put({ type: 'SEARCH_RESULTS_SUCCESS', payload:request });
+  } catch (error){
+    yield put({ type: 'HOME_ARTICLE_TOP_RECENT_FAILED', payload:'failed' });
+  }
+}
+
+
 export const homePageSagas = [
   takeLatest('[HOME] NEWS_TOP_THREE]', getHomeNewsTopThree),
   takeLatest('[HOME] FEATURED_ARTICLE', getHomeFeaturedContent),
@@ -267,4 +293,5 @@ export const homePageSagas = [
   takeLatest('[HOME] EVENTS_RECENT', getHomeEventsRecent),
   takeLatest('[HOME] SUPPLEMENTS', getHomeSupplements),
   takeLatest('[HOME] MAGAZINE_ISSUES', getHomeMagazinesIssue),
+  takeLatest('[SEARCH] SEARCH_RESULTS',getSearchResults ),
 ]

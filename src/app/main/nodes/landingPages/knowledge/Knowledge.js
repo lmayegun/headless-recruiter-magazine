@@ -18,119 +18,95 @@ import withReducer from 'app/store/withReducer';
 import {reducer} from 'app/main/nodes/store/reducers';
 import {useDispatch, useSelector} from 'react-redux';
 
+
 const useStyles = makeStyles( theme => ({
-   container: {
+   topThree: {
      display: 'flex',
      flexDirection: 'column',
+     justifyContent: 'space-between',
      marginBottom: 50,
+     marginLeft: -15,
      [theme.breakpoints.up('lg')]:{
        flexDirection: 'row',
      }
    },
-   sectionThreeCol: {
-     minHeight: 200,
-     width: '100%',
-     marginRight: 20,
-     '&.first-col':{
-       [theme.breakpoints.up('lg')]:{
-
-       }
-     },
-     '&.second-col':{
-       [theme.breakpoints.up('lg')]:{
-
-       }
-     },
-     '&.third-col':{
-       [theme.breakpoints.up('lg')]:{
-
-       }
-     },
-     [theme.breakpoints.up('md')]: {
-
-     },
-     [theme.breakpoints.up('lg')]: {
-
-     }
-   },
-   content:{
+   topSix: {
      display: 'flex',
      flexDirection: 'column',
+     flexWrap: 'wrap',
+     justifyContent: 'space-between',
+     marginBottom: 50,
      [theme.breakpoints.up('lg')]:{
-        flexDirection: 'row',
-        flexWrap: 'wrap',
+       flexDirection: 'row',
+       '& .item':{
+          width: '45%',
+          padding: '10px',
+       }
      }
    }
  })
 );
 
-function News(){
+function Term(){
 
   const dispatch = useDispatch();
 
-  const knowledgeTerms = useSelector( ({data}) => data.taxonomy.knowledgeTermsState  );
-  const termTopThree = useSelector( ({data}) => data.taxonomy.termNewsTopThreeState  );
-  const termTopSix = useSelector( ({data}) => data.taxonomy.termNewsTopSixState  );
+  const newsTerms = useSelector( ({news}) => news.news.newsTermsState  );
+  const termTopThree = useSelector( ({news}) => news.news.newsTopThreeState  );
+  const termTopSix = useSelector( ({news}) => news.news.newsTopSixState  );
 
-  const [knowledgeTermsData, setKnowledgeTermsData] = useState(knowledgeTerms);
+  const [newsTermsData, setNewsTermsData] = useState(newsTerms);
   const [termTopThreeData, setTermTopThreeData] = useState(termTopThree);
   const [termTopSixData, setTermTopSixData] = useState(termTopSix);
 
-
   useEffect(()=>{
-   dispatch(Actions.getKnowledgeTerms())
-   dispatch(Actions.getTermTopThree(68))
-   dispatch(Actions.getTermTopSix(68))
+   dispatch(Actions.getNewsTerms())
+   dispatch(Actions.getNewsTopThree())
+   dispatch(Actions.getNewsTopSix())
   },[dispatch])
 
   useEffect (()=>{
-    setKnowledgeTermsData(knowledgeTerms);
+    setNewsTermsData(newsTerms);
     setTermTopThreeData(termTopThree);
     setTermTopSixData(termTopSix);
-  },[knowledgeTerms, termTopThree, termTopSix])
+  },[newsTerms, termTopThree, termTopSix])
 
   const classes = useStyles();
 
-  if(!termTopSixData){
-    return null
-  }
-
-  if(!knowledgeTermsData){
-    return null
+  if(!termTopThreeData || !termTopSixData || !newsTermsData ){
+    return <h1> Loading... </h1>
   }
 
   return(
     <div>
-      {knowledgeTermsData.length > 0 && (
-        <AppSubNav terms={knowledgeTermsData} />
+      {newsTermsData.length > 0 && (
+        <AppSubNav terms={newsTermsData} />
       )}
       <FusePageSimple
         featuredContents={
           <div>
-            <AppIconHeader title="knowledge"/>
-            <div className={clsx(classes.container)}>
-              {!termTopThreeData ? (
-                <h1> Loading </h1>
-              ) : (
+            <AppIconHeader title={"knowledge"}/>
+            <div className={clsx(classes.topThree)}>
+              {
                 termTopThreeData.map((key, index)=>{
                   return(
-                    <div className="lg:w-1/2 sm:w-full pr-24" key={index}>
-                      <CenterTeaserThumb content={key}/>
+                    <div style={{flex:1, padding: 15}} key={index}>
+                      <CenterTeaserThumb content={key} imgHeight="250px"/>
                     </div>
                   )
                 })
-              )}
+              }
             </div>
           </div>
         }
 
         content={
-          <div className="flex flex-wrap" >
+          <div className={clsx(classes.topSix)}>
             {
               termTopSixData.map((key, index)=>{
                 return(
-                  <div className="w-1/2 pr-24" key={index}>
-                    <SideTeaserThumb content={key}/>
+                  <div className="item" key={index}>
+                    <SideTeaserThumb content={key} minHeight="260px"/>
                   </div>
                 )
               })
@@ -142,27 +118,15 @@ function News(){
           <div>
             <ThreeByTwoAd />
             <br />
-            <ThreeByTwoAd />
-            <br />
-            <ThreeByTwoAd />
-            <br />
             <AppIconHeader title="most popular"/>
-            <AppMostPopular liClasses={'width-full'}/>
+            <AppMostPopular content={termTopThreeData} liClasses={'width-full'}/>
             <br />
             <ThreeByTwoAd />
-            <br />
-            <AppIconHeader title="latest jobs"/>
-            <AppLatestJobs />
-            <br />
-            <br />
-            <br />
-            <AppIconHeader title="featured recruiters"/>
-            <AppFeaturedRecruiters />
           </div>
         }
       />
     </div>
   )
- }
+}
 
- export default withReducer('data', reducer)(News)
+ export default withReducer('data', reducer)(Term)

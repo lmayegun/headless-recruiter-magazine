@@ -500,7 +500,6 @@ function FuseSearch(props)
                       if( event.key === 'Enter' ){
                         reduxDispatch(Actions.initSearchRequest( event.target.value ));
                         props.history.push('/search')
-
                       }
                     }
                   }
@@ -514,6 +513,13 @@ function FuseSearch(props)
                 </ClickAwayListener>
               )}
 
+            </div>
+          )
+        }
+        case 'search-and-filter':{
+          return(
+            <div>
+              Search and Filter
             </div>
           )
         }
