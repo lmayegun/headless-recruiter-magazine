@@ -2,15 +2,12 @@ import React from 'react';
 
 import {AppPageSimple, LeaderBoardAd} from '@localpkg';
 import {SectionOne,
-        SectionTwo,
         SectionThree,
         SectionFour,
         SectionFive,
         SectionSix,
-        SectionSeven,
         SectionEight,
         SectionTen,
-        SectionEleven,
         SectionTwelve
         } from './sections';
 
@@ -29,7 +26,6 @@ const HomePage = () => {
             <SectionSix />
             <SectionEight />
             <SectionTen />
-            <SectionEleven />
             <SectionTwelve />
           </div>
         }
