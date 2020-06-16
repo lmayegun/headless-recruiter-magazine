@@ -40,7 +40,7 @@ function AppSubNav( {terms} ){
           terms.map((term, index)=>{
             return(
               <li className={clsx(classes.li)} key={term.id}>
-                <Link to={"/" + term.vocabularyName.toLowerCase() + "/" + term.name.toLowerCase() + "/" + term.id }>
+                <Link to={"/" + term.vocabularyName.toLowerCase() + "/" + term.id }>
                   {term.name}
                 </Link>
               </li>

@@ -9,7 +9,6 @@ import SearchToggleBtn from '../shared-components/search/SearchComponent';
 import ExtraNav from '../shared-components/ExtraNav';
 
 const useStyles = makeStyles( theme =>{
-  console.log(theme, "lukmon ")
   return({
     root: {
       display: 'flex',
@@ -102,14 +101,14 @@ const NavbarLayout = () => {
       </div>
 
       <div className={classes.secondaryNavsWrapper}>
-        <AppIcon iconPos={'0 -5708px'} url={"/knowledge/HOT100/70"}/>
-        <AppIcon iconPos={'0 -5756px'} url={"/knowledge/FAST50/69"}/>
-        <AppIcon iconPos={'0 -5804px'} url={"/knowledge/influential11/198"}/>
+        <AppIcon iconPos={'0 -5708px'} url={"/knowledge/HOT100"}/>
+        <AppIcon iconPos={'0 -5756px'} url={"/knowledge/FAST50"}/>
+        <AppIcon iconPos={'0 -5804px'} url={"/knowledge/influential11"}/>
         <AppIcon iconPos={'0 -5852px'}/>
         <AppIcon iconPos={'0 -5899px'}/>
         <AppIcon iconPos={'0 -5946px'}/>
         <SearchToggleBtn/>
-          <ExtraNav />
+        <ExtraNav />
       </div>
 
       <div className={classes.extraNav}>
