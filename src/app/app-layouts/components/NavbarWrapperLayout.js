@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import clsx from 'clsx';
 
 import NavbarLayout from './NavbarLayout';
+import {colorDark} from '@localpkg/app-colors'
 
 const useStyles = makeStyles(theme => ({
     navbar      : {
@@ -20,21 +21,23 @@ const NavbarWrapperLayout = (props) => {
   const classes = useStyles(props);
   const theme = createMuiTheme({
     palette:{
+      secondary:{
+        main:colorDark['A400']
+      },
       background:{
-        paper:'#000',
-        default:'#000'
+        paper:colorDark[900],
       },
       text:{
         primary:'white',
-        secondary: 'blue'
+        secondary: colorDark[900]
       },
       action:{
-        active:'rgba(255,255,255,1)'
+        active:colorDark[50],
       },
     },
     typography:{
-      fontFamily: ['Euclid Flex','Roboto','"Helvetica"','Arial','sans-serif'].join(','),
       fontSize:12,
+      fontFamily: ['Euclid Flex','Roboto','"Helvetica"','Arial','sans-serif'].join(','),
       body1:{
         fontFamily : ['Euclid Flex','Roboto','"Helvetica"','Arial','sans-serif'].join(','),
       },
