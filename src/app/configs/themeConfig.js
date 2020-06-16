@@ -1,11 +1,11 @@
 import {createMuiTheme} from '@material-ui/core/styles';
-import {green, yellow, grey} from '@material-ui/core/colors';
+import {green, yellow, blue} from '@material-ui/core/colors';
 
 export const defaultMuiTheme = ()=>{
   return createMuiTheme({
     palette: {
-      primary: grey,
-      secondary: grey,
+      primary: blue,
+      secondary: blue,
     },
     typography:{
       fontFamily: ['Euclid Flex','Roboto','"Helvetica"','Arial','sans-serif'].join(','),

@@ -10,10 +10,18 @@ const newsApiKey = '&apiKey=5caeb841f9df4be58fee5b88328a073d';
 
 function* getHomeFeaturedContent(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=us&pageSize=1' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('health')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return _.slice(_.reverse(articles), 0, 1);
+                            });
     yield put({ type: 'HOME_FEATURED_ARTICLE_NEWS_SUCCESS', payload:request });
   } catch (error){
 

@@ -169,7 +169,6 @@ const useStyles = makeStyles(theme => ({
       transition: "all 3s ease-out 3s",
       borderRadius: "25px",
       padding: "0px 22px",
-      marginRight: "20px",
       width: '300px',
     }
 }));

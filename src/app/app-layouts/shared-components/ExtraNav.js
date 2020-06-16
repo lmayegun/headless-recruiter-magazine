@@ -12,18 +12,20 @@ const ExtraNav = () => {
         position: 'relative',
       },
       menuIcon:{
-        width:'35px'
+        width:'35px',
+        fontSize:'50px',
+        color:'white',
+        marginTop: '6px'
       },
       wrapperMenu:{
          display: 'flex',
+         background:'#000',
          flexDirection: 'column',
-         background:'#000000',
          fontWeight:'1000',
-         color:'#fff',
          position:'absolute',
          zIndex:9,
-         left:-270,
-         top:-42,
+         left:-265,
+         top:-25,
          width: 300,
        }
     })
@@ -45,6 +47,83 @@ const ExtraNav = () => {
 
   const classes = useStyles();
 
+  const navigation = [
+    {
+      'id':1,
+      'type':'collapse',
+      'title': 'ARTICLE TYPE',
+      'children':[
+        {
+          'id'      : 'opinion',
+          'title'   : 'Opinion',
+          'type'    : 'item',
+          'url'     : '/article/opinion',
+        },
+        {
+          'id'      : 'uk-ireland',
+          'title'   : 'Whitepapers',
+          'type'    : 'item',
+          'url'     : '/article/whitepapers',
+        },
+        {
+          'id'      : 'contracts',
+          'title'   : 'Advice',
+          'type'    : 'item',
+          'url'     : '/article/advice',
+        },
+        {
+          'id'      : 'financials',
+          'title'   : 'Rec',
+          'type'    : 'item',
+          'url'     : '/article/rec',
+        },
+        {
+          'id'      : 'legislation',
+          'title'   : 'Analysis',
+          'type'    : 'item',
+          'url'     : '/article/analysis',
+        }
+      ]
+    },
+    {
+      'id':2,
+      'type':'collapse',
+      'title': 'NEWS TYPE',
+      'children':[
+        {
+          'id'      : 'lighter-side',
+          'title'   : 'Lighter Side',
+          'type'    : 'item',
+          'url'     : '/news/lighter-side',
+        },
+        {
+          'id'      : 'uk-ireland',
+          'title'   : 'UK & Ireland',
+          'type'    : 'item',
+          'url'     : '/news/uk-ireland',
+        },
+        {
+          'id'      : 'contracts',
+          'title'   : 'Contracts',
+          'type'    : 'item',
+          'url'     : '/news/contracts',
+        },
+        {
+          'id'      : 'financials',
+          'title'   : 'Financials',
+          'type'    : 'item',
+          'url'     : '/news/financials',
+        },
+        {
+          'id'      : 'legislation',
+          'title'   : 'Legislation',
+          'type'    : 'item',
+          'url'     : '/news/legislation',
+        }
+      ]
+    }
+  ]
+
   return(
     <div className={clsx(classes.root)}>
       <Icon className={clsx(classes.menuIcon)}  onClick={handleChange}>menu</Icon>
@@ -53,7 +132,7 @@ const ExtraNav = () => {
            <div style={{background:'#c1b49a', fontWeight:'1000', color:'#000'}}>
              <h2 style={{color:'#000', letterSpacing:'-1px', fontWeight:'1000', padding:'20px'}}> DISCOVER <Icon className="float-right relative" onClick={handleChange}>close</Icon> </h2>
            </div>
-            <FuseNavigation />
+            <FuseNavigation navigation={navigation}/>
          </div>
        </Fade>
      </div>

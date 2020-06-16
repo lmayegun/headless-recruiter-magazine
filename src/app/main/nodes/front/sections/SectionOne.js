@@ -93,7 +93,7 @@ const SectionOne = ()=>{
     <div className={clsx(classes.container)}>
       <div className={clsx(classes.section, "big-story")}>
         {
-          featuredArticleData.articles.map(function(key, index){
+          featuredArticleData.map(function(key, index){
             return (
               <CenterTeaserThumb content={key} type={"featured"}  key={key}/>
             )

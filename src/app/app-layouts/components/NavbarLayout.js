@@ -9,6 +9,7 @@ import SearchToggleBtn from '../shared-components/search/SearchComponent';
 import ExtraNav from '../shared-components/ExtraNav';
 
 const useStyles = makeStyles( theme =>{
+  console.log(theme, "lukmon ")
   return({
     root: {
       display: 'flex',
@@ -74,12 +75,6 @@ const useStyles = makeStyles( theme =>{
       '&.last':{
         margin: 0
       }
-    },
-    extraNav:{
-      flexGrow: 1,
-      display: 'flex',
-      height: '65px',
-      paddingTop: '40px',
     }
   })
 });
@@ -102,7 +97,7 @@ const NavbarLayout = () => {
           <Link to="/knowledge" className={clsx(classes.links, "knowledge")}>Knowledge</Link>
           <Link to="/events" className={clsx(classes.links, "events")}>Events</Link>
           <Link to="/#" className={clsx(classes.links, "directory")}>Directory</Link>
-          <Link to="/#" className={clsx(classes.links, "rec last")}>Rec</Link>
+          <Link to="/rec" className={clsx(classes.links, "rec last")}>Rec</Link>
         </div>
       </div>
 
@@ -114,10 +109,11 @@ const NavbarLayout = () => {
         <AppIcon iconPos={'0 -5899px'}/>
         <AppIcon iconPos={'0 -5946px'}/>
         <SearchToggleBtn/>
+          <ExtraNav />
       </div>
 
       <div className={classes.extraNav}>
-        <ExtraNav />
+
       </div>
 
     </div>
