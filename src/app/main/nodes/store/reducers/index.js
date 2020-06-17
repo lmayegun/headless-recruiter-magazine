@@ -1,12 +1,17 @@
 import {combineReducers} from 'redux';
-import content from './content.reducers';
+import article from './article.reducers';
 import news from './news.reducers';
+import knowledge from './knowledge.reducers';
 import taxonomy from './taxonomy.reducers';
 
 const reducer = combineReducers({
-  content,
-  taxonomy,
   news,
+  knowledge,
+  taxonomy,
 })
 
-export {reducer};
+const articleReducer = combineReducers({
+  article,
+})
+
+export {reducer, articleReducer};

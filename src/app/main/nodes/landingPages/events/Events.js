@@ -51,9 +51,9 @@ function Term(){
 
   const dispatch = useDispatch();
 
-  const newsTerms = useSelector( ({news}) => news.news.newsTermsState  );
-  const termTopThree = useSelector( ({news}) => news.news.newsTopThreeState  );
-  const termTopSix = useSelector( ({news}) => news.news.newsTopSixState  );
+  const newsTerms = useSelector( ({terms}) => terms.news.newsTermsState  );
+  const termTopThree = useSelector( ({terms}) => terms.news.newsTopThreeState  );
+  const termTopSix = useSelector( ({terms}) => terms.news.newsTopSixState  );
 
   const [newsTermsData, setNewsTermsData] = useState(newsTerms);
   const [termTopThreeData, setTermTopThreeData] = useState(termTopThree);
@@ -82,7 +82,7 @@ function Term(){
       <FusePageSimple
         featuredContents={
           <div>
-            <AppIconHeader title={"events"}/>
+            <AppIconHeader />
             <div className={clsx(classes.topThree)}>
               {
                 termTopThreeData.map((key, index)=>{
@@ -126,4 +126,4 @@ function Term(){
   )
 }
 
- export default withReducer('data', reducer)(Term)
+export default withReducer('terms', reducer)(Term)

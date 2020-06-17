@@ -11,7 +11,7 @@ import {
 
 import * as Actions from 'app/main/nodes/store/actions';
 import withReducer from 'app/store/withReducer';
-import {reducer} from 'app/main/nodes/store/reducers';
+import {articleReducer} from 'app/main/nodes/store/reducers';
 import {useDispatch, useSelector} from 'react-redux';
 
 
@@ -267,12 +267,12 @@ function ArticleNode( props ){
   const dispatch  = useDispatch();
   const id        = props.match.params.id;
   const category  = props.match.params.contenttype;
-  const content   = useSelector( ({content}) => content.content.contentState );
+  const content   = useSelector( ({article}) => article.article.contentState );
 
   const [article, setArticle] = useState(content);
 
    useEffect(()=>{
-     dispatch(Actions.getContent({id,category}))
+     dispatch(Actions.getArticle({id,category}))
    },[dispatch])
 
    useEffect(()=>{
@@ -309,4 +309,4 @@ function ArticleNode( props ){
   )
 }
 
-export default withReducer('content', reducer)(ArticleNode)
+export default withReducer('article', articleReducer)(ArticleNode)

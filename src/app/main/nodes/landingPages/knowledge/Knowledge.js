@@ -51,36 +51,36 @@ function Term(){
 
   const dispatch = useDispatch();
 
-  const newsTerms = useSelector( ({news}) => news.news.newsTermsState  );
-  const termTopThree = useSelector( ({news}) => news.news.newsTopThreeState  );
-  const termTopSix = useSelector( ({news}) => news.news.newsTopSixState  );
+  const knowledgeTerms = useSelector( ({terms}) => terms.knowledge.knowledgeTermsState  );
+  const termTopThree = useSelector( ({terms}) => terms.knowledge.knowledgeTopThreeState  );
+  const termTopSix = useSelector( ({terms}) => terms.knowledge.knowledgeTopSixState  );
 
-  const [newsTermsData, setNewsTermsData] = useState(newsTerms);
+  const [knowledgeTermsData, setKnowledgeTermsData] = useState(knowledgeTerms);
   const [termTopThreeData, setTermTopThreeData] = useState(termTopThree);
   const [termTopSixData, setTermTopSixData] = useState(termTopSix);
 
   useEffect(()=>{
-   dispatch(Actions.getNewsTerms())
-   dispatch(Actions.getNewsTopThree())
-   dispatch(Actions.getNewsTopSix())
+   dispatch(Actions.getKnowledgeTerms())
+   dispatch(Actions.getKnowledgeTopThree())
+   dispatch(Actions.getKnowledgeTopSix())
   },[dispatch])
 
   useEffect (()=>{
-    setNewsTermsData(newsTerms);
+    setKnowledgeTermsData(knowledgeTerms);
     setTermTopThreeData(termTopThree);
     setTermTopSixData(termTopSix);
-  },[newsTerms, termTopThree, termTopSix])
+  },[knowledgeTerms, termTopThree, termTopSix])
 
   const classes = useStyles();
 
-  if(!termTopThreeData || !termTopSixData || !newsTermsData ){
+  if(!termTopThreeData || !termTopSixData || !knowledgeTermsData ){
     return <h1> Loading... </h1>
   }
 
   return(
     <div>
-      {newsTermsData.length > 0 && (
-        <AppSubNav terms={newsTermsData} />
+      {knowledgeTermsData.length > 0 && (
+        <AppSubNav terms={knowledgeTermsData} />
       )}
       <FusePageSimple
         featuredContents={
@@ -129,4 +129,4 @@ function Term(){
   )
 }
 
- export default withReducer('data', reducer)(Term)
+ export default withReducer('terms', reducer)(Term)

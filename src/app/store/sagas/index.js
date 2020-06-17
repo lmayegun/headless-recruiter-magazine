@@ -1,9 +1,10 @@
 import { all } from 'redux-saga/effects';
 import { homePageSagas } from './homePage.sagas';
 import { newsSagas } from './news.sagas';
+import { knowledgeSagas } from './knowledge.sagas';
 import { magazineSagas } from './magazine.sagas';
 import { taxonomySagas } from './taxonomy.sagas';
-import { contentSagas } from './content.sagas';
+import { articleSagas } from './article.sagas';
 
 export default function* APPsagas(){
   yield all([
@@ -11,6 +12,7 @@ export default function* APPsagas(){
     ...magazineSagas,
     ...newsSagas,
     ...taxonomySagas,
-    ...contentSagas
+    ...articleSagas,
+    ...knowledgeSagas
   ])
 }
