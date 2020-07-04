@@ -1,15 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/database';
 
-const config = {
-  apiKey: "AIzaSyBn8ckvmtTIs7_y6Op8ykjpayoFa89lvVM",
-  authDomain: "recruiter-co-uk-26e2f.firebaseapp.com",
-  databaseURL: "https://recruiter-co-uk-26e2f.firebaseio.com",
-  projectId: "recruiter-co-uk",
-  storageBucket: "recruiter-co-uk.appspot.com",
-  messagingSenderId: "420839378773",
-  appId: "1:420839378773:web:72d0abc62d90f03ff129dc"
-};
+
 
 firebase.initializeApp(config);
 const database = firebase.database();
