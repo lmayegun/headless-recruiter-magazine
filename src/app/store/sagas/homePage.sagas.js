@@ -10,7 +10,7 @@ const newsApiKey = '&apiKey=5caeb841f9df4be58fee5b88328a073d';
 
 function* getHomeFeaturedContent(){
   try{
-    const request = yield database.ref('health')
+    const request = yield database.ref('articles/health')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -31,7 +31,7 @@ function* getHomeFeaturedContent(){
 
 function* getHomeArticleMostRecent(){
   try{
-    const request = yield database.ref('entertainment')
+    const request = yield database.ref('articles/knowledge')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -51,7 +51,7 @@ function* getHomeArticleMostRecent(){
 
 function* getHomeNewsTopThree(){
   try{
-    const request = yield database.ref('business')
+    const request = yield database.ref('articles/news')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -71,7 +71,7 @@ function* getHomeNewsTopThree(){
 
 function* getHomeFeaturedMagazine(){
   try{
-    const request =  yield database.ref('business')
+    const request =  yield database.ref('articles/business')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -111,7 +111,7 @@ function* getHomeArticleMostPopular(){
 
 function* getHomeArticleSponsored(){
   try{
-    const request = yield database.ref('sports')
+    const request = yield database.ref('articles/sports')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -131,7 +131,7 @@ function* getHomeArticleSponsored(){
 
 function* getHomeArticleProfiles(){
   try{
-    const request = yield database.ref('sports')
+    const request = yield database.ref('articles/sports')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -151,7 +151,7 @@ function* getHomeArticleProfiles(){
 
 function* getHomeOpinionRecent(){
   try{
-    const request = yield database.ref('business')
+    const request = yield database.ref('articles/business')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -171,7 +171,7 @@ function* getHomeOpinionRecent(){
 
 function* getHomeIndepthRecent(){
   try{
-    const request = yield database.ref('entertainment')
+    const request = yield database.ref('articles/entertainment')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -191,7 +191,7 @@ function* getHomeIndepthRecent(){
 
 function* getHomeLighterRecent(){
   try{
-    const request = yield database.ref('health')
+    const request = yield database.ref('articles/health')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -211,7 +211,7 @@ function* getHomeLighterRecent(){
 
 function* getHomeEventsRecent(){
   try{
-    const request = yield database.ref('entertainment')
+    const request = yield database.ref('articles/entertainment')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -264,7 +264,7 @@ function* getHomeMagazinesIssue(){
 function* getSearchResults({payload}){
   const value = payload;
   try{
-    const request = yield database.ref('business')
+    const request = yield database.ref('articles/business')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []

@@ -1,5 +1,5 @@
-import * as firebase from 'firebase';
-import axios from 'axios';
+import firebase from 'firebase/app';
+import 'firebase/database';
 
 const config = {
   apiKey: "AIzaSyBn8ckvmtTIs7_y6Op8ykjpayoFa89lvVM",
@@ -14,35 +14,6 @@ const config = {
 firebase.initializeApp(config);
 const database = firebase.database();
 export { firebase, database as default };
-
-const newsApi = 'https://newsapi.org/v2/';
-const newsApiKey = '&apiKey=5caeb841f9df4be58fee5b88328a073d';
-function* getHomeFeaturedContent(){
-
-    yield axios.get( newsApi + 'top-headlines?country=gb&category=technology' + newsApiKey).then((response) => {
-
-        response.data.articles.map((key, item)=>{
-          // console.log(key.title, "men")
-          database.ref('articles').push(key)
-        })
-        return response.data.articles
-      }
-    );
-
-    yield axios.get( newsApi + 'top-headlines?country=us&category=business' + newsApiKey).then((response) => {
-
-        response.data.articles.map((key, item)=>{
-          // console.log(item, "travis")
-          // database.ref('articles').push(key)
-        })
-        return response.data
-      }
-    );
-}
-// const gen = getHomeFeaturedContent();
-// console.log(gen.next().value, "gen1")
-// console.log(gen.next().value, "gen2")
-// getHomeFeaturedContent().next()
 
 const magazines = [
   {

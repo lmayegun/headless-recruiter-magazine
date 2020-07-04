@@ -3,7 +3,7 @@ import database from '../../../firebase/firebase';
 
 function* getArticle({payload}){
   try{
-    const request = yield database.ref(`${payload.category}/${payload.id}`)
+    const request = yield database.ref(`articles/${payload.category}/${payload.id}`)
                             .once('value')
                             .then(function(snapshot) {
                               return snapshot.val();

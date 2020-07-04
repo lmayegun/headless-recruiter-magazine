@@ -22,7 +22,7 @@ function* getKnowledgeTerms(){
 
 function* getKnowledgeTopThree(){
   try{
-    const request = yield database.ref('business')
+    const request = yield database.ref('articles/knowledge')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -42,7 +42,7 @@ function* getKnowledgeTopThree(){
 
 function* getKnowledgeTopSix(){
   try{
-    const request = yield database.ref('business')
+    const request = yield database.ref('articles/business')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
