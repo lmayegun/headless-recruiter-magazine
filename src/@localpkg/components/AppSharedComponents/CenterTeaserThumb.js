@@ -6,7 +6,6 @@ import clsx from 'clsx';
 import moment from 'moment';
 
 import {AppPremIcon} from './AppPremIcon';
-import {AppTags} from './AppTags';
 
 function CenterTeaserThumb({content, type, imgHeight, descrLength}){
 
@@ -68,7 +67,7 @@ function CenterTeaserThumb({content, type, imgHeight, descrLength}){
 
   function link(){
     const contentType = content.category ? content.category.toLowerCase() : 'none';
-    const title = content.title ? content.title.replace(/\s|\?|\%+/g, '-').toLowerCase() : 'noTitle';
+    const title = content.title ? content.title.replace(/\s|\?|\\%+/g, '-').toLowerCase() : 'noTitle';
     const id = content.id ? content.id : '50344';
     return(
       '/article/'+ contentType +'/'+  title +'/'+ id

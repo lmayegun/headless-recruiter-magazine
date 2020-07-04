@@ -7,10 +7,7 @@ import {
         CenterTeaserThumb,
         ThreeByTwoAd,
         AppIconHeader,
-        AppLatestJobs,
         AppMostPopular,
-        AppFeaturedRecruiters,
-        AppSubNav
       } from '@localpkg';
 
 import * as Actions from 'app/main/nodes/store/actions';

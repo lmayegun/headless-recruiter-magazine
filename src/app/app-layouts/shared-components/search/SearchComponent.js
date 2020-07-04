@@ -1,8 +1,7 @@
-import React, {useEffect, useReducer, useRef} from 'react';
+import React, {useReducer, useRef} from 'react';
 import {Popper, ClickAwayListener, MenuItem, Icon, IconButton, ListItemIcon, ListItemText, Paper, TextField, Tooltip, Typography, Input} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {useDispatch, useSelector} from 'react-redux';
-import {AppUtils} from '@localpkg';
 import clsx from 'clsx';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';

@@ -4,7 +4,7 @@ import {Link, withRouter} from 'react-router-dom';
 import clsx from 'clsx';
 
 import {AppPremIcon} from './AppPremIcon';
-import {AppTags} from './AppTags';
+import AppTags from './AppTags';
 import moment from 'moment';
 
 function SideTeaserThumb( {content, minHeight, descrLength} ){
@@ -60,7 +60,7 @@ function SideTeaserThumb( {content, minHeight, descrLength} ){
 
   function link(){
     const contentType = content.category ? content.category.toLowerCase() : 'none';
-    const title = content.title ? content.title.replace(/\s|\?|\%+/g, '-').toLowerCase() : 'noTitle';
+    const title = content.title ? content.title.replace(/\s|\?|\\%+/g, '-').toLowerCase() : 'noTitle';
     const id = content.id ? content.id : '50344';
     return(
       '/article/'+ contentType +'/'+  title +'/'+ id

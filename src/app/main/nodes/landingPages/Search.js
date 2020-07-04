@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FusePageSimple, AppIconHeader, ThreeByTwoAd, AppLatestJobs} from '@localpkg';
+import {FusePageSimple, AppIconHeader, ThreeByTwoAd} from '@localpkg';
 import {useSelector} from 'react-redux';
 import {makeStyles} from '@material-ui/styles';
 import {Link} from 'react-router-dom';

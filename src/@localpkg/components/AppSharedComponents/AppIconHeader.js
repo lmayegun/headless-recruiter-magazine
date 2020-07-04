@@ -1,6 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/styles';
-import { Typography, Body1 } from '@material-ui/core';
+import { Typography} from '@material-ui/core';
 import clsx from 'clsx';
 
 export default function AppIconHeader( props ){

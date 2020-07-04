@@ -1,7 +1,7 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/styles';
 import {Typography} from '@material-ui/core';
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import clsx from 'clsx';
 
 function AppMagCover( {magazine, longTitleLength} ){
@@ -35,8 +35,6 @@ function AppMagCover( {magazine, longTitleLength} ){
   const classes = useStyles()
 
   function link(){
-    const title = magazine.name ? magazine.name.replace(/\?+/g, '_').toLowerCase() : 'noTitle';
-    const id = magazine.id ? magazine.id : '50344';
     const link = magazine.link ? magazine.link : "https://issuu.com/redactive/docs/rec_junjul20_linkedversion?fr=sMTQyMDY3MzMwMA"
     return(link)
   }
@@ -48,17 +46,17 @@ function AppMagCover( {magazine, longTitleLength} ){
       <div className={clsx(classes.wrapper)}>
         <div className={clsx(classes.title)}>
           {longTitleLength ? (
-            <a href={link()} target="_blank">
+            <a href={link()} target="_blank" rel="noopener noreferrer">
               <Typography variant='h3' className={clsx(classes.longTitleLength)}>{magazine.name}</Typography>
             </a>
           ): (
-            <a href={link()} target="_blank">
+            <a href={link()} target="_blank" rel="noopener noreferrer">
               <Typography variant='h3' className={clsx(classes.link)}>{magazine.name}</Typography>
             </a>
           )}
         </div>
         <div>
-          <a href={link()} target="_blank">
+          <a href={link()} target="_blank" rel="noopener noreferrer">
             <img className={clsx(classes.img)} src={img} alt="app mag cover"/>
           </a>
         </div>

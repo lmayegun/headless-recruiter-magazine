@@ -1,5 +1,4 @@
 import {createMuiTheme} from '@material-ui/core/styles';
-import {green, yellow, blue} from '@material-ui/core/colors';
 import {colorDark, colorSec} from '@localpkg/app-colors'
 
 export const defaultMuiTheme = ()=>{

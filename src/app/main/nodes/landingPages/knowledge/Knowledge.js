@@ -7,9 +7,7 @@ import {
         CenterTeaserThumb,
         ThreeByTwoAd,
         AppIconHeader,
-        AppLatestJobs,
         AppMostPopular,
-        AppFeaturedRecruiters,
         AppSubNav
       } from '@localpkg';
 

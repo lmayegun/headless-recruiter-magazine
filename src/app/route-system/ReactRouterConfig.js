@@ -1,8 +1,8 @@
-import React, {useContext, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
 // import { matchRoutes } from "react-router-config";
 
-import AppContext from 'app/AppContext';
+// import AppContext from 'app/AppContext';
 import DefaultLayout from 'app/app-layouts/DefaultLayout';
 
 const ReactRouterConfig = ( props ) => {

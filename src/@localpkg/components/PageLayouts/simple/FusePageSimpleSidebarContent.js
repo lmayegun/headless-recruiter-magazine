@@ -2,11 +2,8 @@ import React from 'react';
 import {ThemeProvider} from '@material-ui/styles';
 import {FuseScrollbars} from '@localpkg';
 import clsx from 'clsx';
-import {useSelector} from 'react-redux';
-
 function FusePageSimpleSidebarContent(props)
 {
-
     const classes = props.classes;
 
     return (

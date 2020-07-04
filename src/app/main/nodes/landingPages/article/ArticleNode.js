@@ -273,7 +273,7 @@ function ArticleNode( props ){
 
    useEffect(()=>{
      dispatch(Actions.getArticle({id,category}))
-   },[dispatch])
+   },[dispatch, category, id])
 
    useEffect(()=>{
      setArticle(content);

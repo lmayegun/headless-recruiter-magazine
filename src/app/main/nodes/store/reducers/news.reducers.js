@@ -1,5 +1,3 @@
-import * as Actions from '../actions';
-
 const initialState = {}
 
 const newsReducers = function (state = initialState, action){

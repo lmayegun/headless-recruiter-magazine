@@ -112,7 +112,7 @@ class AppUtils{
 
   static appendNavItemToParent(nav)
   {
-    // console.log(nav,"banter")
+    console.log(nav,"banter")
   }
 
   static appendNavItem(nav, item, parentId)
@@ -132,13 +132,13 @@ class AppUtils{
               item.map((clock)=>{
                 _item.children.push(clock)
               })
-              // return {
-              //     _item,
-              //     children: [
-              //         ..._item.children,
-              //         item
-              //     ]
-              // };
+              return {
+                  _item,
+                  children: [
+                      ..._item.children,
+                      item
+                  ]
+              };
               return _item
           }
 
@@ -150,7 +150,7 @@ class AppUtils{
           }
           else
           {
-              // return _.merge({}, _item);
+              return _.merge({}, _item);
           }
       })
   }

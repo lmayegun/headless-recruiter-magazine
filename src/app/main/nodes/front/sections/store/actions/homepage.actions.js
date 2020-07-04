@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export const HOME_FEATURED_ARTICLE = '[HOME] FEATURED_ARTICLE';
 export const HOME_ARTICLE_MOST_RECENT = '[HOME] ARTICLE_TOP_RECENT';
 export const HOME_NEWS_TOP_RECENT = '[HOME] NEWS_TOP_THREE]';
@@ -14,9 +12,6 @@ export const HOME_SUPPLEMENTS = '[HOME] SUPPLEMENTS';
 export const HOME_FEATURED_MAGAZINE   = '[HOME] FEATURED_MAGAZINE';
 export const HOME_MAGAZINE_ISSUES = '[HOME] MAGAZINE_ISSUES';
 export const A_CONTENT = '[GET A CONTENT] BY ID';
-
-const baseUrl = true ? 'http://recruiter.dd:8083' : 'https://recruiter.tsample.co.uk';
-
 
 export function getTopRecentNews(){
   return {type : HOME_NEWS_TOP_RECENT };

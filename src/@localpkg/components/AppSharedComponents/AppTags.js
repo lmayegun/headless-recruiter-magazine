@@ -3,7 +3,7 @@ import {makeStyles} from '@material-ui/styles';
 import {withRouter, Link} from 'react-router-dom';
 import clsx from 'clsx';
 
-export function AppTags({tags}){
+const AppTags = ({tags}) => {
 
   const useStyles = makeStyles( theme =>
     ({
@@ -41,5 +41,7 @@ export function AppTags({tags}){
     </div>
   )
 }
+
+export default withRouter(AppTags);
 
 AppTags.defaultProps = {}

@@ -1,4 +1,3 @@
-import React from 'react';
 import {AppUtils} from '@localpkg';
 import {NodesConfig} from 'app/main/nodes/NodesConfig';
 

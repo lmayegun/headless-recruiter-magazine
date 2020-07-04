@@ -7,10 +7,7 @@ import {
         CenterTeaserThumb,
         ThreeByTwoAd,
         AppIconHeader,
-        AppLatestJobs,
         AppMostPopular,
-        AppFeaturedRecruiters,
-        AppSubNav
       } from '@localpkg';
 
 import * as Actions from 'app/main/nodes/store/actions';
@@ -49,7 +46,7 @@ const useStyles = makeStyles( theme => ({
 
 function Tag( {match} ){
 
-  const term = match.params.term;
+  // const term = match.params.term;
   const tag = match.params.tag;
   const dispatch = useDispatch();
 

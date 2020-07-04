@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {makeStyles, Icon, Fade} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core';
 import clsx from 'clsx';
 
 import Logo from './Logo';

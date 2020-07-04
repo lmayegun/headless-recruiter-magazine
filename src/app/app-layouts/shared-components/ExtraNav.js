@@ -49,7 +49,7 @@ const ExtraNav = () => {
 
   const navigation = [
     {
-      'id':1,
+      'id':'article',
       'type':'collapse',
       'title': 'ARTICLE TYPE',
       'children':[
@@ -86,7 +86,7 @@ const ExtraNav = () => {
       ]
     },
     {
-      'id':2,
+      'id':'news',
       'type':'collapse',
       'title': 'NEWS TYPE',
       'children':[

@@ -1,8 +1,6 @@
 import React from 'react';
-import {Paper, Drawer, Hidden, Menu, MenuItem, Slide, Typography, Icon, createMuiTheme} from '@material-ui/core';
+import {Paper, Hidden, createMuiTheme} from '@material-ui/core';
 import {makeStyles, ThemeProvider} from '@material-ui/styles';
-import {Link} from 'react-router-dom';
-import clsx from 'clsx';
 
 import NavbarLayout from './NavbarLayout';
 import {colorDark} from '@localpkg/app-colors'

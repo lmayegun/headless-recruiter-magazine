@@ -1,12 +1,9 @@
-import { put, takeLatest, takeEvery } from 'redux-saga/effects';
+import { put, takeLatest} from 'redux-saga/effects';
 import axios from 'axios';
 import database from '../../../firebase/firebase';
 import _ from '@lodash';
 
-const baseUrl = true ? 'http://recruiter.dd:8083' : 'https://recruiter.tsample.co.uk';
-
-const newsApi = 'https://newsapi.org/v2/';
-const newsApiKey = '&apiKey=5caeb841f9df4be58fee5b88328a073d';
+// const baseUrl = true ? 'http://recruiter.dd:8083' : 'https://recruiter.tsample.co.uk';
 
 function* getNewsTerms(){
   try{
