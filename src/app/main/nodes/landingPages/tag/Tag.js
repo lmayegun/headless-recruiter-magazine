@@ -114,13 +114,13 @@ function Tag( {match} ){
         }
 
         rightSidebarContent={
-          <div>
+          <div style={{padding:20}}>
             <ThreeByTwoAd />
             <br />
             <AppIconHeader title="most popular"/>
             <AppMostPopular content={termTopThreeData} liClasses={'width-full'}/>
             <br />
-            <ThreeByTwoAd />
+            <ThreeByTwoAd imgPath={"https://assets.adnuntius.com/RcA0jk-UVSvFKKTLJNy90qU7L02OGmM1q5OR2v-USCg.png"}/>
           </div>
         }
       />

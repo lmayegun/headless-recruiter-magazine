@@ -297,11 +297,10 @@ function ArticleNode( props ){
         }
 
         rightSidebarContent={
-          <div>
+          <div style={{padding:20}}>
             <ThreeByTwoAd />
-            <AppIconHeader title="latest jobs"/>
-            <AppLatestJobs />
-            <ThreeByTwoAd />
+            <ThreeByTwoAd imgPath={"https://assets.adnuntius.com/RcA0jk-UVSvFKKTLJNy90qU7L02OGmM1q5OR2v-USCg.png"}/>
+            <ThreeByTwoAd imgPath={"https://www.recruiter.co.uk/sites/all/themes/recruiter/img/e-news-mpu.png"}/>
           </div>
         }
       />

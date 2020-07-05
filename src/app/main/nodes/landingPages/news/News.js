@@ -84,7 +84,7 @@ function Term(){
         }
 
         rightSidebarContent={
-          <div>
+            <div style={{paddingLeft:20}}>
             <ThreeByTwoAd />
             <br />
             <AppIconHeader title="most popular"/>

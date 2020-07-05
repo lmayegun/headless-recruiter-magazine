@@ -3,7 +3,8 @@ import {makeStyles} from '@material-ui/styles';
 import clsx from 'clsx';
 
 export default function ThreeByTwoAd( props ){
-
+  const initImg = "https://assets.adnuntius.com/7s0GfaoVHAF0LFYR2hNO6XKc98m6KkRgAp8rCeIcpe4.png";
+  const {imgPath = initImg } = props 
   const threeByTwoStyles = makeStyles(theme => ({
       root:{
         flexDirection: 'column',
@@ -26,7 +27,7 @@ export default function ThreeByTwoAd( props ){
     <div className={clsx(classes.root)}>
       <div className={clsx(classes.adSpace)}>
         <div className={clsx(classes.adImg)}>
-          <img src="https://assets.adnuntius.com/7s0GfaoVHAF0LFYR2hNO6XKc98m6KkRgAp8rCeIcpe4.png" width={props.width} alt="three by two ads space"/>
+          <img src={imgPath} width={props.width} alt="three by two ads space"/>
         </div>
       </div>
     </div>

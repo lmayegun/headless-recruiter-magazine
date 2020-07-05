@@ -9,8 +9,7 @@ function AppMostPopular( props ){
       root:{
         display: 'flex',
         flexDirection: 'column',
-        paddingBottom: 20,
-        marginBottom: 20,
+        marginBottom: 10,
       },
       ul:{
         listStyle: 'none',
@@ -26,7 +25,10 @@ function AppMostPopular( props ){
         },
         '&.width-full':{
           width: '100%',
-          marginRight: '0px'
+          marginRight: '0px',
+          '& .title':{
+            marginRight: '0px',
+          }
         },
         '& .numbered' : {
           fontSize: '4em',
@@ -74,7 +76,7 @@ function AppMostPopular( props ){
   }
 
   return (
-    <div>
+    <div className={classes.root}>
       <ul className={clsx(classes.ul)}>
       { props.content &&
         (
