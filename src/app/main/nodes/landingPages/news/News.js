@@ -16,35 +16,6 @@ import withReducer from 'app/store/withReducer';
 import {reducer} from 'app/main/nodes/store/reducers';
 import {useDispatch, useSelector} from 'react-redux';
 
-
-const useStyles = makeStyles( theme => ({
-   topThree: {
-     display: 'flex',
-     flexDirection: 'column',
-     justifyContent: 'space-between',
-     marginBottom: 50,
-     marginLeft: -15,
-     [theme.breakpoints.up('lg')]:{
-       flexDirection: 'row',
-     }
-   },
-   topSix: {
-     display: 'flex',
-     flexDirection: 'column',
-     flexWrap: 'wrap',
-     justifyContent: 'space-between',
-     marginBottom: 50,
-     [theme.breakpoints.up('lg')]:{
-       flexDirection: 'row',
-       '& .item':{
-          width: '45%',
-          padding: '10px',
-       }
-     }
-   }
- })
-);
-
 function Term(){
 
   const dispatch = useDispatch();
@@ -58,9 +29,9 @@ function Term(){
   const [termTopSixData, setTermTopSixData] = useState(termTopSix);
 
   useEffect(()=>{
-   dispatch(Actions.getNewsTerms())
-   dispatch(Actions.getNewsTopThree())
-   dispatch(Actions.getNewsTopSix())
+   dispatch(Actions.getNewsTerms());
+   dispatch(Actions.getNewsTopThree({category:'news', tag:'opinion' }));
+   dispatch(Actions.getNewsTopSix({category:'news', tag:'opinion' }));
   },[dispatch])
 
   useEffect (()=>{
@@ -126,5 +97,33 @@ function Term(){
     </div>
   )
 }
+
+const useStyles = makeStyles( theme => ({
+   topThree: {
+     display: 'flex',
+     flexDirection: 'column',
+     justifyContent: 'space-between',
+     marginBottom: 50,
+     marginLeft: -15,
+     [theme.breakpoints.up('lg')]:{
+       flexDirection: 'row',
+     }
+   },
+   topSix: {
+     display: 'flex',
+     flexDirection: 'column',
+     flexWrap: 'wrap',
+     justifyContent: 'space-between',
+     marginBottom: 50,
+     [theme.breakpoints.up('lg')]:{
+       flexDirection: 'row',
+       '& .item':{
+          width: '45%',
+          padding: '10px',
+       }
+     }
+   }
+ })
+);
 
 export default withReducer('terms', reducer)(Term)

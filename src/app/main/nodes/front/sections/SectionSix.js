@@ -97,9 +97,9 @@ const SectionSix = ()=>{
   return(
       <div className={clsx(classes.container)}>
         <div className={clsx(classes.section, "first-col")}>
-        {supplementsData.articles.length > 0 && (
+        {supplementsData.length > 0 && (
           <AppCarousel
-            slideData={supplementsData.articles}
+            slideData={supplementsData}
             slidesToShow={4}
             classes={classes}
             type={"cover"}

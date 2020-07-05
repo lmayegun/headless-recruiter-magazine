@@ -17,9 +17,10 @@ function* getNewsTerms(){
   }
 }
 
-function* getNewsTopThree(){
+function* getNewsTopThree( {payload} ){
+  const {category} = payload;
   try{
-    const request = yield database.ref('business')
+    const request = yield database.ref(`articles/${category}`)
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -37,9 +38,10 @@ function* getNewsTopThree(){
   }
 }
 
-function* getNewsTopSix(){
+function* getNewsTopSix( {payload} ){
+  const {category} = payload;
   try{
-    const request = yield database.ref('business')
+    const request = yield database.ref(`articles/${category}`)
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []

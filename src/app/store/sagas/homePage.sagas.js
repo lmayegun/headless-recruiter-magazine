@@ -231,10 +231,18 @@ function* getHomeEventsRecent(){
 
 function* getHomeSupplements(){
   try{
-    const request = yield axios.get( newsApi + 'top-headlines?country=gb&pageSize=10&page=2' + newsApiKey).then((response) => {
-        return response.data
-      }
-    );
+    const request = yield database.ref('magazines')
+                            .once('value')
+                            .then(function(snapshot) {
+                              const articles = []
+                              snapshot.forEach((child)=>{
+                                  articles.push({
+                                    id: child.key,
+                                    ...child.val()
+                                  })
+                              })
+                              return articles;
+                            });
     yield put({ type: 'HOME_SUPPLEMENTS_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'FEATURED_ARTICLE_NEWS_FAILED', payload:'failed' });

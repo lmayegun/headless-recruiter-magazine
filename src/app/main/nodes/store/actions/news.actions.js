@@ -6,10 +6,16 @@ export function getNewsTerms(){
   return {type : NEWS_TERMS};
 }
 
-export function getNewsTopThree(){
-  return {type : NEWS_TOP_THREE};
+export function getNewsTopThree(payload){
+  return {
+    type : NEWS_TOP_THREE,
+    payload
+  };
 }
 
-export function getNewsTopSix(){
-  return {type : NEWS_TOP_SIX};
+export function getNewsTopSix(payload){
+  return {
+    type : NEWS_TOP_SIX,
+    payload
+  };
 }
