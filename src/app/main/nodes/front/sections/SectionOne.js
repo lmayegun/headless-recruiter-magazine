@@ -71,9 +71,9 @@ const SectionOne = ()=>{
   const [knowledgeData, setKnowledgeData] = useState(articleMostRecent);
 
   useEffect(()=>{
-    dispatch(Actions.getTopRecentNews());
-    dispatch(Actions.getFeaturedArticle());
-    dispatch(Actions.getArticleMostRecent());
+    dispatch(Actions.getTopRecentNews({category:'news'}));
+    dispatch(Actions.getFeaturedArticle({category:'health'}));
+    dispatch(Actions.getArticleMostRecent({category:'knowledge'}));
     dispatch(Actions.getFeaturedMagazine());
   }, [dispatch])
 

@@ -4,8 +4,6 @@ import clsx from 'clsx';
 import {
         FusePageSimple,
         ThreeByTwoAd,
-        AppIconHeader,
-        AppLatestJobs,
         AppArticle
       } from '@localpkg';
 

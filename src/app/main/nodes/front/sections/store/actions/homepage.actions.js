@@ -13,54 +13,93 @@ export const HOME_FEATURED_MAGAZINE   = '[HOME] FEATURED_MAGAZINE';
 export const HOME_MAGAZINE_ISSUES = '[HOME] MAGAZINE_ISSUES';
 export const A_CONTENT = '[GET A CONTENT] BY ID';
 
-export function getTopRecentNews(){
-  return {type : HOME_NEWS_TOP_RECENT };
+export function getTopRecentNews(payload){
+  return {
+    type : HOME_NEWS_TOP_RECENT,
+    payload
+  };
 }
 
-export function getFeaturedArticle(){
-  return{ type : HOME_FEATURED_ARTICLE };
+export function getFeaturedArticle(payload){
+  return{
+    type : HOME_FEATURED_ARTICLE,
+    payload
+  };
 }
 
-export function getArticleMostRecent(){
-  return {type : HOME_ARTICLE_MOST_RECENT};
+export function getArticleMostRecent(payload){
+  return {
+    type : HOME_ARTICLE_MOST_RECENT,
+    payload
+  };
 }
 
-export function getArticleMostPopular(){
-  return {type : HOME_ARTICLE_MOST_POPULAR};
+export function getArticleMostPopular(payload){
+  return {
+    type : HOME_ARTICLE_MOST_POPULAR,
+    payload
+  };
 }
 
-export function getArticleSponsored(){
-  return {type   :  HOME_ARTICLE_SPONSORED};
+export function getArticleSponsored(payload){
+  return {
+    type : HOME_ARTICLE_SPONSORED,
+    payload
+  };
 }
 
-export function getArticleProfiles(){
-  return {type : HOME_ARTICLE_PROFILES}
+export function getArticleProfiles(payload){
+  return {
+    type : HOME_ARTICLE_PROFILES,
+    payload
+  }
 }
 
-export function getOpinionTopThree(){
-  return {type : HOME_OPINION_RECENT};
+export function getOpinionTopThree(payload){
+  return {
+    type : HOME_OPINION_RECENT,
+    payload
+  };
 }
 
-export function getIndepthTopThree(){
-  return {type : HOME_INDEPTH_RECENT}
+export function getIndepthTopThree(payload){
+  return {
+    type : HOME_INDEPTH_RECENT,
+    payload
+  }
 }
 
-export function getLighterSideTopThree(){
-  return {type : HOME_LIGHTERSIDE_RECENT}
+export function getLighterSideTopThree(payload){
+  return {
+    type : HOME_LIGHTERSIDE_RECENT,
+    payload
+  }
 }
 
-export function getEventsTopThree(){
-  return {type : HOME_EVENTS_RECENT};
+export function getEventsTopThree(payload){
+  return {
+    type : HOME_EVENTS_RECENT,
+    payload
+  };
 }
 
-export function getSupplements(){
-  return {type : HOME_SUPPLEMENTS};
+export function getSupplements(payload){
+  return {
+    type : HOME_SUPPLEMENTS,
+    payload
+  };
 }
 
-export function getFeaturedMagazine(){
-  return {type : HOME_FEATURED_MAGAZINE};
+export function getFeaturedMagazine(payload){
+  return {
+    type : HOME_FEATURED_MAGAZINE,
+    payload
+  };
 }
 
-export function getMagazineIssues(){
-  return {type : HOME_MAGAZINE_ISSUES}
+export function getMagazineIssues(payload){
+  return {
+    type : HOME_MAGAZINE_ISSUES,
+    payload
+  }
 }

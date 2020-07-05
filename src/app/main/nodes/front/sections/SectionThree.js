@@ -54,7 +54,7 @@ const SectionThree = ()=>{
   const [mostPopularData, setMostPopularData] = useState(articleMostPopular);
 
   useEffect(()=>{
-    dispatch(Actions.getArticleMostPopular());
+    dispatch(Actions.getArticleMostPopular({category:'news'}));
   },[dispatch])
 
   useEffect(()=>{

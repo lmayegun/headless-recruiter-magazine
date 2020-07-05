@@ -76,7 +76,7 @@ const useStyle = makeStyles( theme => ({
      }
    },
  })
-)
+);
 
 const SectionFour = ()=>{
 
@@ -88,7 +88,7 @@ const SectionFour = ()=>{
   const [newsData, setNewsData] = useState(articleSponsored);
 
   useEffect(()=>{
-    dispatch(Actions.getArticleSponsored())
+    dispatch(Actions.getArticleSponsored({category:'news'}))
   }, [dispatch])
 
   useEffect(()=>{

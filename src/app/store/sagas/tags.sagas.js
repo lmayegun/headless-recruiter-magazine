@@ -1,5 +1,4 @@
 import { put, takeLatest} from 'redux-saga/effects';
-import axios from 'axios';
 import database from '../../../firebase/firebase';
 import _ from '@lodash';
 
