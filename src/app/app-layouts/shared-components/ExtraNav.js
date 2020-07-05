@@ -57,31 +57,31 @@ const ExtraNav = () => {
           'id'      : 'opinion',
           'title'   : 'Opinion',
           'type'    : 'item',
-          'url'     : '/article/opinion',
+          'url'     : '/knowledge/opinion',
         },
         {
           'id'      : 'uk-ireland',
           'title'   : 'Whitepapers',
           'type'    : 'item',
-          'url'     : '/article/whitepapers',
+          'url'     : '/knowledge/whitepapers',
         },
         {
           'id'      : 'contracts',
           'title'   : 'Advice',
           'type'    : 'item',
-          'url'     : '/article/advice',
+          'url'     : '/knowledge/advice',
         },
         {
           'id'      : 'financials',
           'title'   : 'Rec',
           'type'    : 'item',
-          'url'     : '/article/rec',
+          'url'     : '/knowledge/rec',
         },
         {
           'id'      : 'legislation',
           'title'   : 'Analysis',
           'type'    : 'item',
-          'url'     : '/article/analysis',
+          'url'     : '/knowledge/analysis',
         }
       ]
     },

@@ -3,8 +3,6 @@ import axios from 'axios';
 import database from '../../../firebase/firebase';
 import _ from '@lodash';
 
-// const baseUrl = true ? 'http://recruiter.dd:8083' : 'https://recruiter.tsample.co.uk';
-
 function* getNewsTerms(){
   try{
     const request = yield axios.get( '/api/terms/news').then((response) => {

@@ -8,13 +8,13 @@ import {
         ThreeByTwoAd,
         AppIconHeader,
         AppMostPopular,
+        AppSubNav
       } from '@localpkg';
 
 import * as Actions from 'app/main/nodes/store/actions';
 import withReducer from 'app/store/withReducer';
 import {reducer} from 'app/main/nodes/store/reducers';
 import {useDispatch, useSelector} from 'react-redux';
-
 
 const useStyles = makeStyles( theme => ({
    topThree: {
@@ -46,13 +46,13 @@ const useStyles = makeStyles( theme => ({
 
 function Tag( {match} ){
 
-  // const term = match.params.term;
+  const term = match.params.term;
   const tag = match.params.tag;
   const dispatch = useDispatch();
 
-  const newsTerms = useSelector( ({news}) => news.news.newsTermsState  );
-  const termTopThree = useSelector( ({news}) => news.news.newsTopThreeState  );
-  const termTopSix = useSelector( ({news}) => news.news.newsTopSixState  );
+  const newsTerms = useSelector( ({terms}) => terms.news.newsTermsState  );
+  const termTopThree = useSelector( ({terms}) => terms.tags.tagsTopThreeState  );
+  const termTopSix = useSelector( ({terms}) => terms.tags.tagsTopSixState  );
 
   const [newsTermsData, setNewsTermsData] = useState(newsTerms);
   const [termTopThreeData, setTermTopThreeData] = useState(termTopThree);
@@ -60,9 +60,9 @@ function Tag( {match} ){
 
   useEffect(()=>{
    dispatch(Actions.getNewsTerms())
-   dispatch(Actions.getNewsTopThree())
-   dispatch(Actions.getNewsTopSix())
-  },[dispatch])
+   dispatch(Actions.getTagsTopThree({category:term, tag:tag }))
+   dispatch(Actions.getTagsTopSix({category:term, tag:tag }))
+ },[dispatch, term, tag])
 
   useEffect (()=>{
     setNewsTermsData(newsTerms);
@@ -78,6 +78,9 @@ function Tag( {match} ){
 
   return(
     <div>
+      {newsTermsData.length > 0 && (
+        <AppSubNav terms={newsTermsData} />
+      )}
       <FusePageSimple
         featuredContents={
           <div>
@@ -125,4 +128,4 @@ function Tag( {match} ){
   )
 }
 
-export default withReducer('news', reducer)(Tag)
+export default withReducer('terms', reducer)(Tag)

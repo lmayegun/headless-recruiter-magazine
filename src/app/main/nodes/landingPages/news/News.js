@@ -30,8 +30,8 @@ function Term(){
 
   useEffect(()=>{
    dispatch(Actions.getNewsTerms());
-   dispatch(Actions.getNewsTopThree({category:'news', tag:'opinion' }));
-   dispatch(Actions.getNewsTopSix({category:'news', tag:'opinion' }));
+   dispatch(Actions.getNewsTopThree({category:'news'}));
+   dispatch(Actions.getNewsTopSix({category:'news'}));
   },[dispatch])
 
   useEffect (()=>{
