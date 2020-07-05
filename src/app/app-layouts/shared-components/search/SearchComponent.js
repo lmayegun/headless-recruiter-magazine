@@ -12,7 +12,6 @@ import * as Actions from './store/actions';
 import withReducer from 'app/store/withReducer';
 import {searchReducer} from './store/reducers';
 
-
 function renderInputComponent(inputProps)
 {
     const {
@@ -476,11 +475,9 @@ function FuseSearch(props)
         {
           return(
             <div>
-              <Tooltip title="Click to search" placement="bottom">
-                  <div onClick={showSearch}>
-                      {props.trigger}
-                  </div>
-              </Tooltip>
+              <div onClick={showSearch}>
+                  {props.trigger}
+              </div>
               {state.opened && (
                 <ClickAwayListener onClickAway={handleClickAway}>
                 <div className={classes.searchIcon}>
@@ -491,7 +488,6 @@ function FuseSearch(props)
                     fullWidth
                     value={searchText || ''}
                     onChange={(ev)=>{
-
                        reduxDispatch(Actions.setSearchText(ev));
                      }}
                     onKeyPress={(event)=>{

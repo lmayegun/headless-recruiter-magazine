@@ -30,7 +30,7 @@ const store = createStore(createReducer, enhancer);
 
 store.subscribe(()=>{
   console.log(store.getState())
-})
+});
 
 store.asyncReducers = {};
 

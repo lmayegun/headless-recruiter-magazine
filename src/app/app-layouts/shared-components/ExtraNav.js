@@ -39,9 +39,9 @@ const ExtraNav = () => {
 
   useEffect(()=>{
     if( checked ){
-      theRef.current.classList.add("show")
+      // theRef.current.classList.add("show")
     }else if( !checked ){
-      theRef.current.classList.remove("show")
+      // theRef.current.classList.remove("show")
     }
   },[checked])
 

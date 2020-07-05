@@ -110,11 +110,6 @@ const NavbarLayout = () => {
         <SearchToggleBtn/>
         <ExtraNav />
       </div>
-
-      <div className={classes.extraNav}>
-
-      </div>
-
     </div>
   )
 }
