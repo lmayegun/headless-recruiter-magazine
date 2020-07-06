@@ -59,9 +59,9 @@ const SectionTen = ()=>{
   const [lighterSideData, setLighterSideData] = useState(lighterSideTopThree);
 
   useEffect(()=>{
-    dispatch(Actions.getOpinionTopThree());
-    dispatch(Actions.getIndepthTopThree());
-    dispatch(Actions.getLighterSideTopThree());
+    dispatch(Actions.getOpinionTopThree({category:'knowledge', tag:'opinion'}));
+    dispatch(Actions.getIndepthTopThree({category:'knowledge', tag:'indepth'}));
+    dispatch(Actions.getLighterSideTopThree({category:'knowledge', tag:'lighterside'}));
   },[dispatch])
 
   useEffect(()=>{

@@ -43,7 +43,7 @@ const SectionEight = ()=>{
   const [articleProfilesData, setArticleProfilesData] = useState(articleProfiles);
 
   useEffect(()=>{
-    dispatch(Actions.getArticleProfiles())
+    dispatch(Actions.getArticleProfiles({category:'knowledge', tag:'profiles'}))
   },[dispatch])
 
   useEffect(()=>{

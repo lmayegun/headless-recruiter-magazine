@@ -127,19 +127,24 @@ function* getHomeArticleSponsored( {payload} ){
   }
 }
 
-function* getHomeArticleProfiles(){
+function* getHomeArticleProfiles( {payload} ){
+  const {category, tag} = payload;
   try{
-    const request = yield database.ref('articles/sports')
+    const request = yield database.ref(`articles/${category}`)
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
                               snapshot.forEach((child)=>{
-                                  articles.push({
-                                    id: child.key,
-                                    ...child.val()
-                                  })
+                                  if( tag !== undefined && child.val().tags !== undefined){
+                                    if(child.val().tags.includes(tag)){
+                                      articles.push({
+                                        id: child.key,
+                                        ...child.val()
+                                      })
+                                    }
+                                  }
                               })
-                              return _.slice(_.reverse(articles), 0, 2);
+                              return _.slice(_.reverse(articles), 0, 3);
                             });
     yield put({ type: 'HOME_ARTICLE_POFILES_SUCCESS', payload:request });
   } catch (error){
@@ -147,17 +152,22 @@ function* getHomeArticleProfiles(){
   }
 }
 
-function* getHomeOpinionRecent(){
+function* getHomeOpinionRecent( {payload} ){
+  const {category, tag} = payload;
   try{
-    const request = yield database.ref('articles/business')
+    const request = yield database.ref(`articles/${category}`)
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
                               snapshot.forEach((child)=>{
-                                  articles.push({
-                                    id: child.key,
-                                    ...child.val()
-                                  })
+                                  if( tag !== undefined && child.val().tags !== undefined){
+                                    if(child.val().tags.includes(tag)){
+                                      articles.push({
+                                        id: child.key,
+                                        ...child.val()
+                                      })
+                                    }
+                                  }
                               })
                               return _.slice(_.reverse(articles), 0, 3);
                             });
@@ -167,17 +177,22 @@ function* getHomeOpinionRecent(){
   }
 }
 
-function* getHomeIndepthRecent(){
+function* getHomeIndepthRecent( {payload} ){
+  const {category, tag} = payload;
   try{
-    const request = yield database.ref('articles/entertainment')
+    const request = yield database.ref(`articles/${category}`)
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
                               snapshot.forEach((child)=>{
-                                  articles.push({
-                                    id: child.key,
-                                    ...child.val()
-                                  })
+                                  if( tag !== undefined && child.val().tags !== undefined){
+                                    if(child.val().tags.includes(tag)){
+                                      articles.push({
+                                        id: child.key,
+                                        ...child.val()
+                                      })
+                                    }
+                                  }
                               })
                               return _.slice(_.reverse(articles), 0, 3);
                             });
@@ -187,17 +202,22 @@ function* getHomeIndepthRecent(){
   }
 }
 
-function* getHomeLighterRecent(){
+function* getHomeLighterRecent( {payload} ){
+  const {category, tag} = payload;
   try{
-    const request = yield database.ref('articles/health')
+    const request = yield database.ref(`articles/${category}`)
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
                               snapshot.forEach((child)=>{
-                                  articles.push({
-                                    id: child.key,
-                                    ...child.val()
-                                  })
+                                  if( tag !== undefined && child.val().tags !== undefined){
+                                    if(child.val().tags.includes(tag)){
+                                      articles.push({
+                                        id: child.key,
+                                        ...child.val()
+                                      })
+                                    }
+                                  }
                               })
                               return _.slice(_.reverse(articles), 0, 3);
                             });
