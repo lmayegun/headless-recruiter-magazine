@@ -68,10 +68,10 @@ class News extends React.Component {
         <div>
             <div className={"subTitlesWrapper"}>
               {this.props.sliderTitle === 'recruiter magazine'  && (
-                <div style={{display:'flex'}}>
+                <>
                   <a href={"https://issuu.com/redactive"} target={"_blank"} rel="noopener noreferrer"><h3 className={"text"}> SUBSCRIBE TO PRINT </h3></a>
                   <a href={"https://issuu.com/redactive/stacks/2752b39436894b08869a07885e109ab2"} target={"_blank"} rel="noopener noreferrer"><h3 className={"text"}> VIEW PAST ISSUES </h3></a>
-                </div>
+                </>
               )}
             </div>
         </div>

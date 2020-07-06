@@ -12,9 +12,25 @@ const useStyle = makeStyles( theme => ({
    carouselContainer:{
      [theme.breakpoints.up('md')]: {
        padding: '40px 100px 40px 100px',
+       '& .prevBtn':{
+         left: '-50px',
+         float: 'left',
+       },
+       '& .nextBtn':{
+         right: '-50px',
+         float: 'right',
+       },
      },
      [theme.breakpoints.down('md')]: {
-       padding: '40px 50px 40px 50px',
+       padding: '40px 50px 40px 8px',
+       '& .prevBtn':{
+         left: '-2px',
+         float: 'left',
+       },
+       '& .nextBtn':{
+         right: '-2px',
+         float: 'right',
+       },
      },
      '& .sliderTitle':{
        display:'flex',
@@ -33,14 +49,6 @@ const useStyle = makeStyles( theme => ({
        background: 'orange',
        padding: '10px',
        borderRadius: '50px',
-     },
-     '& .prevBtn':{
-       left: '-50px',
-       float: 'left',
-     },
-     '& .nextBtn':{
-       right: '-50px',
-       float: 'right',
      },
      '& .magazine': {
        width: '80%',

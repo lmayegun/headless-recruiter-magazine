@@ -19,25 +19,29 @@ function AppMagCover( {magazine, longTitleLength} ){
       },
       link:{
         cursor: 'pointer',
+        fontSize: '1.4rem',
+        font: `bold 'Euclid Flex',Helvetica,Arial,sans-serif`,
+        color: theme.palette.primary[600]
       },
       longTitleLength:{
         cursor: 'pointer',
-        fontSize: '12px',
-        minHeight: '38px',
+        fontSize: '1.4rem',
+        font: `bold 'Euclid Flex',Helvetica,Arial,sans-serif`,
+        color: theme.palette.primary[600]
       },
       img:{
         width: "100%",
         cursor: 'pointer',
       }
     })
-  )
+  );
 
-  const classes = useStyles()
+  const classes = useStyles();
 
   function link(){
     const link = magazine.link ? magazine.link : "https://issuu.com/redactive/docs/rec_junjul20_linkedversion?fr=sMTQyMDY3MzMwMA"
     return(link)
-  }
+  };
 
   const img = magazine.field_cover ? magazine.field_cover.src : 'https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec_junjul20_linkedversion.jpg?itok=us_k97eC';
 

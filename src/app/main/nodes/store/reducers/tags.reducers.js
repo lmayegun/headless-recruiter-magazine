@@ -15,6 +15,12 @@ const tagsReducers = function (state = initialState, action){
         tagsTopSixState: action.payload
       }
     }
+    case 'TAG_TERMS_SUCCESS':{
+      return{
+        ...state,
+        tagsTermsState: action.payload
+      }
+    }
     default:
     {
       return state

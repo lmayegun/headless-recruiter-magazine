@@ -58,7 +58,7 @@ function Term(){
   const [termTopSixData, setTermTopSixData] = useState(termTopSix);
 
   useEffect(()=>{
-   dispatch(Actions.getKnowledgeTerms())
+   dispatch(Actions.getKnowledgeTerms({category:'news'}))
    dispatch(Actions.getKnowledgeTopThree())
    dispatch(Actions.getKnowledgeTopSix())
   },[dispatch])

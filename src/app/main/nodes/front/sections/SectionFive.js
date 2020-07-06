@@ -13,9 +13,35 @@ const useStyle = makeStyles( theme => ({
      background: theme.palette.secondary.light,
      [theme.breakpoints.up('md')]: {
        padding: '40px 100px 40px 100px',
+       '& .prevBtn':{
+         left: '-50px',
+         float: 'left',
+       },
+       '& .nextBtn':{
+         right: '-50px',
+         float: 'right',
+       },
      },
      [theme.breakpoints.down('md')]: {
-       padding: '40px 50px 40px 50px',
+       padding: '40px 10px 40px 10px',
+       '& .subTitlesWrapper':{
+         display:'flex',
+         flexDirection: 'column',
+         alignItems: 'center',
+         '& .text':{
+           margin: '0px',
+           color: '#f37920',
+           font: '1.2rem Euclid Flex,Helvetica,Arial,sans-serif',
+         }
+       },
+       '& .prevBtn':{
+         left: '-2px',
+         float: 'left',
+       },
+       '& .nextBtn':{
+         right: '-2px',
+         float: 'right',
+       },
      },
      '& .sliderTitle':{
        display:'flex',
@@ -25,9 +51,9 @@ const useStyle = makeStyles( theme => ({
        display:'flex',
        justifyContent: 'center',
        '& .text':{
-         margin: '20px',
+         margin: '10px 20px',
          color: '#f37920',
-         font: '1.6em Euclid Flex,Helvetica,Arial,sans-serif',
+         font: '1.2rem Euclid Flex,Helvetica,Arial,sans-serif',
        }
      },
      '& .navBtn':{
@@ -37,14 +63,7 @@ const useStyle = makeStyles( theme => ({
        padding: '10px',
        borderRadius: '50px',
      },
-     '& .prevBtn':{
-       left: '-50px',
-       float: 'left',
-     },
-     '& .nextBtn':{
-       right: '-50px',
-       float: 'right',
-     },
+
      '& .magazine': {
        width: '80%',
        margin: 'auto'

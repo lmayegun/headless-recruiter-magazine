@@ -50,7 +50,7 @@ function Tag( {match} ){
   const tag = match.params.tag;
   const dispatch = useDispatch();
 
-  const newsTerms = useSelector( ({terms}) => terms.news.newsTermsState  );
+  const newsTerms = useSelector( ({terms}) => terms.tags.tagsTermsState  );
   const termTopThree = useSelector( ({terms}) => terms.tags.tagsTopThreeState  );
   const termTopSix = useSelector( ({terms}) => terms.tags.tagsTopSixState  );
 
@@ -59,7 +59,7 @@ function Tag( {match} ){
   const [termTopSixData, setTermTopSixData] = useState(termTopSix);
 
   useEffect(()=>{
-   dispatch(Actions.getNewsTerms())
+   dispatch(Actions.getTagTerms({category:term}))
    dispatch(Actions.getTagsTopThree({category:term, tag:tag }))
    dispatch(Actions.getTagsTopSix({category:term, tag:tag }))
  },[dispatch, term, tag])
