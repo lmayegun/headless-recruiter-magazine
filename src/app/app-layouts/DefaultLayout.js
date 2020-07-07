@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import AppContext from 'app/AppContext';
 import { renderRoutes } from "react-router-config";
 import {makeStyles} from '@material-ui/core';
@@ -25,7 +25,7 @@ const useStyles = makeStyles( themes => ({
 
 const DefaultLayout = () => {
 
-  const ref = React.useRef();
+  const ref = useRef();
 
   function handleYscroll(){
     if( window.innerWidth > 1200 ){
@@ -41,7 +41,7 @@ const DefaultLayout = () => {
 
   useEffect(() => {
     // Update the document title using the browser API
-    // ref.current.scrollTop = 0
+    ref.current.scrollTop = 0
   });
 
   const classes = useStyles();

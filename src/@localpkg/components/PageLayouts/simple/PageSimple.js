@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
         position       : 'relative',
         flex           : '1 0 auto',
         height         : 'auto',
-        backgroundColor: theme.palette.background.default
+        backgroundColor: theme.palette.background.white
     },
     innerScroll              : {
         flex  : '1 1 auto',
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
         maxWidth       : '100%',
         minWidth       : 0,
         height         : '100%',
-        backgroundColor: theme.palette.background.default
+        backgroundColor: theme.palette.background.white
     },
     /* contentCardWrapper            : {
          display : 'flex ',
@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
         position     : 'absolute',
         '&.permanent': {
             [theme.breakpoints.up('lg')]: {
-                backgroundColor: theme.palette.background.default,
+                backgroundColor: theme.palette.background.white,
                 color          : theme.palette.text.primary,
                 position       : 'relative',
                 paddingLeft    : 30,

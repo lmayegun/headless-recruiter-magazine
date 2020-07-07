@@ -2,8 +2,8 @@ import React from 'react';
 import {makeStyles} from '@material-ui/styles';
 // import clsx from 'clsx';
 
-export default function AppArticle( {article} ){
-
+export default function AppArticle( props ){
+  const {article, category} = props;
   const style = makeStyles(theme=>({
     contentWrapper: {
       '& p': {
@@ -17,7 +17,7 @@ export default function AppArticle( {article} ){
 
   return(
     <div style={{paddingRight: '50px'}}>
-      <div> News / Knowledge / Latency </div>
+      <div> { category ? category.toUpperCase() : ''} </div>
       <br />
       <div dangerouslySetInnerHTML={{__html: '<h1>'+ article.title +'</h1>' }} />
       <br />

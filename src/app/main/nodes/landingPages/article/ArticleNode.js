@@ -290,7 +290,7 @@ function ArticleNode( props ){
 
         content={
           <div className="flex flex-wrap" >
-            <AppArticle article={article}/>
+            <AppArticle article={article} category={category}/>
           </div>
         }
 
