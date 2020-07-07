@@ -15,49 +15,6 @@ import {
         AppIconHeader,
       } from '@localpkg';
 
-const useStyles = makeStyles( theme => ({
-   container: {
-     display: 'flex',
-     flexDirection: 'column',
-     padding: 20,
-     [theme.breakpoints.up('lg')]:{
-       flexDirection: 'row',
-     }
-   },
-   section: {
-     minHeight: 600,
-     marginBottom: 20,
-     marginTop: 20,
-     '&.big-story':{
-       [theme.breakpoints.up('lg')]:{
-         flex:3.5,
-         order: '1',
-         marginRight: 20,
-         padding: '0 12px',
-       }
-     },
-     '&.news-col':{
-       [theme.breakpoints.up('lg')]:{
-         flex:2.4,
-         order: '0',
-         marginRight: 20,
-         paddingRight: 0
-       }
-     },
-     '&.knowledge-col':{
-       [theme.breakpoints.up('lg')]:{
-         flex:2,
-         order: '2',
-         paddingLeft: 0
-       }
-     },
-     [theme.breakpoints.up('md')]: {
-
-     }
-   },
- })
-);
-
 const SectionOne = ()=>{
   const dispatch = useDispatch();
 
@@ -82,8 +39,6 @@ const SectionOne = ()=>{
     setFeaturedData(featuredArticle)
     setKnowledgeData(articleMostRecent)
   },[newsTopThree, featuredArticle, articleMostRecent, featuredMagazine])
-
-  const classes = useStyles();
 
   if( !featuredArticleData || !newsData || !knowledgeData || !featuredMagazine){
     return (<h1> Loading... </h1>);
@@ -136,6 +91,46 @@ const SectionOne = ()=>{
       </div>
     </div>
   )
-}
+};
 
-export default  withReducer('data', reducer)(React.memo(SectionOne));
+const classes = makeStyles( theme => ({
+   container: {
+     display: 'flex',
+     flexDirection: 'column',
+     padding: 20,
+     [theme.breakpoints.up('lg')]:{
+       flexDirection: 'row',
+     }
+   },
+   section: {
+     minHeight: 600,
+     marginBottom: 20,
+     marginTop: 20,
+     '&.big-story':{
+       [theme.breakpoints.up('lg')]:{
+         flex:3.5,
+         order: '1',
+         marginRight: 20,
+         padding: '0 12px',
+       }
+     },
+     '&.news-col':{
+       [theme.breakpoints.up('lg')]:{
+         flex:2.4,
+         order: '0',
+         marginRight: 20,
+         paddingRight: 0
+       }
+     },
+     '&.knowledge-col':{
+       [theme.breakpoints.up('lg')]:{
+         flex:2,
+         order: '2',
+         paddingLeft: 0
+       }
+     },
+   },
+ })
+);
+
+export default withReducer('data', reducer)(React.memo(SectionOne));
