@@ -1,7 +1,7 @@
 import '@fake-db';
 import React from 'react';
 import {Router} from 'react-router-dom';
-import Provider from 'react-redux/es/components/Provider';
+import {Provider} from 'react-redux';
 import {ThemeProvider} from '@material-ui/core';
 
 import AppContext from './AppContext';
