@@ -38,7 +38,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "set PORT=3005 && react-scripts start",
+    "start": "set PORT=3008 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --modulePaths=src",
     "eject": "react-scripts eject"
@@ -70,7 +70,6 @@
       "last 1 safari version"
     ]
   },
-
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -85,8 +84,11 @@
         "statements": 90
       }
     },
-    "coverageReporters": ["text"],
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "coverageReporters": [
+      "text"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
-
 }

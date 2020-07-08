@@ -11,6 +11,7 @@ import Autosuggest from 'react-autosuggest';
 import * as Actions from './store/actions';
 import withReducer from 'app/store/withReducer';
 import {searchReducer} from './store/reducers';
+import SearchFilter from './SearchFilter';
 
 function renderInputComponent(inputProps)
 {
@@ -488,7 +489,7 @@ function FuseSearch(props)
                     fullWidth
                     value={searchText || ''}
                     onChange={(ev)=>{
-                       reduxDispatch(Actions.setSearchText(ev));
+                       // reduxDispatch(Actions.setSearchText(ev));
                      }}
                     onKeyPress={(event)=>{
                       if( event.key === 'Enter' ){
@@ -513,7 +514,7 @@ function FuseSearch(props)
         case 'search-and-filter':{
           return(
             <div>
-              Search and Filter
+              <SearchFilter />
             </div>
           )
         }
