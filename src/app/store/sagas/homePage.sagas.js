@@ -3,7 +3,7 @@ import _ from '@lodash';
 import database from '../../../firebase/firebase';
 
 function* getHomeFeaturedContent( {payload} ){
-  const {category, tag} = payload;
+  const {category} = payload;
   try{
     const request = yield database.ref(`articles/${category}`)
                             .once('value')
@@ -24,7 +24,7 @@ function* getHomeFeaturedContent( {payload} ){
 }
 
 function* getHomeArticleMostRecent( {payload} ){
-  const {category, tag} = payload;
+  const {category} = payload;
   try{
     const request = yield database.ref(`articles/${category}`)
                             .once('value')
@@ -45,7 +45,7 @@ function* getHomeArticleMostRecent( {payload} ){
 }
 
 function* getHomeNewsTopThree( {payload} ){
-  const {category, tag} = payload;
+  const {category} = payload;
   try{
     const request = yield database.ref(`articles/${category}`)
                             .once('value')
@@ -107,7 +107,7 @@ function* getHomeArticleMostPopular( {payload} ){
 }
 
 function* getHomeArticleSponsored( {payload} ){
-  const {category, tag} = payload;
+  const {category} = payload;
   try{
     const request = yield database.ref(`articles/${category}`)
                             .once('value')

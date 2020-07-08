@@ -4,29 +4,7 @@ import {makeStyles} from '@material-ui/styles';
 import clsx from 'clsx';
 
 const Logo = ( {brandDescription} ) => {
-  const classes = makeStyles(theme=>{
-    return({
-      root: {
-        '& .logo-icon': {
-          width     : '240px',
-          height    : 'auto',
-          transition: theme.transitions.create(['width', 'height'], {
-              duration: theme.transitions.duration.shortest,
-              easing  : theme.transitions.easing.easeInOut
-          })
-        },
-        '& .react-badge, & .logo-text': {
-          fontSize : '10px',
-          color: 'white',
-          padding: 4,
-          transition: theme.transitions.create('opacity', {
-              duration: theme.transitions.duration.shortest,
-              easing  : theme.transitions.easing.easeInOut
-          })
-        }
-      },
-    });
-  });
+  const classes = useStyles();
 
   return (
     <div className={clsx(classes.root, "items-center")}>
@@ -44,5 +22,29 @@ const Logo = ( {brandDescription} ) => {
 Logo.defaultProps = {
   brandDescription: true
 }
+
+const useStyles = makeStyles(theme=>{
+  return({
+    root: {
+      '& .logo-icon': {
+        width     : '240px',
+        height    : 'auto',
+        transition: theme.transitions.create(['width', 'height'], {
+            duration: theme.transitions.duration.shortest,
+            easing  : theme.transitions.easing.easeInOut
+        })
+      },
+      '& .react-badge, & .logo-text': {
+        fontSize : '10px',
+        color: 'white',
+        padding: 4,
+        transition: theme.transitions.create('opacity', {
+            duration: theme.transitions.duration.shortest,
+            easing  : theme.transitions.easing.easeInOut
+        })
+      }
+    },
+  });
+});
 
 export default Logo;

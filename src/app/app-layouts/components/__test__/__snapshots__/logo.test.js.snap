@@ -9,11 +9,5 @@ exports[`should render Logo correctlly 1`] = `
     className="logo-icon"
     src="/assets/images/logos/logo.png"
   />
-  <[object Object]
-    className="text-16 ml-4 font-light logo-text"
-    color="textPrimary"
-  >
-    News & business intelligence for recruiters
-  </[object Object]>
 </div>
 `;

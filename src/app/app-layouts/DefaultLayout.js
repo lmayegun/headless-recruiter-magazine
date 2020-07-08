@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import AppContext from 'app/AppContext';
 import { renderRoutes } from "react-router-config";
-import {makeStyles} from '@material-ui/core';
+import {makeStyles, Hidden} from '@material-ui/core';
 
 import {AppSuspense, AppScrollbars, LeaderBoardAd} from "@localpkg";
 
@@ -53,7 +53,9 @@ const DefaultLayout = () => {
         return(
           <div className={classes.root}>
             <AppScrollbars className={classes.content} onScrollY={handleYscroll} ref={ref}>
-              <LeaderBoardAd />
+              <Hidden mdDown>
+                <LeaderBoardAd />
+              </Hidden>
               <NavbarWrapperLayout />
               <AppSuspense>
                 {renderRoutes(routes)}

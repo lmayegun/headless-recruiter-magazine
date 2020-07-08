@@ -3,6 +3,7 @@ import {Paper, Hidden, createMuiTheme} from '@material-ui/core';
 import {makeStyles, ThemeProvider} from '@material-ui/styles';
 
 import NavbarLayout from './NavbarLayout';
+import NavMobile from './NavMobile';
 import {colorDark} from '@localpkg/app-colors'
 
 const useStyles = makeStyles(theme => ({
@@ -19,6 +20,9 @@ const NavbarWrapperLayout = (props) => {
   const classes = useStyles(props);
   const theme = createMuiTheme({
     palette:{
+      primary:{
+        main:colorDark[900]
+      },
       secondary:{
         main:colorDark['A400']
       },
@@ -68,6 +72,11 @@ const NavbarWrapperLayout = (props) => {
       <Hidden mdDown>
         <Paper className={classes.navbar} square={true}>
           <NavbarLayout />
+        </Paper>
+      </Hidden>
+      <Hidden lgUp>
+        <Paper className={classes.navbar} square={true}>
+          <NavMobile />
         </Paper>
       </Hidden>
     </ThemeProvider>

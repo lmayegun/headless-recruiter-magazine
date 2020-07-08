@@ -16,6 +16,9 @@ import {
       } from '@localpkg';
 
 const SectionOne = ()=>{
+  
+  const classes = useStyles();
+
   const dispatch = useDispatch();
 
   const newsTopThree = useSelector( ({data}) => data.home.newsTopRecentState );
@@ -93,7 +96,7 @@ const SectionOne = ()=>{
   )
 };
 
-const classes = makeStyles( theme => ({
+const useStyles = makeStyles( theme => ({
    container: {
      display: 'flex',
      flexDirection: 'column',

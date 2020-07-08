@@ -75,7 +75,7 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
 
         if ( isMobile || !ref || ps.current )
         {
-            return;
+            // return;
         }
 
         ps.current = new PerfectScrollbar(ref.current, props.option);
