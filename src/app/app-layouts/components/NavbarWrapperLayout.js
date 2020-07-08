@@ -9,7 +9,7 @@ import {colorDark} from '@localpkg/app-colors'
 const useStyles = makeStyles(theme => ({
     navbar      : {
         display   : 'flex',
-        minHeight : 110,
+        minHeight : 95,
         alignItems: 'center',
         zIndex    : 6,
     }

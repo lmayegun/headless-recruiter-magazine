@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
-import {Paper, Drawer, Hidden, Menu, MenuItem, Slide, Typography, Icon} from '@material-ui/core';
-import {makeStyles, ThemeProvider} from '@material-ui/styles';
-import {useDispatch, useSelector} from 'react-redux';
+import {Paper, Hidden, Menu, MenuItem, Slide, Typography, Icon} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import Logo from './Logo';
 import {AppIcon} from '@localpkg';
-import clsx from 'clsx';
 
 const NavMobile = ()=> {
   const style = makeStyles(theme => ({
@@ -15,26 +13,24 @@ const NavMobile = ()=> {
     navbar:{
       position: 'fixed',
       background: theme.palette.primary.dark,
+      top:0,
       zIndex: 5,
       width: '100%',
-      padding: '20px 0px'
+      paddingBottom: '10px',
+      paddingTop: '20px'
     },
     actionsWrapper:{
       display: 'flex',
       flexDirection: 'row',
       '& .brand':{
         flexGrow: 1,
+        paddingLeft: 20
       },
       '& .burgerMenuIcon':{
         cursor: 'pointer',
         fontSize: '2.5rem',
-        padding: '5px 10px',
+        padding: '5px 20px',
       },
-    },
-    menuList:{
-      '& .buttonsNavWrapper':{
-        borderTop: '1px solid',
-      }
     },
     menuList :{
       width: '100%',
@@ -43,8 +39,19 @@ const NavMobile = ()=> {
       top:'80px',
       background: theme.palette.primary.dark,
       flexDirection: 'column',
+      '& .searchWrapper':{
+        paddingLeft: 10,
+      },
+      '& .navMainWrapper':{
+        paddingLeft: 10,
+      },
       '& .buttonsNavWrapper':{
         borderTop: '1px solid',
+        '& .buttons':{
+          display: 'flex',
+          flexDirection: 'row',
+          padding: '20px'
+        }
       }
     },
   }));
@@ -88,11 +95,11 @@ const NavMobile = ()=> {
               children={
                 <div className={classes.menuList}  >
                   <div style={{borderBottom: '1px solid', width:'100%'}}>
-                    <div className="flex p-16 float-right w-full">
+                    <div className={"searchWrapper"}>
                       search area
                     </div>
                   </div>
-                  <div>
+                  <div className={"navMainWrapper"}>
                     <MenuItem onClick={handleClose}><Typography variant="h3">News</Typography></MenuItem>
                     <MenuItem onClick={handleClose}><Typography variant="h3">Knowledge</Typography></MenuItem>
                     <MenuItem onClick={handleClose}><Typography variant="h3">Jobs</Typography></MenuItem>
