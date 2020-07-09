@@ -101,9 +101,9 @@ const NavbarLayout = () => {
       </div>
 
       <div className={classes.secondaryNavsWrapper}>
-        <AppIcon iconPos={'0 -5708px'} url={"/knowledge/HOT100"}/>
-        <AppIcon iconPos={'0 -5756px'} url={"/knowledge/FAST50"}/>
-        <AppIcon iconPos={'0 -5804px'} url={"/knowledge/influential11"}/>
+        <AppIcon iconPos={'0 -5708px'} url={"/news/hot100"}/>
+        <AppIcon iconPos={'0 -5756px'} url={"/news/fast50"}/>
+        <AppIcon iconPos={'0 -5804px'} url={"/news/influential11"}/>
         <AppIcon iconPos={'0 -5852px'}/>
         <AppIcon iconPos={'0 -5899px'}/>
         <AppIcon iconPos={'0 -5946px'}/>
