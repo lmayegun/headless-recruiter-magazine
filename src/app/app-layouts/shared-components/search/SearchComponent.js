@@ -489,7 +489,7 @@ function FuseSearch(props)
                     fullWidth
                     value={searchText || ''}
                     onChange={(ev)=>{
-                       // reduxDispatch(Actions.setSearchText(ev));
+                       reduxDispatch(Actions.setSearchText(ev));
                      }}
                     onKeyPress={(event)=>{
                       if( event.key === 'Enter' ){

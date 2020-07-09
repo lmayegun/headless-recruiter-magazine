@@ -33,3 +33,4 @@ export {default as AppFeaturedRecruiters } from './components/AppSharedComponent
 export {default as AppTwitterEmbedded } from './components/AppSharedComponents/AppTwitterEmbedded';
 export {default as AppSubNav } from './components/AppSharedComponents/AppSubNav';
 export {default as AppScrollTopBtn} from './components/AppSharedComponents/AppScrollTopBtn';
+export {default as AppSelect} from './components/AppSharedComponents/Select';
