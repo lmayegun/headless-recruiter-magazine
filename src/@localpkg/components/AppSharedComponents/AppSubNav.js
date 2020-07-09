@@ -7,7 +7,6 @@ const useStyles = makeStyles(theme=>({
     root:{
       background:'#c1b49a',
       padding:'20px',
-      marginBottom: '20px'
     },
     container:{
       width:'1240px',

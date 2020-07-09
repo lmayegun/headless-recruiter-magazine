@@ -3,6 +3,7 @@ import { homePageSagas } from './homePage.sagas';
 import { newsSagas } from './news.sagas';
 import { tagsSagas } from './tags.sagas';
 import { knowledgeSagas } from './knowledge.sagas';
+import { eventsSagas } from './events.sagas';
 import { magazineSagas } from './magazine.sagas';
 import { taxonomySagas } from './taxonomy.sagas';
 import { articleSagas } from './article.sagas';
@@ -15,6 +16,7 @@ export default function* APPsagas(){
     ...taxonomySagas,
     ...articleSagas,
     ...knowledgeSagas,
-    ...tagsSagas
+    ...tagsSagas,
+    ...eventsSagas
   ])
 }

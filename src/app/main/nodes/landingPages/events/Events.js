@@ -44,33 +44,29 @@ const useStyles = makeStyles( theme => ({
  })
 );
 
-function Term(){
+function Events(){
 
   const dispatch = useDispatch();
 
-  const newsTerms = useSelector( ({terms}) => terms.news.newsTermsState  );
-  const termTopThree = useSelector( ({terms}) => terms.news.newsTopThreeState  );
-  const termTopSix = useSelector( ({terms}) => terms.news.newsTopSixState  );
+  const termTopThree = useSelector( ({terms}) => terms.events.eventsTopThreeState  );
+  const termTopSix = useSelector( ({terms}) => terms.events.eventsTopSixState  );
 
-  const [newsTermsData, setNewsTermsData] = useState(newsTerms);
   const [termTopThreeData, setTermTopThreeData] = useState(termTopThree);
   const [termTopSixData, setTermTopSixData] = useState(termTopSix);
 
   useEffect(()=>{
-   dispatch(Actions.getNewsTerms())
-   dispatch(Actions.getNewsTopThree())
-   dispatch(Actions.getNewsTopSix())
+   dispatch(Actions.getEventsTopThree())
+   dispatch(Actions.getEventsTopSix())
   },[dispatch])
 
   useEffect (()=>{
-    setNewsTermsData(newsTerms);
     setTermTopThreeData(termTopThree);
     setTermTopSixData(termTopSix);
-  },[newsTerms, termTopThree, termTopSix])
+  },[termTopThree, termTopSix])
 
   const classes = useStyles();
 
-  if(!termTopThreeData || !termTopSixData || !newsTermsData ){
+  if(!termTopThreeData || !termTopSixData ){
     return <h1> Loading... </h1>
   }
 
@@ -79,7 +75,7 @@ function Term(){
       <FusePageSimple
         featuredContents={
           <div>
-            <AppIconHeader />
+            <AppIconHeader title={"events"}/>
             <div className={clsx(classes.topThree)}>
               {
                 termTopThreeData.map((key, index)=>{
@@ -123,4 +119,4 @@ function Term(){
   )
 }
 
-export default withReducer('terms', reducer)(Term)
+export default withReducer('terms', reducer)(Events)

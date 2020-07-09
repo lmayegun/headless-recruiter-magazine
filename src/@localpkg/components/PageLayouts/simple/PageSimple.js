@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
         position       : 'relative',
         flex           : '1 0 auto',
         height         : 'auto',
+        paddingTop: 20,
         backgroundColor: theme.palette.background.white
     },
     innerScroll              : {
