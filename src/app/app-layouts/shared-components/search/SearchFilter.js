@@ -1,12 +1,19 @@
 import React from 'react';
 import {Paper, TextField, Button} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
+import {useDispatch} from 'react-redux';
 
 import {AppSelect} from '@localpkg';
+import {useForm} from '@localpkg/hooks';
+import * as Actions from './store/actions';
 
+const formState = {term:''};
 
 const SearchFilter = ()=>{
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const {form, handleChange, setForm} = useForm(formState);
+
   return(
     <Paper className={classes.root}>
       <form className={classes.formWrapper} onSubmit={()=>{alert("fsfsf")}}>
@@ -14,6 +21,9 @@ const SearchFilter = ()=>{
           Search Terms
           <TextField
             id="standard-basic"
+            name="term"
+            onChange={handleChange}
+            value={form.term}
             style={{
               marginTop:'16px',
               width: '100%'
@@ -23,7 +33,7 @@ const SearchFilter = ()=>{
         <div className={classes.sortByWrapper}>
           Sort By
           <AppSelect
-            name={"category"}
+            name="sortBy"
             options={[{postDate:'Post Date'}, {title:'Title'}]}
             className={"selector"}
           />
@@ -31,13 +41,14 @@ const SearchFilter = ()=>{
         <div className={classes.orderByWrapper}>
           Order
           <AppSelect
-            name={"category"}
+            name="order"
             options={[{desc:'Descending'}, {asc:'Ascending'}]}
             className={"selector"}
           />
         </div>
         <div className={classes.submitWrapper}>
           <Button
+            onClick={()=>{dispatch(Actions.initSearchRequest( form.term ))}}
             variant="contained"
             style={{
               width:'100%',

@@ -45,10 +45,6 @@ function Search(){
     setSearchData(searchNode);
   }, [searchNode]);
 
-  if( !searchData ){
-    return null;
-  }
-
   return(
     <div className={classes.root}>
       <FusePageSimple
@@ -61,18 +57,22 @@ function Search(){
             <div>
               <SearchFilter variant={'search-and-filter'} />
             </div>
-            {
+            {( searchData !== undefined ) && (
               searchData.map((key, index) => {
                 return(
                   <div className={clsx(classes.result, "float-left")}>
                     <div className={clsx(classes.innerDiv)}>
-                      <h1 className={clsx(classes.title, " col")}> <Link to='/'> {key.title.substring(0,50) + '...'} </Link> </h1>
-                      <div dangerouslySetInnerHTML={{__html:key.description.substring(0,50)+'...'}}/>
+                      <h1 className={clsx(classes.title, " col")}> <Link to='/'> {key.title} </Link> </h1>
+                      <div dangerouslySetInnerHTML={{__html:key.body.substring(0,50)}}/>
                     </div>
                   </div>
                 )
               })
-            }
+            )}
+
+            {( !searchData ) && (
+              <h1> No search result </h1>
+            )}
           </div>
         }
         rightSidebarContent={

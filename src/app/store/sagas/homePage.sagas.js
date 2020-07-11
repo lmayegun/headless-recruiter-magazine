@@ -1,5 +1,6 @@
 import { put, takeLatest} from 'redux-saga/effects';
 import _ from '@lodash';
+import axios from 'axios';
 import database from '../../../firebase/firebase';
 
 function* getHomeFeaturedContent( {payload} ){
@@ -290,24 +291,15 @@ function* getHomeMagazinesIssue(){
 }
 
 function* getSearchResults({payload}){
-  const value = payload;
+  const query = payload;
   try{
-    const request = yield database.ref('articles/business')
-                            .once('value')
-                            .then(function(snapshot) {
-                              const articles = []
-                              snapshot.forEach((child)=>{
-
-                                if( child.val().title.toLowerCase().includes(value) ){
-                                  articles.push({
-                                    id: child.key,
-                                    ...child.val()
-                                  })
-                                }
-
-                              })
-                              return _.reverse(articles);
-                            });
+    const request =  yield axios.get(`http://localhost:3000/api/articles/?search=${query}`)
+                                .then( res => {
+                                  return res.data;
+                                })
+                                .catch(err =>{
+                                  console.log(err);
+                                });
     yield put({ type: 'SEARCH_RESULTS_SUCCESS', payload:request });
   } catch (error){
     yield put({ type: 'HOME_ARTICLE_TOP_RECENT_FAILED', payload:'failed' });
