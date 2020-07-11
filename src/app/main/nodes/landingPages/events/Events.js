@@ -24,7 +24,13 @@ const useStyles = makeStyles( theme => ({
      marginBottom: 50,
      marginLeft: -15,
      [theme.breakpoints.up('lg')]:{
-       flexDirection: 'row',
+       flexFlow: 'row wrap',
+     },
+     '& div':{
+       flex:1,
+       padding: 3,
+       boxSizing: 'border-box',
+       flexBasis: '33%'
      }
    },
    topSix: {
@@ -80,38 +86,13 @@ function Events(){
               {
                 termTopThreeData.map((key, index)=>{
                   return(
-                    <div style={{flex:1, padding: 15}} key={index}>
+                    <div key={index}>
                       <CenterTeaserThumb content={key} imgHeight="250px"/>
                     </div>
                   )
                 })
               }
             </div>
-          </div>
-        }
-
-        content={
-          <div className={clsx(classes.topSix)}>
-            {
-              termTopSixData.map((key, index)=>{
-                return(
-                  <div className="item" key={index}>
-                    <SideTeaserThumb content={key} minHeight="260px"/>
-                  </div>
-                )
-              })
-            }
-          </div>
-        }
-
-        rightSidebarContent={
-          <div>
-            <ThreeByTwoAd />
-            <br />
-            <AppIconHeader title="most popular"/>
-            <AppMostPopular content={termTopThreeData} liClasses={'width-full'}/>
-            <br />
-            <ThreeByTwoAd />
           </div>
         }
       />

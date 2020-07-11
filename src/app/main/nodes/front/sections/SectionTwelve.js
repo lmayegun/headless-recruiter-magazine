@@ -51,7 +51,7 @@ const SectionTwelve = ()=> {
   const [eventsData, setEventsData] = useState(eventsTopThree);
 
   useEffect(()=>{
-    dispatch(Actions.getEventsTopThree({category:'entertainment'}))
+    dispatch(Actions.getEventsTopThree({category:'sport'}))
   },[dispatch])
 
   useEffect(()=>{

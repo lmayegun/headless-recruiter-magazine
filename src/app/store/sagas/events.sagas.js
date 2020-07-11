@@ -17,7 +17,7 @@ function* getEventsTopThree(){
                                     ...child.val()
                                   })
                               })
-                              return _.slice(_.reverse(articles), 0, 3);
+                              return _.slice(_.reverse(articles), 0, 6);
                             });
     yield put({ type: 'EVENTS_TOP_THREE_SUCCESS', payload:request });
   } catch (error){
