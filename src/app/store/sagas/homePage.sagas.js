@@ -65,9 +65,10 @@ function* getHomeNewsTopThree( {payload} ){
   }
 }
 
-function* getHomeFeaturedMagazine(){
+function* getHomeFeaturedMagazine({payload}){
+  const {category} = payload;
   try{
-    const request =  yield database.ref('articles/business')
+    const request = yield database.ref(`articles/${category}`)
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []

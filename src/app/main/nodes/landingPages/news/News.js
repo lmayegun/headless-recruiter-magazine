@@ -54,7 +54,7 @@ function Term(){
       <FusePageSimple
         featuredContents={
           <div>
-            <AppIconHeader title="Rec"/>
+            <AppIconHeader title="rec"/>
             <div className={clsx(classes.topThree)}>
               {
                 termTopThreeData.map((key, index)=>{

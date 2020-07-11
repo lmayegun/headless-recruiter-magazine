@@ -16,7 +16,7 @@ import {
       } from '@localpkg';
 
 const SectionOne = ()=>{
-  
+
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ const SectionOne = ()=>{
     dispatch(Actions.getTopRecentNews({category:'news'}));
     dispatch(Actions.getFeaturedArticle({category:'health'}));
     dispatch(Actions.getArticleMostRecent({category:'knowledge'}));
-    dispatch(Actions.getFeaturedMagazine());
+    dispatch(Actions.getFeaturedMagazine({category:'knowledge'}));
   }, [dispatch])
 
   useEffect(()=>{

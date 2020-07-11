@@ -75,7 +75,7 @@ function CenterTeaserThumb({content, type, imgHeight, descrLength}){
   }
 
   const classes = centerThumbStyles();
-  const category = content.source ? content.source.name : null
+  const category = content.source ? content.source : null
 
   return(
     <div className={clsx(classes.root)}>
