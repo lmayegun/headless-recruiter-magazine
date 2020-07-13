@@ -1,6 +1,6 @@
 his project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Image of Yaktocat](https://lmayegun.github.com/images/recruiter.png)
+![Image of Yaktocat](images/recruiter.png)
 
 ## Available Scripts
 
