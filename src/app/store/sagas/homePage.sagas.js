@@ -252,7 +252,7 @@ function* getHomeEventsRecent( {payload} ){
 
 function* getHomeSupplements(){
   try{
-    const request = yield database.ref('magazines')
+    const request = yield database.ref('supplements')
                             .once('value')
                             .then(function(snapshot) {
                               const articles = []
@@ -293,7 +293,7 @@ function* getHomeMagazinesIssue(){
 function* getSearchResults({payload}){
   const query = payload;
   try{
-    const request =  yield axios.get(`http://localhost:3000/api/articles/?search=${query}`)
+    const request =  yield axios.get(`https://d8-recruiter-rest-simulator.herokuapp.com/api/articles/?search=${query}`)
                                 .then( res => {
                                   return res.data;
                                 })

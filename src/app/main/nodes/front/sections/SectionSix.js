@@ -91,7 +91,7 @@ const SectionSix = ()=>{
   const [supplementsData, setSupplementsData] = useState(supplements);
 
   useEffect(()=>{
-   dispatch(Actions.getSupplements())
+   dispatch(Actions.getSupplements({category:'supplements'}))
   },[dispatch])
 
   useEffect(()=>{

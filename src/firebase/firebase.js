@@ -17,62 +17,62 @@ export { firebase, database as default };
 
 // const magazines = [
 //   {
-//     name:"June-July 2020",
+//     name:"Guide to IR35 Legislation 2020",
 //     field_cover: {
-//       src:"https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec_junjul20_linkedversion.jpg"
+//       src:"https://www.recruiter.co.uk/sites/default/files/styles/media-medium/public/newrec.ir35_mar20_full.gif?itok=wYP2l9gK"
 //     },
-//     link:"https://www.recruiter.co.uk/magazine/june-july2020"
+//     link:"https://issuu.com/redactive/docs/rec.ir35_mar20_full"
 //   },
 //   {
-//     name:"May 2020",
+//     name:"Managing Agency Workers and Contractors 2015",
 //     field_cover: {
-//       src:"https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec.jpg"
+//       src:"https://www.recruiter.co.uk/sites/default/files/styles/media-medium/public/media/image/2017/managing-agency-workers-and-contractors-2015.png?itok=A9I6XzVT"
 //     },
-//     link:"https://issuu.com/redactive/docs/rec_may20_full_linked_fr?fr=sODA4YjY3MzMwMA"
+//     link:"https://issuu.com/redactive/docs/rgu_sup_july_full_lr"
 //   },
 //   {
-//     name:"April 2020",
+//     name:"Guide to Recruitment Finance 2019",
 //     field_cover: {
-//       src:"https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec_apr20_full.jpg?itok=CgSwnNL0"
+//       src:"https://www.recruiter.co.uk/sites/default/files/styles/media-medium/public/media/image/2019/grf_jul19_full_dragged_copyresized.png?itok=FtJZCIa5"
 //     },
-//     link:"https://issuu.com/redactive/docs/rec_apr20_full"
+//     link:"https://issuu.com/redactive/docs/grf_jul19_full?e=1334262/70788055"
 //   },
 //   {
-//     name:"March 2020",
+//     name:"Recruiter Fast 50 2016",
 //     field_cover: {
-//       src:"https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec_mar20_full.jpg?itok=dW7ZizrR"
+//       src:"https://www.recruiter.co.uk/sites/default/files/styles/media-medium/public/media/image/2017/recruiter-fast-50-2016.png?itok=pGxNZhCg"
 //     },
-//     link:"https://issuu.com/redactive/docs/rec_mar20_full"
+//     link:"https://issuu.com/redactive/docs/fast_50_feb16_full"
 //   },
 //   {
-//     name:"February 2020",
+//     name:"Guide to Recruitment Technology 2019",
 //     field_cover: {
-//       src:"https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec_feb20_full_dragged.jpg?itok=eKObNJQ2"
+//       src:"https://www.recruiter.co.uk/sites/default/files/styles/media-medium/public/media/image/2019/rectechguide-jun19_full-1.png?itok=C3MhkYMQ"
 //     },
-//     link:"https://issuu.com/redactive/docs/rec_feb20_full"
+//     link:"https://issuu.com/redactive/docs/rectechguide_jun19_full?e=1334262/70119857"
 //   },
 //   {
-//     name:"January 2020",
+//     name:"Recruitment Matters June-July 2020",
 //     field_cover: {
-//       src:"https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec_jan20_full_dragged.jpg?itok=HKPMQivT"
+//       src:"https://www.recruiter.co.uk/sites/default/files/styles/media-medium/public/rm_junjul20_full_1.jpg?itok=1S10LITq"
 //     },
-//     link:"https://issuu.com/redactive/docs/rec_jan20_full"
+//     link:"https://issuu.com/redactive/docs/rm_matters_linked?fr=sY2ViMTY3MzMwMA"
 //   },
 //   {
-//     name:"December 2019",
+//     name:"Guide to recruitment software 2016",
 //     field_cover: {
-//       src:"https://www.recruiter.co.uk/sites/default/files/styles/medium/public/rec_dec19_full_lr_dragged.jpg?itok=AEtqICRU"
+//       src:"https://www.recruiter.co.uk/sites/default/files/styles/media-medium/public/media/image/2017/guide_to_recruitment_software_2016.png?itok=PxxPGJfH"
 //     },
-//     link:"https://issuu.com/redactive/docs/rec_junjul20_linkedversion?fr=sMTQyMDY3MzMwMA"
+//     link:"https://issuu.com/redactive/docs/rsg_feb16_full"
 //   },
 //   {
-//     name:"November 2019",
+//     name:"Managing Agency Workers and Contractors 2016",
 //     field_cover: {
-//       src:"https://www.recruiter.co.uk/sites/default/files/styles/medium/public/media/image/2019/rec_nov19_full_dragged.jpg?itok=5WS6vBrd"
+//       src:"https://www.recruiter.co.uk/sites/default/files/styles/media-medium/public/media/image/2017/managing-agency-workers-and-contractors-2016new1.png?itok=dK9hKan8"
 //     },
-//     link:"https://issuu.com/redactive/docs/rec_junjul20_linkedversion?fr=sMTQyMDY3MzMwMA"
+//     link:"https://issuu.com/redactive/docs/rec_umbrella_supp16"
 //   }
 // ]
 // magazines.map((key, item)=>{
-//   database.ref('magazines').push(key)
+//   database.ref('supplements').push(key)
 // })

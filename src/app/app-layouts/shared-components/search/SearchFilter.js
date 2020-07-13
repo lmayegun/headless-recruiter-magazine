@@ -12,7 +12,11 @@ const formState = {term:''};
 const SearchFilter = ()=>{
   const classes = useStyles();
   const dispatch = useDispatch();
-  const {form, handleChange, setForm} = useForm(formState);
+  const {form, handleChange} = useForm(formState);
+
+  function handleSubmit(){
+    dispatch(Actions.initSearchRequest( form.term ));
+  };
 
   return(
     <Paper className={classes.root}>
