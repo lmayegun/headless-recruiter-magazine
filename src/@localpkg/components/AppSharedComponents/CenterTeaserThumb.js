@@ -76,6 +76,7 @@ function CenterTeaserThumb({content, type, imgHeight, descrLength}){
 
   const classes = centerThumbStyles();
   const category = content.source ? content.source : null
+  const descr    = (content.description && content.description !== undefined) ? content.description : '';
 
   return(
     <div className={clsx(classes.root)}>
@@ -111,7 +112,7 @@ function CenterTeaserThumb({content, type, imgHeight, descrLength}){
               </div>
             </Link>
 
-            <div dangerouslySetInnerHTML={{__html: content.description.substring(0, descrLength) + '...'}} />
+            <div dangerouslySetInnerHTML={{__html: descr.substring(0, descrLength) + '...'}} />
             <div className={clsx(classes.postOn)}> {moment(`${content.publishedAt}`).format('D MMMM YYYY, hh:mm')} </div>
           </div>
         </React.Fragment>
@@ -147,7 +148,7 @@ function CenterTeaserThumb({content, type, imgHeight, descrLength}){
                 </Typography>
               </div>
             </Link>
-            <div dangerouslySetInnerHTML={{__html: content.description.substring(0, descrLength) + '...'}} />
+            <div dangerouslySetInnerHTML={{__html: descr.substring(0, descrLength) + '...'}} />
             <div className={clsx(classes.postOn)}> {moment(`${content.publishedAt}`).format('D MMMM YYYY, hh:mm')} </div>
           </div>
         </React.Fragment>
